@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 @Table(name = "company", schema = "fleetforward")
 public class Company {
     @Id
+    @Column(name = "mc_number", nullable = false, unique = true)
     String mcNumber;
     @Column(name = "company_name", nullable = false)
     String companyName;

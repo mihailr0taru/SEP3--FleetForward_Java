@@ -10,6 +10,4 @@ import java.util.Optional;
  */
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, String>{
-    Optional<Company> findByMcNumber(String mcNumber);
-    void deleteByMcNumber(String mcNumber);
 }
