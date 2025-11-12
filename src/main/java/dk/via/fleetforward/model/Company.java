@@ -12,29 +12,9 @@ import jakarta.persistence.*;
 @Table(name = "company", schema = "fleetforward")
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    @Column(name = "mc_number", unique = true, nullable = false)
     String mcNumber;
     @Column(name = "company_name", nullable = false)
     String companyName;
-
-    /**
-     * Get the id of the company
-     * @return The id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * Set the id of the company
-     * @param id The id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     /**
      * Get the mc number of the company
      * @return The mc number

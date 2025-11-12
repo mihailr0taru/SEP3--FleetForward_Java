@@ -1561,30 +1561,24 @@ public final class Fleetforward {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    int getId();
-
-    /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The mcNumber.
      */
     java.lang.String getMcNumber();
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The bytes for mcNumber.
      */
     com.google.protobuf.ByteString
         getMcNumberBytes();
 
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The companyName.
      */
     java.lang.String getCompanyName();
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The bytes for companyName.
      */
     com.google.protobuf.ByteString
@@ -1637,18 +1631,13 @@ public final class Fleetforward {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              id_ = input.readInt32();
-              break;
-            }
-            case 18: {
+            case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               mcNumber_ = s;
               break;
             }
-            case 26: {
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               companyName_ = s;
@@ -1688,21 +1677,10 @@ public final class Fleetforward {
               dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.class, dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
-    /**
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-
-    public static final int MC_NUMBER_FIELD_NUMBER = 2;
+    public static final int MC_NUMBER_FIELD_NUMBER = 1;
     private volatile java.lang.Object mcNumber_;
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The mcNumber.
      */
     @java.lang.Override
@@ -1719,7 +1697,7 @@ public final class Fleetforward {
       }
     }
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The bytes for mcNumber.
      */
     @java.lang.Override
@@ -1737,10 +1715,10 @@ public final class Fleetforward {
       }
     }
 
-    public static final int COMPANY_NAME_FIELD_NUMBER = 3;
+    public static final int COMPANY_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object companyName_;
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The companyName.
      */
     @java.lang.Override
@@ -1757,7 +1735,7 @@ public final class Fleetforward {
       }
     }
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The bytes for companyName.
      */
     @java.lang.Override
@@ -1789,14 +1767,11 @@ public final class Fleetforward {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mcNumber_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, mcNumber_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mcNumber_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, companyName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, companyName_);
       }
       unknownFields.writeTo(output);
     }
@@ -1807,15 +1782,11 @@ public final class Fleetforward {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mcNumber_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, mcNumber_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mcNumber_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, companyName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, companyName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1832,8 +1803,6 @@ public final class Fleetforward {
       }
       dk.via.fleetforward.gRPC.Fleetforward.CompanyProto other = (dk.via.fleetforward.gRPC.Fleetforward.CompanyProto) obj;
 
-      if (getId()
-          != other.getId()) return false;
       if (!getMcNumber()
           .equals(other.getMcNumber())) return false;
       if (!getCompanyName()
@@ -1849,8 +1818,6 @@ public final class Fleetforward {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
       hash = (37 * hash) + MC_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getMcNumber().hashCode();
       hash = (37 * hash) + COMPANY_NAME_FIELD_NUMBER;
@@ -1988,8 +1955,6 @@ public final class Fleetforward {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0;
-
         mcNumber_ = "";
 
         companyName_ = "";
@@ -2020,7 +1985,6 @@ public final class Fleetforward {
       @java.lang.Override
       public dk.via.fleetforward.gRPC.Fleetforward.CompanyProto buildPartial() {
         dk.via.fleetforward.gRPC.Fleetforward.CompanyProto result = new dk.via.fleetforward.gRPC.Fleetforward.CompanyProto(this);
-        result.id_ = id_;
         result.mcNumber_ = mcNumber_;
         result.companyName_ = companyName_;
         onBuilt();
@@ -2071,9 +2035,6 @@ public final class Fleetforward {
 
       public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.CompanyProto other) {
         if (other == dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
-        }
         if (!other.getMcNumber().isEmpty()) {
           mcNumber_ = other.mcNumber_;
           onChanged();
@@ -2111,40 +2072,9 @@ public final class Fleetforward {
         return this;
       }
 
-      private int id_ ;
-      /**
-       * <code>int32 id = 1;</code>
-       * @return The id.
-       */
-      @java.lang.Override
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>int32 id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object mcNumber_ = "";
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return The mcNumber.
        */
       public java.lang.String getMcNumber() {
@@ -2160,7 +2090,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return The bytes for mcNumber.
        */
       public com.google.protobuf.ByteString
@@ -2177,7 +2107,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @param value The mcNumber to set.
        * @return This builder for chaining.
        */
@@ -2192,7 +2122,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMcNumber() {
@@ -2202,7 +2132,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @param value The bytes for mcNumber to set.
        * @return This builder for chaining.
        */
@@ -2220,7 +2150,7 @@ public final class Fleetforward {
 
       private java.lang.Object companyName_ = "";
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return The companyName.
        */
       public java.lang.String getCompanyName() {
@@ -2236,7 +2166,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return The bytes for companyName.
        */
       public com.google.protobuf.ByteString
@@ -2253,7 +2183,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @param value The companyName to set.
        * @return This builder for chaining.
        */
@@ -2268,7 +2198,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearCompanyName() {
@@ -2278,7 +2208,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @param value The bytes for companyName to set.
        * @return This builder for chaining.
        */
@@ -7531,48 +7461,47 @@ public final class Fleetforward {
       "\n\022fleetforward.proto\022\030dk.via.fleetforwar" +
       "d.gRPC\032\031google/protobuf/any.proto\"M\n\020Com" +
       "panyProtoList\0229\n\tcompanies\030\001 \003(\0132&.dk.vi" +
-      "a.fleetforward.gRPC.CompanyProto\"C\n\014Comp" +
-      "anyProto\022\n\n\002id\030\001 \001(\005\022\021\n\tmc_number\030\002 \001(\t\022" +
-      "\024\n\014company_name\030\003 \001(\t\"\255\001\n\014RequestProto\022;" +
-      "\n\007handler\030\001 \001(\0162*.dk.via.fleetforward.gR" +
-      "PC.HandlerTypeProto\0229\n\006action\030\002 \001(\0162).dk" +
-      ".via.fleetforward.gRPC.ActionTypeProto\022%" +
-      "\n\007payload\030\003 \001(\0132\024.google.protobuf.Any\"q\n" +
-      "\rResponseProto\0229\n\006status\030\001 \001(\0162).dk.via." +
-      "fleetforward.gRPC.StatusTypeProto\022%\n\007pay" +
-      "load\030\002 \001(\0132\024.google.protobuf.Any\"\364\001\n\tUse" +
-      "rProto\022\n\n\002id\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n" +
-      "\010lastName\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneN" +
-      "umber\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\0227\n\006driver\030" +
-      "\007 \001(\0132%.dk.via.fleetforward.gRPC.DriverP" +
-      "rotoH\000\022?\n\ndispatcher\030\010 \001(\0132).dk.via.flee" +
-      "tforward.gRPC.DispatcherProtoH\000B\006\n\004role\"" +
-      "\237\002\n\013DriverProto\022\027\n\017companyMcNumber\030\001 \001(\t" +
-      "\022A\n\014driverStatus\030\002 \001(\0162+.dk.via.fleetfor" +
-      "ward.gRPC.StatusDriverProto\022E\n\013companyRo" +
-      "le\030\003 \001(\01620.dk.via.fleetforward.gRPC.Driv" +
-      "erCompanyRoleProto\022?\n\013trailerType\030\004 \001(\0162" +
-      "*.dk.via.fleetforward.gRPC.TrailerTypePr" +
-      "oto\022\024\n\014currentState\030\005 \001(\t\022\026\n\016currentZIPC" +
-      "ODE\030\006 \001(\005\"?\n\017DispatcherProto\022\023\n\013currentR" +
-      "ate\030\001 \001(\001\022\027\n\017driversAssigned\030\002 \003(\005*<\n\020Ha" +
-      "ndlerTypeProto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017H" +
-      "ANDLER_COMPANY\020\001*\177\n\017ActionTypeProto\022\022\n\016A" +
-      "CTION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nAC" +
-      "TION_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rACTION_" +
-      "DELETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017StatusTypeP" +
-      "roto\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022" +
-      "\020\n\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID_PAYL" +
-      "OAD\020\003*G\n\021StatusDriverProto\022\013\n\007UNKNOWN\020\000\022" +
-      "\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R" +
-      "\n\026DriverCompanyRoleProto\022\030\n\024UNKNOWN_ROLE" +
-      "_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR" +
-      "\020\002*M\n\020TrailerTypeProto\022\023\n\017UNKNOWN_TRAILE" +
-      "R\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020" +
-      "\0032s\n\021FleetServiceProto\022^\n\013SendRequest\022&." +
-      "dk.via.fleetforward.gRPC.RequestProto\032\'." +
-      "dk.via.fleetforward.gRPC.ResponseProtob\006" +
-      "proto3"
+      "a.fleetforward.gRPC.CompanyProto\"7\n\014Comp" +
+      "anyProto\022\021\n\tmc_number\030\001 \001(\t\022\024\n\014company_n" +
+      "ame\030\002 \001(\t\"\255\001\n\014RequestProto\022;\n\007handler\030\001 " +
+      "\001(\0162*.dk.via.fleetforward.gRPC.HandlerTy" +
+      "peProto\0229\n\006action\030\002 \001(\0162).dk.via.fleetfo" +
+      "rward.gRPC.ActionTypeProto\022%\n\007payload\030\003 " +
+      "\001(\0132\024.google.protobuf.Any\"q\n\rResponsePro" +
+      "to\0229\n\006status\030\001 \001(\0162).dk.via.fleetforward" +
+      ".gRPC.StatusTypeProto\022%\n\007payload\030\002 \001(\0132\024" +
+      ".google.protobuf.Any\"\364\001\n\tUserProto\022\n\n\002id" +
+      "\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 " +
+      "\001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022" +
+      "\020\n\010password\030\006 \001(\t\0227\n\006driver\030\007 \001(\0132%.dk.v" +
+      "ia.fleetforward.gRPC.DriverProtoH\000\022?\n\ndi" +
+      "spatcher\030\010 \001(\0132).dk.via.fleetforward.gRP" +
+      "C.DispatcherProtoH\000B\006\n\004role\"\237\002\n\013DriverPr" +
+      "oto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014driverSt" +
+      "atus\030\002 \001(\0162+.dk.via.fleetforward.gRPC.St" +
+      "atusDriverProto\022E\n\013companyRole\030\003 \001(\01620.d" +
+      "k.via.fleetforward.gRPC.DriverCompanyRol" +
+      "eProto\022?\n\013trailerType\030\004 \001(\0162*.dk.via.fle" +
+      "etforward.gRPC.TrailerTypeProto\022\024\n\014curre" +
+      "ntState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\"?\n" +
+      "\017DispatcherProto\022\023\n\013currentRate\030\001 \001(\001\022\027\n" +
+      "\017driversAssigned\030\002 \003(\005*<\n\020HandlerTypePro" +
+      "to\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPA" +
+      "NY\020\001*\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOW" +
+      "N\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021" +
+      "\n\rACTION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013" +
+      "ACTION_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STAT" +
+      "US_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ER" +
+      "ROR\020\002\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\021Sta" +
+      "tusDriverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE" +
+      "\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026DriverComp" +
+      "anyRoleProto\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n" +
+      "\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020Traile" +
+      "rTypeProto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_V" +
+      "AN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetSe" +
+      "rviceProto\022^\n\013SendRequest\022&.dk.via.fleet" +
+      "forward.gRPC.RequestProto\032\'.dk.via.fleet" +
+      "forward.gRPC.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7590,7 +7519,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_CompanyProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_CompanyProto_descriptor,
-        new java.lang.String[] { "Id", "McNumber", "CompanyName", });
+        new java.lang.String[] { "McNumber", "CompanyName", });
     internal_static_dk_via_fleetforward_gRPC_RequestProto_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_dk_via_fleetforward_gRPC_RequestProto_fieldAccessorTable = new

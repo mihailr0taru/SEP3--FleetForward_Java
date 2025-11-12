@@ -1,8 +1,6 @@
 package dk.via.fleetforward.services.company;
-
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProtoList;
-
 /**
  * @author Mario
  * @version 1.0.0
@@ -30,24 +28,12 @@ public interface CompanyService {
      */
     CompanyProto getSingle(String mcNumber);
 
-    /**
-     * Get a single company by its id
-     * @param id The id of the company to get
-     * @return The company or null if not found
-     */
-    CompanyProto getSingle(int id);
 
     /**
      * Delete a company by its mcNumber
      * @param mcNumber The mcNumber of the company to delete
      */
     void delete(String mcNumber);
-
-    /**
-     * Delete a company by its id
-     * @param id The id of the company to delete
-     */
-    void delete(int id);
 
     /**
      * Get all companies

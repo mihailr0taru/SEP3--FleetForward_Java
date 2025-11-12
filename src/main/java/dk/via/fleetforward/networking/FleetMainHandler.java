@@ -4,16 +4,16 @@ import com.google.protobuf.Any;
 import com.google.protobuf.Message;
 import com.google.protobuf.StringValue;
 import dk.via.fleetforward.gRPC.FleetServiceProtoGrpc;
-import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
-import dk.via.fleetforward.gRPC.Fleetforward.ResponseProto;
-import dk.via.fleetforward.gRPC.Fleetforward.RequestProto;
-import dk.via.fleetforward.gRPC.Fleetforward.StatusTypeProto;
 
 
 import dk.via.fleetforward.networking.handlers.FleetNetworkHandler;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.stereotype.Service;
+import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
+import dk.via.fleetforward.gRPC.Fleetforward.RequestProto;
+import dk.via.fleetforward.gRPC.Fleetforward.ResponseProto;
+import dk.via.fleetforward.gRPC.Fleetforward.StatusTypeProto;
 
 import java.util.Map;
 

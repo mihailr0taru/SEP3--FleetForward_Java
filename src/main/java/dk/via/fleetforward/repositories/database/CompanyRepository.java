@@ -9,7 +9,7 @@ import java.util.Optional;
  * Company repository interface for database operations with Objects of type Company
  */
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, Integer>{
+public interface CompanyRepository extends JpaRepository<Company, String>{
     Optional<Company> findByMcNumber(String mcNumber);
     void deleteByMcNumber(String mcNumber);
 }

@@ -1,11 +1,10 @@
 package dk.via.fleetforward.services.company;
-import dk.via.fleetforward.gRPC.Fleetforward;
-import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.model.Company;
 import dk.via.fleetforward.repositories.database.CompanyRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
+import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
+import dk.via.fleetforward.gRPC.Fleetforward.CompanyProtoList;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -41,7 +40,6 @@ public class CompanyServiceDatabase implements CompanyService{
         company.setCompanyName(payload.getCompanyName());
         Company created = companyRepository.save(company);
         return CompanyProto.newBuilder()
-                .setId(created.getId())
                 .setMcNumber(created.getMcNumber())
                 .setCompanyName(created.getCompanyName()).build();
     }
@@ -54,16 +52,14 @@ public class CompanyServiceDatabase implements CompanyService{
     @Override
     @Transactional
     public CompanyProto update(CompanyProto payload) {
-        Company existing = companyRepository.findById(payload.getId())
+        Company existing = companyRepository.findByMcNumber(payload.getMcNumber())
                 .orElseThrow(() -> new RuntimeException("Company not found"));
 
-        existing.setMcNumber(payload.getMcNumber());
         existing.setCompanyName(payload.getCompanyName());
 
         Company updated = companyRepository.save(existing);
 
         return CompanyProto.newBuilder()
-                .setId(updated.getId())
                 .setMcNumber(updated.getMcNumber())
                 .setCompanyName(updated.getCompanyName())
                 .build();
@@ -80,7 +76,6 @@ public class CompanyServiceDatabase implements CompanyService{
         Optional<Company> fetched = companyRepository.findByMcNumber(mcNumber); //null safety
         Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
         return CompanyProto.newBuilder()
-                .setId(company.getId())
                 .setMcNumber(company.getMcNumber())
                 .setCompanyName(company.getCompanyName())
                 .build();
@@ -92,16 +87,6 @@ public class CompanyServiceDatabase implements CompanyService{
      * @return {@inheritDoc}
      * @implNote Optional is in case the company is not found in the database to ensure null safety.
      */
-    @Override
-    public CompanyProto getSingle(int id) {
-        Optional<Company> fetched = companyRepository.findById(id); //null safety
-        Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
-        return CompanyProto.newBuilder()
-                .setId(company.getId())
-                .setMcNumber(company.getMcNumber())
-                .setCompanyName(company.getCompanyName())
-                .build();
-    }
     /**
      * {@inheritDoc}
      *
@@ -116,30 +101,18 @@ public class CompanyServiceDatabase implements CompanyService{
 
     /**
      * {@inheritDoc}
-     *
-     * @param id {@inheritDoc}
      * @return {@inheritDoc}
      */
     @Override
-    @Transactional
-    public void delete(int id) {
-       companyRepository.deleteById(id);
-    }
-    /**
-     * {@inheritDoc}
-     * @return {@inheritDoc}
-     */
-    @Override
-    public Fleetforward.CompanyProtoList getAll() {
+    public CompanyProtoList getAll() {
       List<Company> companies = companyRepository.findAll();
 
       // Builder for the list
-      Fleetforward.CompanyProtoList.Builder companiesProtoBuilder = Fleetforward.CompanyProtoList.newBuilder();
+      CompanyProtoList.Builder companiesProtoBuilder = CompanyProtoList.newBuilder();
 
       // Convert each Company entity to CompanyProto
       for (Company company : companies) {
-        Fleetforward.CompanyProto companyProto = Fleetforward.CompanyProto.newBuilder()
-            .setId(company.getId())
+        CompanyProto companyProto = CompanyProto.newBuilder()
             .setMcNumber(company.getMcNumber())
             .setCompanyName(company.getCompanyName())
             .build();
