@@ -52,7 +52,7 @@ public class CompanyServiceDatabase implements CompanyService{
     @Override
     @Transactional
     public CompanyProto update(CompanyProto payload) {
-        Company existing = companyRepository.findByMcNumber(payload.getMcNumber())
+        Company existing = companyRepository.findById(payload.getMcNumber())
                 .orElseThrow(() -> new RuntimeException("Company not found"));
 
         existing.setCompanyName(payload.getCompanyName());
@@ -73,7 +73,7 @@ public class CompanyServiceDatabase implements CompanyService{
      */
     @Override
     public CompanyProto getSingle(String mcNumber) {
-        Optional<Company> fetched = companyRepository.findByMcNumber(mcNumber); //null safety
+        Optional<Company> fetched = companyRepository.findById(mcNumber); //null safety
         Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
         return CompanyProto.newBuilder()
                 .setMcNumber(company.getMcNumber())
@@ -96,7 +96,7 @@ public class CompanyServiceDatabase implements CompanyService{
     @Override
     @Transactional
     public void delete(String mcNumber) {
-      companyRepository.deleteByMcNumber(mcNumber);
+      companyRepository.deleteById(mcNumber);
     }
 
     /**

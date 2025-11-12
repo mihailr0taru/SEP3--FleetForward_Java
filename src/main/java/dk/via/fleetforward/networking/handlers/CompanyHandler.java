@@ -3,10 +3,10 @@ package dk.via.fleetforward.networking.handlers;
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
+import dk.via.fleetforward.services.company.CompanyService;
+import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
-import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
-import dk.via.fleetforward.services.company.CompanyService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -58,7 +58,7 @@ public class CompanyHandler implements FleetNetworkHandler {
       }
       switch (actionType) {
             case ACTION_GET -> {
-                companyService.getSingle(request.getMcNumber());
+                proto = companyService.getSingle(request.getMcNumber());
             }
             case ACTION_CREATE -> {
                 proto = companyService.create(request);

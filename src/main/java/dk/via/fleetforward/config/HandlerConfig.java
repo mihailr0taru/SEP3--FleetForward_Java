@@ -1,12 +1,12 @@
 package dk.via.fleetforward.config;
 
-import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.networking.handlers.FleetNetworkHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import java.util.stream.Collectors;
 
 @Configuration
