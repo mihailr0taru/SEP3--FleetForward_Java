@@ -3,21 +3,29 @@ package dk.via.fleetforward.networking.handlers;
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
+import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.services.company.CompanyService;
+import org.springframework.stereotype.Service;
 
 /**
  * The CompanyHandler class implements the FleetNetworkHandler interface and is responsible
  * for handling actions related to company management. It acts as an adapter between the
  * fleet network commands and the underlying CompanyService to perform operations on companies.
  */
+@Service
 public class CompanyHandler implements FleetNetworkHandler {
 
     private final CompanyService companyService;
 
     public CompanyHandler(CompanyService companyService) {
         this.companyService = companyService;
+    }
+
+    @Override
+    public HandlerTypeProto getType() {
+        return HandlerTypeProto.HANDLER_COMPANY;
     }
 
     /**

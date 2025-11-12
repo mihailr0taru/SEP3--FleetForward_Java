@@ -2,13 +2,11 @@ package dk.via.fleetforward.services.company;
 
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProtoList;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Mario
  * @version 1.0.0
  */
-@Service
 public interface CompanyService {
     //CRUD operations
     /**
