@@ -4,20 +4,28 @@ import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
+import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.services.company.CompanyService;
+import org.springframework.stereotype.Service;
 
 /**
  * The CompanyHandler class implements the FleetNetworkHandler interface and is responsible
  * for handling actions related to company management. It acts as an adapter between the
  * fleet network commands and the underlying CompanyService to perform operations on companies.
  */
+@Service
 public class CompanyHandler implements FleetNetworkHandler {
 
     private final CompanyService companyService;
 
     public CompanyHandler(CompanyService companyService) {
         this.companyService = companyService;
+    }
+
+    @Override
+    public HandlerTypeProto getType() {
+        return HandlerTypeProto.HANDLER_COMPANY;
     }
 
     /**
@@ -50,7 +58,7 @@ public class CompanyHandler implements FleetNetworkHandler {
       }
       switch (actionType) {
             case ACTION_GET -> {
-                proto = handleGet(request);
+                companyService.getSingle(request.getMcNumber());
             }
             case ACTION_CREATE -> {
                 proto = companyService.create(request);
@@ -59,7 +67,7 @@ public class CompanyHandler implements FleetNetworkHandler {
                 proto = companyService.update(request);
             }
             case ACTION_DELETE -> {
-                handleDelete(request);
+                companyService.delete(request.getMcNumber());
             }
             case ACTION_LIST -> {
                 proto = companyService.getAll();
@@ -74,49 +82,6 @@ public class CompanyHandler implements FleetNetworkHandler {
         proto = CompanyProto.newBuilder().build();
       }
       return Any.pack(proto) ;
-    }
-
-    /**
-     * Handles the retrieval of a company record based on the provided request.
-     * The method checks if the request contains either a valid company ID or an MC number.
-     * If a valid ID is provided, the corresponding company record is fetched using the {@code companyService}.
-     * If an MC number is provided instead, the method retrieves the matching company record.
-     * If both are missing, an {@code IllegalArgumentException} is thrown.
-     *
-     * @param request The request object containing the details of the company to be retrieved.
-     *                It should include either a valid company ID or an MC number.
-     * @return The {@code CompanyProto} object containing the details of the retrieved company.
-     * @throws IllegalArgumentException if neither the company ID nor the MC number is provided in the request.
-     */
-    private CompanyProto handleGet(CompanyProto request) {
-        if (request.getId() != 0) {
-            return companyService.getSingle(request.getId());
-        } else if (!request.getMcNumber().isEmpty()) {
-            return companyService.getSingle(request.getMcNumber());
-        }
-        else {
-            throw new IllegalArgumentException("Must provide either an ID or MC number for ACTION_GET.");
-        }
-    }
-
-    /**
-     * Handles the deletion of a company record based on the provided request.
-     * The method checks if the request contains either a valid company ID or an MC number
-     * and deletes the corresponding company record using the {@code companyService}.
-     *
-     * @param request the request object containing the details of the company to be deleted.
-     *                It should include either a valid company ID or an MC number.
-     *                If both are missing, an {@code IllegalArgumentException} is thrown.
-     */
-    private void handleDelete(CompanyProto request) {
-        if (request.getId() != 0) {
-            companyService.delete(request.getId());
-        } else if (!request.getMcNumber().isEmpty()) {
-            companyService.delete(request.getMcNumber());
-        }
-        else {
-            throw new IllegalArgumentException("Must provide either an ID or MC number for ACTION_DELETE.");
-        }
     }
 }
 

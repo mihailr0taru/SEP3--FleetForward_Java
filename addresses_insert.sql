@@ -1,13 +1,14 @@
 -- SQL INSERT statements generated from CSV
 SET SCHEMA 'fleetforward';
 CREATE TABLE if not exists   addresses(
-    id serial primary key,
     state_name varchar(20),
     state_abbr varchar(5),
     zip_code int4 CHECK (zip_code>0 and zip_code<100000),
-    county varchar(30),
-    city varchar(30)
-)
+    county varchar(50),
+    city varchar(50),
+    primary key (state_abbr, zip_code)
+);
+
 INSERT INTO addresses (state_name, state_abbr, zip_code, county, city) VALUES ('Alabama', 'AL', 35010, 'Tallapoosa', 'New site');
 INSERT INTO addresses (state_name, state_abbr, zip_code, county, city) VALUES ('Alabama', 'AL', 35014, 'Talladega', 'Alpine');
 INSERT INTO addresses (state_name, state_abbr, zip_code, county, city) VALUES ('Alabama', 'AL', 35016, 'Marshall', 'Arab');

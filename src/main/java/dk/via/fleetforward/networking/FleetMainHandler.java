@@ -4,29 +4,32 @@ import com.google.protobuf.Any;
 import com.google.protobuf.Message;
 import com.google.protobuf.StringValue;
 import dk.via.fleetforward.gRPC.FleetServiceProtoGrpc;
-import dk.via.fleetforward.gRPC.Fleetforward.ResponseProto;
-import dk.via.fleetforward.gRPC.Fleetforward.RequestProto;
-import dk.via.fleetforward.gRPC.Fleetforward.StatusTypeProto;
 
 
 import dk.via.fleetforward.networking.handlers.FleetNetworkHandler;
-import dk.via.fleetforward.startup.ServiceProvider;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
+import org.springframework.stereotype.Service;
+import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
+import dk.via.fleetforward.gRPC.Fleetforward.RequestProto;
+import dk.via.fleetforward.gRPC.Fleetforward.ResponseProto;
+import dk.via.fleetforward.gRPC.Fleetforward.StatusTypeProto;
+
+import java.util.Map;
+
 /**
  * @author Mario
  * @version 1.0.0
  * The main handler for the gRPC service
  * @implNote extends the gpc service to provide the implementation for the gRPC service
  */
+@Service
 @GRpcService
 public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImplBase {
-    private final ServiceProvider serviceProvider;
-
-    public FleetMainHandler(ServiceProvider serviceProvider) {
+    private final Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider;
+    public FleetMainHandler(Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider) {
         this.serviceProvider = serviceProvider;
     }
-
     /**
      * Handle the request from the client
      * @param request the request from the client
@@ -35,11 +38,10 @@ public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImp
     @Override
     public void sendRequest(RequestProto request, StreamObserver<ResponseProto> responseObserver) {
         try {
-            // Route request based on HandlerType
-            FleetNetworkHandler handler = switch (request.getHandler()) {
-                case HANDLER_COMPANY -> serviceProvider.getCompanyHandler();
-                default -> throw new IllegalArgumentException("Unknown handler type");
-            };
+            FleetNetworkHandler handler = serviceProvider.get(request.getHandler());
+            if (handler == null) {
+                throw new IllegalArgumentException("Unknown handler type");
+            }
             // Message is the protobuf object
             Message result = handler.handle(request.getAction(), request.getPayload());
             // Only pack if not already an Any

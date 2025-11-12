@@ -28,9 +28,8 @@ enum StatusTypeProto {
 }
 
 message CompanyProto {
-  int32 id = 1;
-  string mc_number = 2;
-  string company_name = 3;
+  string mc_number = 1;
+  string company_name = 2;
 }
 
 message RequestProto {

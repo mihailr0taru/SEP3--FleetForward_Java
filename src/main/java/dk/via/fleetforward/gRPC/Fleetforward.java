@@ -392,6 +392,375 @@ public final class Fleetforward {
     // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.StatusTypeProto)
   }
 
+  /**
+   * Protobuf enum {@code dk.via.fleetforward.gRPC.StatusDriverProto}
+   */
+  public enum StatusDriverProto
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNKNOWN = 0;</code>
+     */
+    UNKNOWN(0),
+    /**
+     * <code>AVAILABLE = 1;</code>
+     */
+    AVAILABLE(1),
+    /**
+     * <code>BUSY = 2;</code>
+     */
+    BUSY(2),
+    /**
+     * <code>OFF_DUTY = 3;</code>
+     */
+    OFF_DUTY(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UNKNOWN = 0;</code>
+     */
+    public static final int UNKNOWN_VALUE = 0;
+    /**
+     * <code>AVAILABLE = 1;</code>
+     */
+    public static final int AVAILABLE_VALUE = 1;
+    /**
+     * <code>BUSY = 2;</code>
+     */
+    public static final int BUSY_VALUE = 2;
+    /**
+     * <code>OFF_DUTY = 3;</code>
+     */
+    public static final int OFF_DUTY_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static StatusDriverProto valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static StatusDriverProto forNumber(int value) {
+      switch (value) {
+        case 0: return UNKNOWN;
+        case 1: return AVAILABLE;
+        case 2: return BUSY;
+        case 3: return OFF_DUTY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<StatusDriverProto>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        StatusDriverProto> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<StatusDriverProto>() {
+            public StatusDriverProto findValueByNumber(int number) {
+              return StatusDriverProto.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final StatusDriverProto[] VALUES = values();
+
+    public static StatusDriverProto valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private StatusDriverProto(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.StatusDriverProto)
+  }
+
+  /**
+   * Protobuf enum {@code dk.via.fleetforward.gRPC.DriverCompanyRoleProto}
+   */
+  public enum DriverCompanyRoleProto
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNKNOWN_ROLE_COMPANY = 0;</code>
+     */
+    UNKNOWN_ROLE_COMPANY(0),
+    /**
+     * <code>DRIVER = 1;</code>
+     */
+    DRIVER(1),
+    /**
+     * <code>OWNER_OPERATOR = 2;</code>
+     */
+    OWNER_OPERATOR(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UNKNOWN_ROLE_COMPANY = 0;</code>
+     */
+    public static final int UNKNOWN_ROLE_COMPANY_VALUE = 0;
+    /**
+     * <code>DRIVER = 1;</code>
+     */
+    public static final int DRIVER_VALUE = 1;
+    /**
+     * <code>OWNER_OPERATOR = 2;</code>
+     */
+    public static final int OWNER_OPERATOR_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DriverCompanyRoleProto valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static DriverCompanyRoleProto forNumber(int value) {
+      switch (value) {
+        case 0: return UNKNOWN_ROLE_COMPANY;
+        case 1: return DRIVER;
+        case 2: return OWNER_OPERATOR;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DriverCompanyRoleProto>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DriverCompanyRoleProto> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DriverCompanyRoleProto>() {
+            public DriverCompanyRoleProto findValueByNumber(int number) {
+              return DriverCompanyRoleProto.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final DriverCompanyRoleProto[] VALUES = values();
+
+    public static DriverCompanyRoleProto valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DriverCompanyRoleProto(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.DriverCompanyRoleProto)
+  }
+
+  /**
+   * Protobuf enum {@code dk.via.fleetforward.gRPC.TrailerTypeProto}
+   */
+  public enum TrailerTypeProto
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNKNOWN_TRAILER = 0;</code>
+     */
+    UNKNOWN_TRAILER(0),
+    /**
+     * <code>DRY_VAN = 1;</code>
+     */
+    DRY_VAN(1),
+    /**
+     * <code>FLATBED = 2;</code>
+     */
+    FLATBED(2),
+    /**
+     * <code>REEFER = 3;</code>
+     */
+    REEFER(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UNKNOWN_TRAILER = 0;</code>
+     */
+    public static final int UNKNOWN_TRAILER_VALUE = 0;
+    /**
+     * <code>DRY_VAN = 1;</code>
+     */
+    public static final int DRY_VAN_VALUE = 1;
+    /**
+     * <code>FLATBED = 2;</code>
+     */
+    public static final int FLATBED_VALUE = 2;
+    /**
+     * <code>REEFER = 3;</code>
+     */
+    public static final int REEFER_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static TrailerTypeProto valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static TrailerTypeProto forNumber(int value) {
+      switch (value) {
+        case 0: return UNKNOWN_TRAILER;
+        case 1: return DRY_VAN;
+        case 2: return FLATBED;
+        case 3: return REEFER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TrailerTypeProto>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        TrailerTypeProto> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TrailerTypeProto>() {
+            public TrailerTypeProto findValueByNumber(int number) {
+              return TrailerTypeProto.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(5);
+    }
+
+    private static final TrailerTypeProto[] VALUES = values();
+
+    public static TrailerTypeProto valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private TrailerTypeProto(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.TrailerTypeProto)
+  }
+
   public interface CompanyProtoListOrBuilder extends
       // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.CompanyProtoList)
       com.google.protobuf.MessageOrBuilder {
@@ -1192,30 +1561,24 @@ public final class Fleetforward {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    int getId();
-
-    /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The mcNumber.
      */
     java.lang.String getMcNumber();
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The bytes for mcNumber.
      */
     com.google.protobuf.ByteString
         getMcNumberBytes();
 
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The companyName.
      */
     java.lang.String getCompanyName();
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The bytes for companyName.
      */
     com.google.protobuf.ByteString
@@ -1268,18 +1631,13 @@ public final class Fleetforward {
             case 0:
               done = true;
               break;
-            case 8: {
-
-              id_ = input.readInt32();
-              break;
-            }
-            case 18: {
+            case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               mcNumber_ = s;
               break;
             }
-            case 26: {
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               companyName_ = s;
@@ -1319,21 +1677,10 @@ public final class Fleetforward {
               dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.class, dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
-    /**
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-
-    public static final int MC_NUMBER_FIELD_NUMBER = 2;
+    public static final int MC_NUMBER_FIELD_NUMBER = 1;
     private volatile java.lang.Object mcNumber_;
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The mcNumber.
      */
     @java.lang.Override
@@ -1350,7 +1697,7 @@ public final class Fleetforward {
       }
     }
     /**
-     * <code>string mc_number = 2;</code>
+     * <code>string mc_number = 1;</code>
      * @return The bytes for mcNumber.
      */
     @java.lang.Override
@@ -1368,10 +1715,10 @@ public final class Fleetforward {
       }
     }
 
-    public static final int COMPANY_NAME_FIELD_NUMBER = 3;
+    public static final int COMPANY_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object companyName_;
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The companyName.
      */
     @java.lang.Override
@@ -1388,7 +1735,7 @@ public final class Fleetforward {
       }
     }
     /**
-     * <code>string company_name = 3;</code>
+     * <code>string company_name = 2;</code>
      * @return The bytes for companyName.
      */
     @java.lang.Override
@@ -1420,14 +1767,11 @@ public final class Fleetforward {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mcNumber_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, mcNumber_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mcNumber_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, companyName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, companyName_);
       }
       unknownFields.writeTo(output);
     }
@@ -1438,15 +1782,11 @@ public final class Fleetforward {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mcNumber_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, mcNumber_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mcNumber_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, companyName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, companyName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1463,8 +1803,6 @@ public final class Fleetforward {
       }
       dk.via.fleetforward.gRPC.Fleetforward.CompanyProto other = (dk.via.fleetforward.gRPC.Fleetforward.CompanyProto) obj;
 
-      if (getId()
-          != other.getId()) return false;
       if (!getMcNumber()
           .equals(other.getMcNumber())) return false;
       if (!getCompanyName()
@@ -1480,8 +1818,6 @@ public final class Fleetforward {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
       hash = (37 * hash) + MC_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getMcNumber().hashCode();
       hash = (37 * hash) + COMPANY_NAME_FIELD_NUMBER;
@@ -1619,8 +1955,6 @@ public final class Fleetforward {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0;
-
         mcNumber_ = "";
 
         companyName_ = "";
@@ -1651,7 +1985,6 @@ public final class Fleetforward {
       @java.lang.Override
       public dk.via.fleetforward.gRPC.Fleetforward.CompanyProto buildPartial() {
         dk.via.fleetforward.gRPC.Fleetforward.CompanyProto result = new dk.via.fleetforward.gRPC.Fleetforward.CompanyProto(this);
-        result.id_ = id_;
         result.mcNumber_ = mcNumber_;
         result.companyName_ = companyName_;
         onBuilt();
@@ -1702,9 +2035,6 @@ public final class Fleetforward {
 
       public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.CompanyProto other) {
         if (other == dk.via.fleetforward.gRPC.Fleetforward.CompanyProto.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
-        }
         if (!other.getMcNumber().isEmpty()) {
           mcNumber_ = other.mcNumber_;
           onChanged();
@@ -1742,40 +2072,9 @@ public final class Fleetforward {
         return this;
       }
 
-      private int id_ ;
-      /**
-       * <code>int32 id = 1;</code>
-       * @return The id.
-       */
-      @java.lang.Override
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>int32 id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object mcNumber_ = "";
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return The mcNumber.
        */
       public java.lang.String getMcNumber() {
@@ -1791,7 +2090,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return The bytes for mcNumber.
        */
       public com.google.protobuf.ByteString
@@ -1808,7 +2107,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @param value The mcNumber to set.
        * @return This builder for chaining.
        */
@@ -1823,7 +2122,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMcNumber() {
@@ -1833,7 +2132,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string mc_number = 2;</code>
+       * <code>string mc_number = 1;</code>
        * @param value The bytes for mcNumber to set.
        * @return This builder for chaining.
        */
@@ -1851,7 +2150,7 @@ public final class Fleetforward {
 
       private java.lang.Object companyName_ = "";
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return The companyName.
        */
       public java.lang.String getCompanyName() {
@@ -1867,7 +2166,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return The bytes for companyName.
        */
       public com.google.protobuf.ByteString
@@ -1884,7 +2183,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @param value The companyName to set.
        * @return This builder for chaining.
        */
@@ -1899,7 +2198,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearCompanyName() {
@@ -1909,7 +2208,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>string company_name = 3;</code>
+       * <code>string company_name = 2;</code>
        * @param value The bytes for companyName to set.
        * @return This builder for chaining.
        */
@@ -3544,6 +3843,3577 @@ public final class Fleetforward {
 
   }
 
+  public interface UserProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.UserProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+
+    /**
+     * <code>string firstName = 2;</code>
+     * @return The firstName.
+     */
+    java.lang.String getFirstName();
+    /**
+     * <code>string firstName = 2;</code>
+     * @return The bytes for firstName.
+     */
+    com.google.protobuf.ByteString
+        getFirstNameBytes();
+
+    /**
+     * <code>string lastName = 3;</code>
+     * @return The lastName.
+     */
+    java.lang.String getLastName();
+    /**
+     * <code>string lastName = 3;</code>
+     * @return The bytes for lastName.
+     */
+    com.google.protobuf.ByteString
+        getLastNameBytes();
+
+    /**
+     * <code>string email = 4;</code>
+     * @return The email.
+     */
+    java.lang.String getEmail();
+    /**
+     * <code>string email = 4;</code>
+     * @return The bytes for email.
+     */
+    com.google.protobuf.ByteString
+        getEmailBytes();
+
+    /**
+     * <code>string phoneNumber = 5;</code>
+     * @return The phoneNumber.
+     */
+    java.lang.String getPhoneNumber();
+    /**
+     * <code>string phoneNumber = 5;</code>
+     * @return The bytes for phoneNumber.
+     */
+    com.google.protobuf.ByteString
+        getPhoneNumberBytes();
+
+    /**
+     * <code>string password = 6;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 6;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     * @return Whether the driver field is set.
+     */
+    boolean hasDriver();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     * @return The driver.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     * @return Whether the dispatcher field is set.
+     */
+    boolean hasDispatcher();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     * @return The dispatcher.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder();
+
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProto.RoleCase getRoleCase();
+  }
+  /**
+   * Protobuf type {@code dk.via.fleetforward.gRPC.UserProto}
+   */
+  public static final class UserProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dk.via.fleetforward.gRPC.UserProto)
+      UserProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UserProto.newBuilder() to construct.
+    private UserProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UserProto() {
+      firstName_ = "";
+      lastName_ = "";
+      email_ = "";
+      phoneNumber_ = "";
+      password_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UserProto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              id_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              firstName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              lastName_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              email_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              phoneNumber_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            case 58: {
+              dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder subBuilder = null;
+              if (roleCase_ == 7) {
+                subBuilder = ((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_).toBuilder();
+              }
+              role_ =
+                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.DriverProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
+                role_ = subBuilder.buildPartial();
+              }
+              roleCase_ = 7;
+              break;
+            }
+            case 66: {
+              dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder subBuilder = null;
+              if (roleCase_ == 8) {
+                subBuilder = ((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_).toBuilder();
+              }
+              role_ =
+                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
+                role_ = subBuilder.buildPartial();
+              }
+              roleCase_ = 8;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.class, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder.class);
+    }
+
+    private int roleCase_ = 0;
+    private java.lang.Object role_;
+    public enum RoleCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      DRIVER(7),
+      DISPATCHER(8),
+      ROLE_NOT_SET(0);
+      private final int value;
+      private RoleCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static RoleCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static RoleCase forNumber(int value) {
+        switch (value) {
+          case 7: return DRIVER;
+          case 8: return DISPATCHER;
+          case 0: return ROLE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public RoleCase
+    getRoleCase() {
+      return RoleCase.forNumber(
+          roleCase_);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public int getId() {
+      return id_;
+    }
+
+    public static final int FIRSTNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object firstName_;
+    /**
+     * <code>string firstName = 2;</code>
+     * @return The firstName.
+     */
+    @java.lang.Override
+    public java.lang.String getFirstName() {
+      java.lang.Object ref = firstName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        firstName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string firstName = 2;</code>
+     * @return The bytes for firstName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFirstNameBytes() {
+      java.lang.Object ref = firstName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        firstName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LASTNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object lastName_;
+    /**
+     * <code>string lastName = 3;</code>
+     * @return The lastName.
+     */
+    @java.lang.Override
+    public java.lang.String getLastName() {
+      java.lang.Object ref = lastName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        lastName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string lastName = 3;</code>
+     * @return The bytes for lastName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLastNameBytes() {
+      java.lang.Object ref = lastName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        lastName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EMAIL_FIELD_NUMBER = 4;
+    private volatile java.lang.Object email_;
+    /**
+     * <code>string email = 4;</code>
+     * @return The email.
+     */
+    @java.lang.Override
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string email = 4;</code>
+     * @return The bytes for email.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PHONENUMBER_FIELD_NUMBER = 5;
+    private volatile java.lang.Object phoneNumber_;
+    /**
+     * <code>string phoneNumber = 5;</code>
+     * @return The phoneNumber.
+     */
+    @java.lang.Override
+    public java.lang.String getPhoneNumber() {
+      java.lang.Object ref = phoneNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        phoneNumber_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string phoneNumber = 5;</code>
+     * @return The bytes for phoneNumber.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPhoneNumberBytes() {
+      java.lang.Object ref = phoneNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        phoneNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 6;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 6;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 6;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DRIVER_FIELD_NUMBER = 7;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     * @return Whether the driver field is set.
+     */
+    @java.lang.Override
+    public boolean hasDriver() {
+      return roleCase_ == 7;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     * @return The driver.
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver() {
+      if (roleCase_ == 7) {
+         return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
+      }
+      return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder() {
+      if (roleCase_ == 7) {
+         return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
+      }
+      return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+    }
+
+    public static final int DISPATCHER_FIELD_NUMBER = 8;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     * @return Whether the dispatcher field is set.
+     */
+    @java.lang.Override
+    public boolean hasDispatcher() {
+      return roleCase_ == 8;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     * @return The dispatcher.
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher() {
+      if (roleCase_ == 8) {
+         return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
+      }
+      return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder() {
+      if (roleCase_ == 8) {
+         return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
+      }
+      return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, firstName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, lastName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, phoneNumber_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, password_);
+      }
+      if (roleCase_ == 7) {
+        output.writeMessage(7, (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
+      }
+      if (roleCase_ == 8) {
+        output.writeMessage(8, (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, firstName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, lastName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, phoneNumber_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, password_);
+      }
+      if (roleCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
+      }
+      if (roleCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dk.via.fleetforward.gRPC.Fleetforward.UserProto)) {
+        return super.equals(obj);
+      }
+      dk.via.fleetforward.gRPC.Fleetforward.UserProto other = (dk.via.fleetforward.gRPC.Fleetforward.UserProto) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (!getFirstName()
+          .equals(other.getFirstName())) return false;
+      if (!getLastName()
+          .equals(other.getLastName())) return false;
+      if (!getEmail()
+          .equals(other.getEmail())) return false;
+      if (!getPhoneNumber()
+          .equals(other.getPhoneNumber())) return false;
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
+      if (!getRoleCase().equals(other.getRoleCase())) return false;
+      switch (roleCase_) {
+        case 7:
+          if (!getDriver()
+              .equals(other.getDriver())) return false;
+          break;
+        case 8:
+          if (!getDispatcher()
+              .equals(other.getDispatcher())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + FIRSTNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFirstName().hashCode();
+      hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getLastName().hashCode();
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+      hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getPhoneNumber().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      switch (roleCase_) {
+        case 7:
+          hash = (37 * hash) + DRIVER_FIELD_NUMBER;
+          hash = (53 * hash) + getDriver().hashCode();
+          break;
+        case 8:
+          hash = (37 * hash) + DISPATCHER_FIELD_NUMBER;
+          hash = (53 * hash) + getDispatcher().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dk.via.fleetforward.gRPC.Fleetforward.UserProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dk.via.fleetforward.gRPC.UserProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dk.via.fleetforward.gRPC.UserProto)
+        dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dk.via.fleetforward.gRPC.Fleetforward.UserProto.class, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder.class);
+      }
+
+      // Construct using dk.via.fleetforward.gRPC.Fleetforward.UserProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+
+        firstName_ = "";
+
+        lastName_ = "";
+
+        email_ = "";
+
+        phoneNumber_ = "";
+
+        password_ = "";
+
+        roleCase_ = 0;
+        role_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto getDefaultInstanceForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto build() {
+        dk.via.fleetforward.gRPC.Fleetforward.UserProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto buildPartial() {
+        dk.via.fleetforward.gRPC.Fleetforward.UserProto result = new dk.via.fleetforward.gRPC.Fleetforward.UserProto(this);
+        result.id_ = id_;
+        result.firstName_ = firstName_;
+        result.lastName_ = lastName_;
+        result.email_ = email_;
+        result.phoneNumber_ = phoneNumber_;
+        result.password_ = password_;
+        if (roleCase_ == 7) {
+          if (driverBuilder_ == null) {
+            result.role_ = role_;
+          } else {
+            result.role_ = driverBuilder_.build();
+          }
+        }
+        if (roleCase_ == 8) {
+          if (dispatcherBuilder_ == null) {
+            result.role_ = role_;
+          } else {
+            result.role_ = dispatcherBuilder_.build();
+          }
+        }
+        result.roleCase_ = roleCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dk.via.fleetforward.gRPC.Fleetforward.UserProto) {
+          return mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.UserProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.UserProto other) {
+        if (other == dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        if (!other.getFirstName().isEmpty()) {
+          firstName_ = other.firstName_;
+          onChanged();
+        }
+        if (!other.getLastName().isEmpty()) {
+          lastName_ = other.lastName_;
+          onChanged();
+        }
+        if (!other.getEmail().isEmpty()) {
+          email_ = other.email_;
+          onChanged();
+        }
+        if (!other.getPhoneNumber().isEmpty()) {
+          phoneNumber_ = other.phoneNumber_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        switch (other.getRoleCase()) {
+          case DRIVER: {
+            mergeDriver(other.getDriver());
+            break;
+          }
+          case DISPATCHER: {
+            mergeDispatcher(other.getDispatcher());
+            break;
+          }
+          case ROLE_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dk.via.fleetforward.gRPC.Fleetforward.UserProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dk.via.fleetforward.gRPC.Fleetforward.UserProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int roleCase_ = 0;
+      private java.lang.Object role_;
+      public RoleCase
+          getRoleCase() {
+        return RoleCase.forNumber(
+            roleCase_);
+      }
+
+      public Builder clearRole() {
+        roleCase_ = 0;
+        role_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private int id_ ;
+      /**
+       * <code>int32 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object firstName_ = "";
+      /**
+       * <code>string firstName = 2;</code>
+       * @return The firstName.
+       */
+      public java.lang.String getFirstName() {
+        java.lang.Object ref = firstName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          firstName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string firstName = 2;</code>
+       * @return The bytes for firstName.
+       */
+      public com.google.protobuf.ByteString
+          getFirstNameBytes() {
+        java.lang.Object ref = firstName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          firstName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string firstName = 2;</code>
+       * @param value The firstName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        firstName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string firstName = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFirstName() {
+        
+        firstName_ = getDefaultInstance().getFirstName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string firstName = 2;</code>
+       * @param value The bytes for firstName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        firstName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object lastName_ = "";
+      /**
+       * <code>string lastName = 3;</code>
+       * @return The lastName.
+       */
+      public java.lang.String getLastName() {
+        java.lang.Object ref = lastName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          lastName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string lastName = 3;</code>
+       * @return The bytes for lastName.
+       */
+      public com.google.protobuf.ByteString
+          getLastNameBytes() {
+        java.lang.Object ref = lastName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          lastName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string lastName = 3;</code>
+       * @param value The lastName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        lastName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string lastName = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastName() {
+        
+        lastName_ = getDefaultInstance().getLastName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string lastName = 3;</code>
+       * @param value The bytes for lastName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        lastName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object email_ = "";
+      /**
+       * <code>string email = 4;</code>
+       * @return The email.
+       */
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          email_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string email = 4;</code>
+       * @return The bytes for email.
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string email = 4;</code>
+       * @param value The email to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        email_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEmail() {
+        
+        email_ = getDefaultInstance().getEmail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string email = 4;</code>
+       * @param value The bytes for email to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        email_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object phoneNumber_ = "";
+      /**
+       * <code>string phoneNumber = 5;</code>
+       * @return The phoneNumber.
+       */
+      public java.lang.String getPhoneNumber() {
+        java.lang.Object ref = phoneNumber_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          phoneNumber_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string phoneNumber = 5;</code>
+       * @return The bytes for phoneNumber.
+       */
+      public com.google.protobuf.ByteString
+          getPhoneNumberBytes() {
+        java.lang.Object ref = phoneNumber_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          phoneNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string phoneNumber = 5;</code>
+       * @param value The phoneNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPhoneNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        phoneNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string phoneNumber = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPhoneNumber() {
+        
+        phoneNumber_ = getDefaultInstance().getPhoneNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string phoneNumber = 5;</code>
+       * @param value The bytes for phoneNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPhoneNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        phoneNumber_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 6;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 6;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 6;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 6;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder> driverBuilder_;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       * @return Whether the driver field is set.
+       */
+      @java.lang.Override
+      public boolean hasDriver() {
+        return roleCase_ == 7;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       * @return The driver.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver() {
+        if (driverBuilder_ == null) {
+          if (roleCase_ == 7) {
+            return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+        } else {
+          if (roleCase_ == 7) {
+            return driverBuilder_.getMessage();
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      public Builder setDriver(dk.via.fleetforward.gRPC.Fleetforward.DriverProto value) {
+        if (driverBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          role_ = value;
+          onChanged();
+        } else {
+          driverBuilder_.setMessage(value);
+        }
+        roleCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      public Builder setDriver(
+          dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder builderForValue) {
+        if (driverBuilder_ == null) {
+          role_ = builderForValue.build();
+          onChanged();
+        } else {
+          driverBuilder_.setMessage(builderForValue.build());
+        }
+        roleCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      public Builder mergeDriver(dk.via.fleetforward.gRPC.Fleetforward.DriverProto value) {
+        if (driverBuilder_ == null) {
+          if (roleCase_ == 7 &&
+              role_ != dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance()) {
+            role_ = dk.via.fleetforward.gRPC.Fleetforward.DriverProto.newBuilder((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            role_ = value;
+          }
+          onChanged();
+        } else {
+          if (roleCase_ == 7) {
+            driverBuilder_.mergeFrom(value);
+          } else {
+            driverBuilder_.setMessage(value);
+          }
+        }
+        roleCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      public Builder clearDriver() {
+        if (driverBuilder_ == null) {
+          if (roleCase_ == 7) {
+            roleCase_ = 0;
+            role_ = null;
+            onChanged();
+          }
+        } else {
+          if (roleCase_ == 7) {
+            roleCase_ = 0;
+            role_ = null;
+          }
+          driverBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder getDriverBuilder() {
+        return getDriverFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder() {
+        if ((roleCase_ == 7) && (driverBuilder_ != null)) {
+          return driverBuilder_.getMessageOrBuilder();
+        } else {
+          if (roleCase_ == 7) {
+            return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder> 
+          getDriverFieldBuilder() {
+        if (driverBuilder_ == null) {
+          if (!(roleCase_ == 7)) {
+            role_ = dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+          }
+          driverBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder>(
+                  (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_,
+                  getParentForChildren(),
+                  isClean());
+          role_ = null;
+        }
+        roleCase_ = 7;
+        onChanged();;
+        return driverBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder> dispatcherBuilder_;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       * @return Whether the dispatcher field is set.
+       */
+      @java.lang.Override
+      public boolean hasDispatcher() {
+        return roleCase_ == 8;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       * @return The dispatcher.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher() {
+        if (dispatcherBuilder_ == null) {
+          if (roleCase_ == 8) {
+            return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+        } else {
+          if (roleCase_ == 8) {
+            return dispatcherBuilder_.getMessage();
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      public Builder setDispatcher(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto value) {
+        if (dispatcherBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          role_ = value;
+          onChanged();
+        } else {
+          dispatcherBuilder_.setMessage(value);
+        }
+        roleCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      public Builder setDispatcher(
+          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder builderForValue) {
+        if (dispatcherBuilder_ == null) {
+          role_ = builderForValue.build();
+          onChanged();
+        } else {
+          dispatcherBuilder_.setMessage(builderForValue.build());
+        }
+        roleCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      public Builder mergeDispatcher(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto value) {
+        if (dispatcherBuilder_ == null) {
+          if (roleCase_ == 8 &&
+              role_ != dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance()) {
+            role_ = dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.newBuilder((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            role_ = value;
+          }
+          onChanged();
+        } else {
+          if (roleCase_ == 8) {
+            dispatcherBuilder_.mergeFrom(value);
+          } else {
+            dispatcherBuilder_.setMessage(value);
+          }
+        }
+        roleCase_ = 8;
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      public Builder clearDispatcher() {
+        if (dispatcherBuilder_ == null) {
+          if (roleCase_ == 8) {
+            roleCase_ = 0;
+            role_ = null;
+            onChanged();
+          }
+        } else {
+          if (roleCase_ == 8) {
+            roleCase_ = 0;
+            role_ = null;
+          }
+          dispatcherBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder getDispatcherBuilder() {
+        return getDispatcherFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder() {
+        if ((roleCase_ == 8) && (dispatcherBuilder_ != null)) {
+          return dispatcherBuilder_.getMessageOrBuilder();
+        } else {
+          if (roleCase_ == 8) {
+            return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
+          }
+          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder> 
+          getDispatcherFieldBuilder() {
+        if (dispatcherBuilder_ == null) {
+          if (!(roleCase_ == 8)) {
+            role_ = dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+          }
+          dispatcherBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder>(
+                  (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_,
+                  getParentForChildren(),
+                  isClean());
+          role_ = null;
+        }
+        roleCase_ = 8;
+        onChanged();;
+        return dispatcherBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dk.via.fleetforward.gRPC.UserProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:dk.via.fleetforward.gRPC.UserProto)
+    private static final dk.via.fleetforward.gRPC.Fleetforward.UserProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dk.via.fleetforward.gRPC.Fleetforward.UserProto();
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.UserProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UserProto>
+        PARSER = new com.google.protobuf.AbstractParser<UserProto>() {
+      @java.lang.Override
+      public UserProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UserProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DriverProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.DriverProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string companyMcNumber = 1;</code>
+     * @return The companyMcNumber.
+     */
+    java.lang.String getCompanyMcNumber();
+    /**
+     * <code>string companyMcNumber = 1;</code>
+     * @return The bytes for companyMcNumber.
+     */
+    com.google.protobuf.ByteString
+        getCompanyMcNumberBytes();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+     * @return The enum numeric value on the wire for driverStatus.
+     */
+    int getDriverStatusValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+     * @return The driverStatus.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto getDriverStatus();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+     * @return The enum numeric value on the wire for companyRole.
+     */
+    int getCompanyRoleValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+     * @return The companyRole.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto getCompanyRole();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+     * @return The enum numeric value on the wire for trailerType.
+     */
+    int getTrailerTypeValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+     * @return The trailerType.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getTrailerType();
+
+    /**
+     * <code>string currentState = 5;</code>
+     * @return The currentState.
+     */
+    java.lang.String getCurrentState();
+    /**
+     * <code>string currentState = 5;</code>
+     * @return The bytes for currentState.
+     */
+    com.google.protobuf.ByteString
+        getCurrentStateBytes();
+
+    /**
+     * <code>int32 currentZIPCODE = 6;</code>
+     * @return The currentZIPCODE.
+     */
+    int getCurrentZIPCODE();
+  }
+  /**
+   * Protobuf type {@code dk.via.fleetforward.gRPC.DriverProto}
+   */
+  public static final class DriverProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dk.via.fleetforward.gRPC.DriverProto)
+      DriverProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DriverProto.newBuilder() to construct.
+    private DriverProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DriverProto() {
+      companyMcNumber_ = "";
+      driverStatus_ = 0;
+      companyRole_ = 0;
+      trailerType_ = 0;
+      currentState_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DriverProto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DriverProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              companyMcNumber_ = s;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              driverStatus_ = rawValue;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              companyRole_ = rawValue;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              trailerType_ = rawValue;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              currentState_ = s;
+              break;
+            }
+            case 48: {
+
+              currentZIPCODE_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dk.via.fleetforward.gRPC.Fleetforward.DriverProto.class, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder.class);
+    }
+
+    public static final int COMPANYMCNUMBER_FIELD_NUMBER = 1;
+    private volatile java.lang.Object companyMcNumber_;
+    /**
+     * <code>string companyMcNumber = 1;</code>
+     * @return The companyMcNumber.
+     */
+    @java.lang.Override
+    public java.lang.String getCompanyMcNumber() {
+      java.lang.Object ref = companyMcNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        companyMcNumber_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string companyMcNumber = 1;</code>
+     * @return The bytes for companyMcNumber.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCompanyMcNumberBytes() {
+      java.lang.Object ref = companyMcNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        companyMcNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DRIVERSTATUS_FIELD_NUMBER = 2;
+    private int driverStatus_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+     * @return The enum numeric value on the wire for driverStatus.
+     */
+    @java.lang.Override public int getDriverStatusValue() {
+      return driverStatus_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+     * @return The driverStatus.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto getDriverStatus() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto result = dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.valueOf(driverStatus_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.UNRECOGNIZED : result;
+    }
+
+    public static final int COMPANYROLE_FIELD_NUMBER = 3;
+    private int companyRole_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+     * @return The enum numeric value on the wire for companyRole.
+     */
+    @java.lang.Override public int getCompanyRoleValue() {
+      return companyRole_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+     * @return The companyRole.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto getCompanyRole() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto result = dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.valueOf(companyRole_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.UNRECOGNIZED : result;
+    }
+
+    public static final int TRAILERTYPE_FIELD_NUMBER = 4;
+    private int trailerType_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+     * @return The enum numeric value on the wire for trailerType.
+     */
+    @java.lang.Override public int getTrailerTypeValue() {
+      return trailerType_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+     * @return The trailerType.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getTrailerType() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto result = dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.valueOf(trailerType_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNRECOGNIZED : result;
+    }
+
+    public static final int CURRENTSTATE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object currentState_;
+    /**
+     * <code>string currentState = 5;</code>
+     * @return The currentState.
+     */
+    @java.lang.Override
+    public java.lang.String getCurrentState() {
+      java.lang.Object ref = currentState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        currentState_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string currentState = 5;</code>
+     * @return The bytes for currentState.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCurrentStateBytes() {
+      java.lang.Object ref = currentState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        currentState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTZIPCODE_FIELD_NUMBER = 6;
+    private int currentZIPCODE_;
+    /**
+     * <code>int32 currentZIPCODE = 6;</code>
+     * @return The currentZIPCODE.
+     */
+    @java.lang.Override
+    public int getCurrentZIPCODE() {
+      return currentZIPCODE_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyMcNumber_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, companyMcNumber_);
+      }
+      if (driverStatus_ != dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.UNKNOWN.getNumber()) {
+        output.writeEnum(2, driverStatus_);
+      }
+      if (companyRole_ != dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.UNKNOWN_ROLE_COMPANY.getNumber()) {
+        output.writeEnum(3, companyRole_);
+      }
+      if (trailerType_ != dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNKNOWN_TRAILER.getNumber()) {
+        output.writeEnum(4, trailerType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currentState_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, currentState_);
+      }
+      if (currentZIPCODE_ != 0) {
+        output.writeInt32(6, currentZIPCODE_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(companyMcNumber_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, companyMcNumber_);
+      }
+      if (driverStatus_ != dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.UNKNOWN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, driverStatus_);
+      }
+      if (companyRole_ != dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.UNKNOWN_ROLE_COMPANY.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, companyRole_);
+      }
+      if (trailerType_ != dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNKNOWN_TRAILER.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, trailerType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currentState_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, currentState_);
+      }
+      if (currentZIPCODE_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, currentZIPCODE_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dk.via.fleetforward.gRPC.Fleetforward.DriverProto)) {
+        return super.equals(obj);
+      }
+      dk.via.fleetforward.gRPC.Fleetforward.DriverProto other = (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) obj;
+
+      if (!getCompanyMcNumber()
+          .equals(other.getCompanyMcNumber())) return false;
+      if (driverStatus_ != other.driverStatus_) return false;
+      if (companyRole_ != other.companyRole_) return false;
+      if (trailerType_ != other.trailerType_) return false;
+      if (!getCurrentState()
+          .equals(other.getCurrentState())) return false;
+      if (getCurrentZIPCODE()
+          != other.getCurrentZIPCODE()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COMPANYMCNUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getCompanyMcNumber().hashCode();
+      hash = (37 * hash) + DRIVERSTATUS_FIELD_NUMBER;
+      hash = (53 * hash) + driverStatus_;
+      hash = (37 * hash) + COMPANYROLE_FIELD_NUMBER;
+      hash = (53 * hash) + companyRole_;
+      hash = (37 * hash) + TRAILERTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + trailerType_;
+      hash = (37 * hash) + CURRENTSTATE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentState().hashCode();
+      hash = (37 * hash) + CURRENTZIPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentZIPCODE();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dk.via.fleetforward.gRPC.Fleetforward.DriverProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dk.via.fleetforward.gRPC.DriverProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dk.via.fleetforward.gRPC.DriverProto)
+        dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dk.via.fleetforward.gRPC.Fleetforward.DriverProto.class, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder.class);
+      }
+
+      // Construct using dk.via.fleetforward.gRPC.Fleetforward.DriverProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        companyMcNumber_ = "";
+
+        driverStatus_ = 0;
+
+        companyRole_ = 0;
+
+        trailerType_ = 0;
+
+        currentState_ = "";
+
+        currentZIPCODE_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDefaultInstanceForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto build() {
+        dk.via.fleetforward.gRPC.Fleetforward.DriverProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto buildPartial() {
+        dk.via.fleetforward.gRPC.Fleetforward.DriverProto result = new dk.via.fleetforward.gRPC.Fleetforward.DriverProto(this);
+        result.companyMcNumber_ = companyMcNumber_;
+        result.driverStatus_ = driverStatus_;
+        result.companyRole_ = companyRole_;
+        result.trailerType_ = trailerType_;
+        result.currentState_ = currentState_;
+        result.currentZIPCODE_ = currentZIPCODE_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dk.via.fleetforward.gRPC.Fleetforward.DriverProto) {
+          return mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DriverProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.DriverProto other) {
+        if (other == dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance()) return this;
+        if (!other.getCompanyMcNumber().isEmpty()) {
+          companyMcNumber_ = other.companyMcNumber_;
+          onChanged();
+        }
+        if (other.driverStatus_ != 0) {
+          setDriverStatusValue(other.getDriverStatusValue());
+        }
+        if (other.companyRole_ != 0) {
+          setCompanyRoleValue(other.getCompanyRoleValue());
+        }
+        if (other.trailerType_ != 0) {
+          setTrailerTypeValue(other.getTrailerTypeValue());
+        }
+        if (!other.getCurrentState().isEmpty()) {
+          currentState_ = other.currentState_;
+          onChanged();
+        }
+        if (other.getCurrentZIPCODE() != 0) {
+          setCurrentZIPCODE(other.getCurrentZIPCODE());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dk.via.fleetforward.gRPC.Fleetforward.DriverProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object companyMcNumber_ = "";
+      /**
+       * <code>string companyMcNumber = 1;</code>
+       * @return The companyMcNumber.
+       */
+      public java.lang.String getCompanyMcNumber() {
+        java.lang.Object ref = companyMcNumber_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          companyMcNumber_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string companyMcNumber = 1;</code>
+       * @return The bytes for companyMcNumber.
+       */
+      public com.google.protobuf.ByteString
+          getCompanyMcNumberBytes() {
+        java.lang.Object ref = companyMcNumber_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          companyMcNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string companyMcNumber = 1;</code>
+       * @param value The companyMcNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCompanyMcNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        companyMcNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string companyMcNumber = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCompanyMcNumber() {
+        
+        companyMcNumber_ = getDefaultInstance().getCompanyMcNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string companyMcNumber = 1;</code>
+       * @param value The bytes for companyMcNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCompanyMcNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        companyMcNumber_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int driverStatus_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+       * @return The enum numeric value on the wire for driverStatus.
+       */
+      @java.lang.Override public int getDriverStatusValue() {
+        return driverStatus_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+       * @param value The enum numeric value on the wire for driverStatus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDriverStatusValue(int value) {
+        
+        driverStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+       * @return The driverStatus.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto getDriverStatus() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto result = dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.valueOf(driverStatus_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+       * @param value The driverStatus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDriverStatus(dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        driverStatus_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.StatusDriverProto driverStatus = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDriverStatus() {
+        
+        driverStatus_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int companyRole_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+       * @return The enum numeric value on the wire for companyRole.
+       */
+      @java.lang.Override public int getCompanyRoleValue() {
+        return companyRole_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+       * @param value The enum numeric value on the wire for companyRole to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCompanyRoleValue(int value) {
+        
+        companyRole_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+       * @return The companyRole.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto getCompanyRole() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto result = dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.valueOf(companyRole_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+       * @param value The companyRole to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCompanyRole(dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        companyRole_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.DriverCompanyRoleProto companyRole = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCompanyRole() {
+        
+        companyRole_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int trailerType_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+       * @return The enum numeric value on the wire for trailerType.
+       */
+      @java.lang.Override public int getTrailerTypeValue() {
+        return trailerType_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+       * @param value The enum numeric value on the wire for trailerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTrailerTypeValue(int value) {
+        
+        trailerType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+       * @return The trailerType.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getTrailerType() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto result = dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.valueOf(trailerType_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+       * @param value The trailerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTrailerType(dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        trailerType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto trailerType = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTrailerType() {
+        
+        trailerType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object currentState_ = "";
+      /**
+       * <code>string currentState = 5;</code>
+       * @return The currentState.
+       */
+      public java.lang.String getCurrentState() {
+        java.lang.Object ref = currentState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          currentState_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string currentState = 5;</code>
+       * @return The bytes for currentState.
+       */
+      public com.google.protobuf.ByteString
+          getCurrentStateBytes() {
+        java.lang.Object ref = currentState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          currentState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string currentState = 5;</code>
+       * @param value The currentState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        currentState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string currentState = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCurrentState() {
+        
+        currentState_ = getDefaultInstance().getCurrentState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string currentState = 5;</code>
+       * @param value The bytes for currentState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        currentState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int currentZIPCODE_ ;
+      /**
+       * <code>int32 currentZIPCODE = 6;</code>
+       * @return The currentZIPCODE.
+       */
+      @java.lang.Override
+      public int getCurrentZIPCODE() {
+        return currentZIPCODE_;
+      }
+      /**
+       * <code>int32 currentZIPCODE = 6;</code>
+       * @param value The currentZIPCODE to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentZIPCODE(int value) {
+        
+        currentZIPCODE_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 currentZIPCODE = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCurrentZIPCODE() {
+        
+        currentZIPCODE_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dk.via.fleetforward.gRPC.DriverProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:dk.via.fleetforward.gRPC.DriverProto)
+    private static final dk.via.fleetforward.gRPC.Fleetforward.DriverProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dk.via.fleetforward.gRPC.Fleetforward.DriverProto();
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DriverProto>
+        PARSER = new com.google.protobuf.AbstractParser<DriverProto>() {
+      @java.lang.Override
+      public DriverProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DriverProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DriverProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DriverProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DispatcherProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.DispatcherProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>double currentRate = 1;</code>
+     * @return The currentRate.
+     */
+    double getCurrentRate();
+
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @return A list containing the driversAssigned.
+     */
+    java.util.List<java.lang.Integer> getDriversAssignedList();
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @return The count of driversAssigned.
+     */
+    int getDriversAssignedCount();
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @param index The index of the element to return.
+     * @return The driversAssigned at the given index.
+     */
+    int getDriversAssigned(int index);
+  }
+  /**
+   * Protobuf type {@code dk.via.fleetforward.gRPC.DispatcherProto}
+   */
+  public static final class DispatcherProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dk.via.fleetforward.gRPC.DispatcherProto)
+      DispatcherProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DispatcherProto.newBuilder() to construct.
+    private DispatcherProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DispatcherProto() {
+      driversAssigned_ = emptyIntList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DispatcherProto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DispatcherProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+
+              currentRate_ = input.readDouble();
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                driversAssigned_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              driversAssigned_.addInt(input.readInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                driversAssigned_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                driversAssigned_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          driversAssigned_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.class, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder.class);
+    }
+
+    public static final int CURRENTRATE_FIELD_NUMBER = 1;
+    private double currentRate_;
+    /**
+     * <code>double currentRate = 1;</code>
+     * @return The currentRate.
+     */
+    @java.lang.Override
+    public double getCurrentRate() {
+      return currentRate_;
+    }
+
+    public static final int DRIVERSASSIGNED_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.IntList driversAssigned_;
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @return A list containing the driversAssigned.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+        getDriversAssignedList() {
+      return driversAssigned_;
+    }
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @return The count of driversAssigned.
+     */
+    public int getDriversAssignedCount() {
+      return driversAssigned_.size();
+    }
+    /**
+     * <code>repeated int32 driversAssigned = 2;</code>
+     * @param index The index of the element to return.
+     * @return The driversAssigned at the given index.
+     */
+    public int getDriversAssigned(int index) {
+      return driversAssigned_.getInt(index);
+    }
+    private int driversAssignedMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (java.lang.Double.doubleToRawLongBits(currentRate_) != 0) {
+        output.writeDouble(1, currentRate_);
+      }
+      if (getDriversAssignedList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(driversAssignedMemoizedSerializedSize);
+      }
+      for (int i = 0; i < driversAssigned_.size(); i++) {
+        output.writeInt32NoTag(driversAssigned_.getInt(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (java.lang.Double.doubleToRawLongBits(currentRate_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(1, currentRate_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < driversAssigned_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(driversAssigned_.getInt(i));
+        }
+        size += dataSize;
+        if (!getDriversAssignedList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        driversAssignedMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto)) {
+        return super.equals(obj);
+      }
+      dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto other = (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) obj;
+
+      if (java.lang.Double.doubleToLongBits(getCurrentRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getCurrentRate())) return false;
+      if (!getDriversAssignedList()
+          .equals(other.getDriversAssignedList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CURRENTRATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getCurrentRate()));
+      if (getDriversAssignedCount() > 0) {
+        hash = (37 * hash) + DRIVERSASSIGNED_FIELD_NUMBER;
+        hash = (53 * hash) + getDriversAssignedList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dk.via.fleetforward.gRPC.DispatcherProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dk.via.fleetforward.gRPC.DispatcherProto)
+        dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.class, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder.class);
+      }
+
+      // Construct using dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        currentRate_ = 0D;
+
+        driversAssigned_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDefaultInstanceForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto build() {
+        dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto buildPartial() {
+        dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto result = new dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto(this);
+        int from_bitField0_ = bitField0_;
+        result.currentRate_ = currentRate_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          driversAssigned_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.driversAssigned_ = driversAssigned_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) {
+          return mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto other) {
+        if (other == dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance()) return this;
+        if (other.getCurrentRate() != 0D) {
+          setCurrentRate(other.getCurrentRate());
+        }
+        if (!other.driversAssigned_.isEmpty()) {
+          if (driversAssigned_.isEmpty()) {
+            driversAssigned_ = other.driversAssigned_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureDriversAssignedIsMutable();
+            driversAssigned_.addAll(other.driversAssigned_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private double currentRate_ ;
+      /**
+       * <code>double currentRate = 1;</code>
+       * @return The currentRate.
+       */
+      @java.lang.Override
+      public double getCurrentRate() {
+        return currentRate_;
+      }
+      /**
+       * <code>double currentRate = 1;</code>
+       * @param value The currentRate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentRate(double value) {
+        
+        currentRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double currentRate = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCurrentRate() {
+        
+        currentRate_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.IntList driversAssigned_ = emptyIntList();
+      private void ensureDriversAssignedIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          driversAssigned_ = mutableCopy(driversAssigned_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @return A list containing the driversAssigned.
+       */
+      public java.util.List<java.lang.Integer>
+          getDriversAssignedList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(driversAssigned_) : driversAssigned_;
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @return The count of driversAssigned.
+       */
+      public int getDriversAssignedCount() {
+        return driversAssigned_.size();
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @param index The index of the element to return.
+       * @return The driversAssigned at the given index.
+       */
+      public int getDriversAssigned(int index) {
+        return driversAssigned_.getInt(index);
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The driversAssigned to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDriversAssigned(
+          int index, int value) {
+        ensureDriversAssignedIsMutable();
+        driversAssigned_.setInt(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @param value The driversAssigned to add.
+       * @return This builder for chaining.
+       */
+      public Builder addDriversAssigned(int value) {
+        ensureDriversAssignedIsMutable();
+        driversAssigned_.addInt(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @param values The driversAssigned to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllDriversAssigned(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureDriversAssignedIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, driversAssigned_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 driversAssigned = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDriversAssigned() {
+        driversAssigned_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dk.via.fleetforward.gRPC.DispatcherProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:dk.via.fleetforward.gRPC.DispatcherProto)
+    private static final dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto();
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DispatcherProto>
+        PARSER = new com.google.protobuf.AbstractParser<DispatcherProto>() {
+      @java.lang.Override
+      public DispatcherProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DispatcherProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DispatcherProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DispatcherProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_fleetforward_gRPC_CompanyProtoList_descriptor;
   private static final 
@@ -3564,6 +7434,21 @@ public final class Fleetforward {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_fleetforward_gRPC_ResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3576,27 +7461,47 @@ public final class Fleetforward {
       "\n\022fleetforward.proto\022\030dk.via.fleetforwar" +
       "d.gRPC\032\031google/protobuf/any.proto\"M\n\020Com" +
       "panyProtoList\0229\n\tcompanies\030\001 \003(\0132&.dk.vi" +
-      "a.fleetforward.gRPC.CompanyProto\"C\n\014Comp" +
-      "anyProto\022\n\n\002id\030\001 \001(\005\022\021\n\tmc_number\030\002 \001(\t\022" +
-      "\024\n\014company_name\030\003 \001(\t\"\255\001\n\014RequestProto\022;" +
-      "\n\007handler\030\001 \001(\0162*.dk.via.fleetforward.gR" +
-      "PC.HandlerTypeProto\0229\n\006action\030\002 \001(\0162).dk" +
-      ".via.fleetforward.gRPC.ActionTypeProto\022%" +
-      "\n\007payload\030\003 \001(\0132\024.google.protobuf.Any\"q\n" +
-      "\rResponseProto\0229\n\006status\030\001 \001(\0162).dk.via." +
-      "fleetforward.gRPC.StatusTypeProto\022%\n\007pay" +
-      "load\030\002 \001(\0132\024.google.protobuf.Any*<\n\020Hand" +
-      "lerTypeProto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HAN" +
-      "DLER_COMPANY\020\001*\177\n\017ActionTypeProto\022\022\n\016ACT" +
-      "ION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACTI" +
-      "ON_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rACTION_DE" +
-      "LETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017StatusTypePro" +
-      "to\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n" +
-      "\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID_PAYLOA" +
-      "D\020\0032s\n\021FleetServiceProto\022^\n\013SendRequest\022" +
-      "&.dk.via.fleetforward.gRPC.RequestProto\032" +
-      "\'.dk.via.fleetforward.gRPC.ResponseProto" +
-      "b\006proto3"
+      "a.fleetforward.gRPC.CompanyProto\"7\n\014Comp" +
+      "anyProto\022\021\n\tmc_number\030\001 \001(\t\022\024\n\014company_n" +
+      "ame\030\002 \001(\t\"\255\001\n\014RequestProto\022;\n\007handler\030\001 " +
+      "\001(\0162*.dk.via.fleetforward.gRPC.HandlerTy" +
+      "peProto\0229\n\006action\030\002 \001(\0162).dk.via.fleetfo" +
+      "rward.gRPC.ActionTypeProto\022%\n\007payload\030\003 " +
+      "\001(\0132\024.google.protobuf.Any\"q\n\rResponsePro" +
+      "to\0229\n\006status\030\001 \001(\0162).dk.via.fleetforward" +
+      ".gRPC.StatusTypeProto\022%\n\007payload\030\002 \001(\0132\024" +
+      ".google.protobuf.Any\"\364\001\n\tUserProto\022\n\n\002id" +
+      "\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 " +
+      "\001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022" +
+      "\020\n\010password\030\006 \001(\t\0227\n\006driver\030\007 \001(\0132%.dk.v" +
+      "ia.fleetforward.gRPC.DriverProtoH\000\022?\n\ndi" +
+      "spatcher\030\010 \001(\0132).dk.via.fleetforward.gRP" +
+      "C.DispatcherProtoH\000B\006\n\004role\"\237\002\n\013DriverPr" +
+      "oto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014driverSt" +
+      "atus\030\002 \001(\0162+.dk.via.fleetforward.gRPC.St" +
+      "atusDriverProto\022E\n\013companyRole\030\003 \001(\01620.d" +
+      "k.via.fleetforward.gRPC.DriverCompanyRol" +
+      "eProto\022?\n\013trailerType\030\004 \001(\0162*.dk.via.fle" +
+      "etforward.gRPC.TrailerTypeProto\022\024\n\014curre" +
+      "ntState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\"?\n" +
+      "\017DispatcherProto\022\023\n\013currentRate\030\001 \001(\001\022\027\n" +
+      "\017driversAssigned\030\002 \003(\005*<\n\020HandlerTypePro" +
+      "to\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPA" +
+      "NY\020\001*\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOW" +
+      "N\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021" +
+      "\n\rACTION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013" +
+      "ACTION_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STAT" +
+      "US_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ER" +
+      "ROR\020\002\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\021Sta" +
+      "tusDriverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE" +
+      "\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026DriverComp" +
+      "anyRoleProto\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n" +
+      "\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020Traile" +
+      "rTypeProto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_V" +
+      "AN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetSe" +
+      "rviceProto\022^\n\013SendRequest\022&.dk.via.fleet" +
+      "forward.gRPC.RequestProto\032\'.dk.via.fleet" +
+      "forward.gRPC.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3614,7 +7519,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_CompanyProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_CompanyProto_descriptor,
-        new java.lang.String[] { "Id", "McNumber", "CompanyName", });
+        new java.lang.String[] { "McNumber", "CompanyName", });
     internal_static_dk_via_fleetforward_gRPC_RequestProto_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_dk_via_fleetforward_gRPC_RequestProto_fieldAccessorTable = new
@@ -3627,6 +7532,24 @@ public final class Fleetforward {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_ResponseProto_descriptor,
         new java.lang.String[] { "Status", "Payload", });
+    internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor,
+        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Password", "Driver", "Dispatcher", "Role", });
+    internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor,
+        new java.lang.String[] { "CompanyMcNumber", "DriverStatus", "CompanyRole", "TrailerType", "CurrentState", "CurrentZIPCODE", });
+    internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor,
+        new java.lang.String[] { "CurrentRate", "DriversAssigned", });
     com.google.protobuf.AnyProto.getDescriptor();
   }
 
