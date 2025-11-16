@@ -5,9 +5,8 @@
     - [GRPC important notes](#grpc-important-notes)
   - [Server](#server)
     - [gRPC Server explained](#grpc-server-explained)
+    - [Dependency injection for handlers](#dependency-injection-for-handlers)
     - [FleetMainHandler](#fleetmainhandler)
-    - [Service Provider](#service-provider)
-    - [GlobalContext](#globalcontext)
 
 For a better overview of the project go back to [README](https://github.com/MarioIliescu/SEP3-Java/blob/master/README.md)  
 
@@ -128,6 +127,26 @@ public void start() {
     }
 ```
 
+### Dependency injection for handlers
+
+This is a Spring `@Configuration`
+Used to inject the correct handler for the request using `SpringBean`
+
+```java
+@Configuration
+public class HandlerConfig {
+
+    @Bean
+    public Map<HandlerTypeProto, FleetNetworkHandler> handlerMap(
+            List<FleetNetworkHandler> handlers) {
+              //Depending on the getType() method inside the interface 
+              // it gets the implementation with the same handlerType returned.
+        return handlers.stream()
+                .collect(Collectors.toMap(FleetNetworkHandler::getType, Function.identity()));
+    }
+}
+```
+
 ### FleetMainHandler  
 
 ---
@@ -142,15 +161,16 @@ service FleetService {
 ```
 
 Use `@GRpcService` to be able to inject it into the `Server`.  
-Use `ServiceProvider` to inject the **implementation** of our **interfaces** like in **SEP2** following **Dependency Inversion**.  
+Due to the automatic injection in configuration, there is no need to change this class for extra futures.  
 `extends FleetServiceGrpc.FleetServiceImplBase` important as a `GRpcService`. (can inject it into the `ServerBuilder`)
 
 ```java
+@Service
 @GRpcService
-public class FleetMainHandler extends FleetServiceGrpc.FleetServiceImplBase {
-    private final ServiceProvider serviceProvider;
-
-    public FleetMainHandler(ServiceProvider serviceProvider) {
+public class FleetMainHandler extends FleetServiceGrpc.FleetServiceImplBase {\
+    //Bean Injection
+    private final Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider;
+    public FleetMainHandler(Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider) {
         this.serviceProvider = serviceProvider;
     }
 ```
@@ -162,9 +182,10 @@ Sending a `Request` and observing `Responses` using GRpc.
     public void sendRequest(RequestProto request, StreamObserver<ResponseProto> responseObserver) {
         try {
             // Route request based on HandlerType
-            FleetNetworkHandler handler = switch (request.getHandler()) {
-                case HANDLER_COMPANY -> serviceProvider.getCompanyHandler();
-                default -> throw new IllegalArgumentException("Unknown handler type");
+            FleetNetworkHandler handler = serviceProvider.get(request.getHandler());
+            if (handler == null) {
+                throw new IllegalArgumentException("Unknown handler type");
+            }
             };
             // Message is the protobuf object
             Message result = handler.handle(request.getAction(), request.getPayload());
@@ -224,50 +245,4 @@ private void sendGrpcError(StreamObserver<ResponseProto> observer, StatusTypePro
         observer.onNext(response);
         observer.onCompleted();
     }
-```
-
-### Service Provider
-
-```java
-@Service
-public class ServiceProvider {
-    public CompanyServiceDatabase getCompanyService(){
-        return GlobalContext.getBean(CompanyServiceDatabase.class);
-    }
-    public FleetNetworkHandler getCompanyHandler(){
-        return new CompanyHandler(getCompanyService());
-    }
-}
-```
-
-### GlobalContext
-
-```java
-package dk.via.fleetforward.startup;
-
-import org.springframework.context.ApplicationContext;
-
-public class GlobalContext {
-
-  private static ApplicationContext context;
-
-  private GlobalContext() {
-    // prevent instantiation
-  }
-
-  public static void setContext(ApplicationContext applicationContext) {
-    context = applicationContext;
-  }
-
-  public static ApplicationContext getContext() {
-    if (context == null) {
-      throw new IllegalStateException("Spring ApplicationContext not initialized yet.");
-    }
-    return context;
-  }
-
-  public static <T> T getBean(Class<T> beanClass) {
-    return getContext().getBean(beanClass);
-  }
-}
 ```

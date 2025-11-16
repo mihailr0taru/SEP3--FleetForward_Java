@@ -11,7 +11,6 @@
       - [Update](#update)
       - [Delete](#delete)
       - [GetAll](#getall)
-      - [Get Single](#get-single)
 
 For a better overview of the project go back to [README](https://github.com/MarioIliescu/SEP3-Java/blob/master/README.md)
 
@@ -19,27 +18,30 @@ For a better overview of the project go back to [README](https://github.com/Mari
 
 ### Interface
 
-Observe the `@Service` to be possible to inject it with Spring `ApplicationContext`, dependency injection.
-
 ```java
-@Service
 public interface FleetNetworkHandler {
-    Message handle(ActionType actionType, Object payload);
+    HandlerTypeProto getType();
+    Message handle(ActionTypeProto actionType, Object payload);
 }
 ```
 
 #### Implementation example
 
-No need for the `@Service` since it inherits it from the interface
-`CompanyService` interface private `Object`.
+Observe the `@Service` to be possible to inject it with Spring `ApplicationContext`, dependency injection.
+Observe `getType()` to get the handler for the dependency injection with `@Bean`.
 
 ```java
+@Service
 public class CompanyHandler implements FleetNetworkHandler {
 
     private CompanyService companyService;
 
     public CompanyHandler(CompanyService companyService) {
         this.companyService = companyService;
+    }
+    @Override
+    public HandlerTypeProto getType() {
+        return HandlerTypeProto.HANDLER_COMPANY;
     }
 ```
 
@@ -61,7 +63,7 @@ Sending the `Request` after being processed to the `Service` implementation to h
       }
       switch (actionType) {
             case ACTION_GET -> {
-                proto = handleGet(request);
+                proto = companyService.getSingle(request.getMcNumber());
             }
             case ACTION_CREATE -> {
                 proto = companyService.create(request);
@@ -70,7 +72,7 @@ Sending the `Request` after being processed to the `Service` implementation to h
                 proto = companyService.update(request);
             }
             case ACTION_DELETE -> {
-                handleDelete(request);
+                companyService.delete(request.getMcNumber());
             }
             case ACTION_LIST -> {
                 proto = companyService.getAll();
@@ -86,34 +88,6 @@ Sending the `Request` after being processed to the `Service` implementation to h
       }
       return Any.pack(proto) ;
     }
-```
-
-`handleGet()` and `handleDelete()` due to having 2 days of accessing an Object in the database since `mcNumber` is `Unique`
-
-```java
- private CompanyProto handleGet(CompanyProto request) {
-        if (request.getId() != 0) {
-            return companyService.getSingle(request.getId());
-        } 
-        else if (!request.getMcNumber().isEmpty()) {
-            return companyService.getSingle(request.getMcNumber());
-        }
-        else{
-            throw new IllegalArgumentException("Must provide either an ID or MC number for ACTION_GET.");
-        }
-}
-
-private void handleDelete(CompanyProto request) {
-        if (request.getId() != 0) {
-            companyService.delete(request.getId());
-        } 
-        else if (!request.getMcNumber().isEmpty()) {
-            companyService.delete(request.getMcNumber());
-        }
-        else{
-            throw new IllegalArgumentException("Must provide either an ID or MC number for ACTION_DELETE.");
-        }
-}
 ```
 
 ## Services
@@ -140,11 +114,7 @@ public interface CompanyService {
 
     CompanyProto getSingle(String mcNumber);
 
-    CompanyProto getSingle(int id);
-
     void delete(String mcNumber);
-
-    void delete(int id);
 
     CompanyProtoList getAll();
 }
@@ -158,7 +128,7 @@ Mark the `Service` as the database implementation, the previous interface can be
 All methods that make changes to the database must be `@Transactional`.
 
 ```java
-@Service("database")
+@Service
 public class CompanyServiceDatabase implements CompanyService{
 
     private final CompanyRepository companyRepository;
@@ -186,7 +156,6 @@ public class CompanyServiceDatabase implements CompanyService{
         Company created = companyRepository.save(company);
         //return the proto 
         return CompanyProto.newBuilder()
-                .setId(created.getId())
                 .setMcNumber(created.getMcNumber())
                 .setCompanyName(created.getCompanyName()).build();
 }
@@ -208,7 +177,6 @@ public class CompanyServiceDatabase implements CompanyService{
         Company updated = companyRepository.save(existing);
         //return the new object
         return CompanyProto.newBuilder()
-                .setId(updated.getId())
                 .setMcNumber(updated.getMcNumber())
                 .setCompanyName(updated.getCompanyName())
                 .build();
@@ -218,9 +186,9 @@ public class CompanyServiceDatabase implements CompanyService{
 #### Delete
 
 ```java
-public void delete(int id) {
+public void delete(string mcNumber)
     //Use the magic spell and works. JPA
-       companyRepository.deleteById(id);
+       companyRepository.deleteById(mcNumber);
     }
 ```
 
@@ -228,36 +196,32 @@ public void delete(int id) {
 
 ```java
 @Override
-    public Fleetforward.CompanyProtoList getAll() {
+    public CompanyProtoList getAll() {
       List<Company> companies = companyRepository.findAll();
 
       // Builder for the list
-      Fleetforward.CompanyProtoList.Builder companiesProtoBuilder = Fleetforward.CompanyProtoList.newBuilder();
+      CompanyProtoList.Builder companiesProtoBuilder = CompanyProtoList.newBuilder();
 
       // Convert each Company entity to CompanyProto
       for (Company company : companies) {
-        Fleetforward.CompanyProto companyProto = Fleetforward.CompanyProto.newBuilder()
-            .setId(company.getId())
+        .CompanyProto companyProto = CompanyProto.newBuilder()
             .setMcNumber(company.getMcNumber())
             .setCompanyName(company.getCompanyName())
             .build();
         companiesProtoBuilder.addCompanies(companyProto);
       }
       // Build and return the list
-      return companiesProtoBuilder.build();
-```
-
-#### Get Single
+     turn companiesProtoBuilder.build();
+```#### Get Single
 
 ```java
 @Override
-    public CompanyProto getSingle(int id) {
+    public CompanyProto getSingle(string mcNumber) {
         //Wrap in optional in case it doesn't exist
-        Optional<Company> fetched = companyRepository.findById(id); //null safety
+        Optional<Company> fetched = companyRepository.findById(mcNumber); //null safety
         Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
         //return the proto
         return CompanyProto.newBuilder()
-                .setId(company.getId())
                 .setMcNumber(company.getMcNumber())
                 .setCompanyName(company.getCompanyName())
                 .build();
