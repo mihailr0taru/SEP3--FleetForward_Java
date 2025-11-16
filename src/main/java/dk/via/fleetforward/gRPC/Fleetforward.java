@@ -27,6 +27,14 @@ public final class Fleetforward {
      * <code>HANDLER_COMPANY = 1;</code>
      */
     HANDLER_COMPANY(1),
+    /**
+     * <code>HANDLER_DRIVER = 2;</code>
+     */
+    HANDLER_DRIVER(2),
+    /**
+     * <code>HANDLER_DISPATCHER = 3;</code>
+     */
+    HANDLER_DISPATCHER(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -38,6 +46,14 @@ public final class Fleetforward {
      * <code>HANDLER_COMPANY = 1;</code>
      */
     public static final int HANDLER_COMPANY_VALUE = 1;
+    /**
+     * <code>HANDLER_DRIVER = 2;</code>
+     */
+    public static final int HANDLER_DRIVER_VALUE = 2;
+    /**
+     * <code>HANDLER_DISPATCHER = 3;</code>
+     */
+    public static final int HANDLER_DISPATCHER_VALUE = 3;
 
 
     public final int getNumber() {
@@ -66,6 +82,8 @@ public final class Fleetforward {
       switch (value) {
         case 0: return HANDLER_UNKNOWN;
         case 1: return HANDLER_COMPANY;
+        case 2: return HANDLER_DRIVER;
+        case 3: return HANDLER_DISPATCHER;
         default: return null;
       }
     }
@@ -5680,6 +5698,21 @@ public final class Fleetforward {
      * @return The currentZIPCODE.
      */
     int getCurrentZIPCODE();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     * @return The user.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder();
   }
   /**
    * Protobuf type {@code dk.via.fleetforward.gRPC.DriverProto}
@@ -5764,6 +5797,19 @@ public final class Fleetforward {
             case 48: {
 
               currentZIPCODE_ = input.readInt32();
+              break;
+            }
+            case 58: {
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.UserProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -5944,6 +5990,32 @@ public final class Fleetforward {
       return currentZIPCODE_;
     }
 
+    public static final int USER_FIELD_NUMBER = 7;
+    private dk.via.fleetforward.gRPC.Fleetforward.UserProto user_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     * @return The user.
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser() {
+      return user_ == null ? dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5976,6 +6048,9 @@ public final class Fleetforward {
       if (currentZIPCODE_ != 0) {
         output.writeInt32(6, currentZIPCODE_);
       }
+      if (user_ != null) {
+        output.writeMessage(7, getUser());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6007,6 +6082,10 @@ public final class Fleetforward {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, currentZIPCODE_);
       }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getUser());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6031,6 +6110,11 @@ public final class Fleetforward {
           .equals(other.getCurrentState())) return false;
       if (getCurrentZIPCODE()
           != other.getCurrentZIPCODE()) return false;
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6054,6 +6138,10 @@ public final class Fleetforward {
       hash = (53 * hash) + getCurrentState().hashCode();
       hash = (37 * hash) + CURRENTZIPCODE_FIELD_NUMBER;
       hash = (53 * hash) + getCurrentZIPCODE();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6199,6 +6287,12 @@ public final class Fleetforward {
 
         currentZIPCODE_ = 0;
 
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -6231,6 +6325,11 @@ public final class Fleetforward {
         result.trailerType_ = trailerType_;
         result.currentState_ = currentState_;
         result.currentZIPCODE_ = currentZIPCODE_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -6298,6 +6397,9 @@ public final class Fleetforward {
         }
         if (other.getCurrentZIPCODE() != 0) {
           setCurrentZIPCODE(other.getCurrentZIPCODE());
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6671,6 +6773,125 @@ public final class Fleetforward {
         currentZIPCODE_ = 0;
         onChanged();
         return this;
+      }
+
+      private dk.via.fleetforward.gRPC.Fleetforward.UserProto user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder> userBuilder_;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       * @return The user.
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public Builder setUser(dk.via.fleetforward.gRPC.Fleetforward.UserProto value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public Builder setUser(
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public Builder mergeUser(dk.via.fleetforward.gRPC.Fleetforward.UserProto value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7546,6 +7767,21 @@ public final class Fleetforward {
      * @return The driversAssigned at the given index.
      */
     int getDriversAssigned(int index);
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     * @return The user.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder();
   }
   /**
    * Protobuf type {@code dk.via.fleetforward.gRPC.DispatcherProto}
@@ -7618,6 +7854,19 @@ public final class Fleetforward {
                 driversAssigned_.addInt(input.readInt32());
               }
               input.popLimit(limit);
+              break;
+            }
+            case 26: {
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.UserProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -7696,6 +7945,32 @@ public final class Fleetforward {
     }
     private int driversAssignedMemoizedSerializedSize = -1;
 
+    public static final int USER_FIELD_NUMBER = 3;
+    private dk.via.fleetforward.gRPC.Fleetforward.UserProto user_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     * @return The user.
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser() {
+      return user_ == null ? dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7720,6 +7995,9 @@ public final class Fleetforward {
       }
       for (int i = 0; i < driversAssigned_.size(); i++) {
         output.writeInt32NoTag(driversAssigned_.getInt(i));
+      }
+      if (user_ != null) {
+        output.writeMessage(3, getUser());
       }
       unknownFields.writeTo(output);
     }
@@ -7748,6 +8026,10 @@ public final class Fleetforward {
         }
         driversAssignedMemoizedSerializedSize = dataSize;
       }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUser());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7768,6 +8050,11 @@ public final class Fleetforward {
               other.getCurrentRate())) return false;
       if (!getDriversAssignedList()
           .equals(other.getDriversAssignedList())) return false;
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7785,6 +8072,10 @@ public final class Fleetforward {
       if (getDriversAssignedCount() > 0) {
         hash = (37 * hash) + DRIVERSASSIGNED_FIELD_NUMBER;
         hash = (53 * hash) + getDriversAssignedList().hashCode();
+      }
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7923,6 +8214,12 @@ public final class Fleetforward {
 
         driversAssigned_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
         return this;
       }
 
@@ -7956,6 +8253,11 @@ public final class Fleetforward {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.driversAssigned_ = driversAssigned_;
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -8016,6 +8318,9 @@ public final class Fleetforward {
             driversAssigned_.addAll(other.driversAssigned_);
           }
           onChanged();
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8155,6 +8460,125 @@ public final class Fleetforward {
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
+      }
+
+      private dk.via.fleetforward.gRPC.Fleetforward.UserProto user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder> userBuilder_;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       * @return The user.
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public Builder setUser(dk.via.fleetforward.gRPC.Fleetforward.UserProto value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public Builder setUser(
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public Builder mergeUser(dk.via.fleetforward.gRPC.Fleetforward.UserProto value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserProto user = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dk.via.fleetforward.gRPC.Fleetforward.UserProto, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.UserProtoOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -9076,36 +9500,40 @@ public final class Fleetforward {
       "\020\n\010password\030\006 \001(\t\0227\n\006driver\030\007 \001(\0132%.dk.v" +
       "ia.fleetforward.gRPC.DriverProtoH\000\022?\n\ndi" +
       "spatcher\030\010 \001(\0132).dk.via.fleetforward.gRP" +
-      "C.DispatcherProtoH\000B\006\n\004role\"\237\002\n\013DriverPr" +
+      "C.DispatcherProtoH\000B\006\n\004role\"\322\002\n\013DriverPr" +
       "oto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014driverSt" +
       "atus\030\002 \001(\0162+.dk.via.fleetforward.gRPC.St" +
       "atusDriverProto\022E\n\013companyRole\030\003 \001(\01620.d" +
       "k.via.fleetforward.gRPC.DriverCompanyRol" +
       "eProto\022?\n\013trailerType\030\004 \001(\0162*.dk.via.fle" +
       "etforward.gRPC.TrailerTypeProto\022\024\n\014curre" +
-      "ntState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\"I\n" +
-      "\017DriverListProto\0226\n\007drivers\030\001 \003(\0132%.dk.v" +
-      "ia.fleetforward.gRPC.DriverProto\"?\n\017Disp" +
-      "atcherProto\022\023\n\013currentRate\030\001 \001(\001\022\027\n\017driv" +
-      "ersAssigned\030\002 \003(\005\"U\n\023DispatcherListProto" +
-      "\022>\n\013dispatchers\030\001 \003(\0132).dk.via.fleetforw" +
-      "ard.gRPC.DispatcherProto*<\n\020HandlerTypeP" +
-      "roto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COM" +
-      "PANY\020\001*\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKN" +
-      "OWN\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002" +
-      "\022\021\n\rACTION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017" +
-      "\n\013ACTION_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016ST" +
-      "ATUS_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_" +
-      "ERROR\020\002\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\021S" +
-      "tatusDriverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILAB" +
-      "LE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCo" +
-      "mpanyRoleProto\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000" +
-      "\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020Trai" +
-      "lerTypeProto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY" +
-      "_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021Fleet" +
-      "ServiceProto\022^\n\013SendRequest\022&.dk.via.fle" +
-      "etforward.gRPC.RequestProto\032\'.dk.via.fle" +
-      "etforward.gRPC.ResponseProtob\006proto3"
+      "ntState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\0221\n" +
+      "\004user\030\007 \001(\0132#.dk.via.fleetforward.gRPC.U" +
+      "serProto\"I\n\017DriverListProto\0226\n\007drivers\030\001" +
+      " \003(\0132%.dk.via.fleetforward.gRPC.DriverPr" +
+      "oto\"r\n\017DispatcherProto\022\023\n\013currentRate\030\001 " +
+      "\001(\001\022\027\n\017driversAssigned\030\002 \003(\005\0221\n\004user\030\003 \001" +
+      "(\0132#.dk.via.fleetforward.gRPC.UserProto\"" +
+      "U\n\023DispatcherListProto\022>\n\013dispatchers\030\001 " +
+      "\003(\0132).dk.via.fleetforward.gRPC.Dispatche" +
+      "rProto*h\n\020HandlerTypeProto\022\023\n\017HANDLER_UN" +
+      "KNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001\022\022\n\016HANDLER_" +
+      "DRIVER\020\002\022\026\n\022HANDLER_DISPATCHER\020\003*\177\n\017Acti" +
+      "onTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021\n\rACTIO" +
+      "N_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACTION_UPD" +
+      "ATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTION_LIST\020" +
+      "\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UNKNOWN\020\000" +
+      "\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002\022\032\n\026STA" +
+      "TUS_INVALID_PAYLOAD\020\003*G\n\021StatusDriverPro" +
+      "to\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002" +
+      "\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRoleProto" +
+      "\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022" +
+      "\n\016OWNER_OPERATOR\020\002*M\n\020TrailerTypeProto\022\023" +
+      "\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLAT" +
+      "BED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetServiceProto\022^" +
+      "\n\013SendRequest\022&.dk.via.fleetforward.gRPC" +
+      ".RequestProto\032\'.dk.via.fleetforward.gRPC" +
+      ".ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9147,7 +9575,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor,
-        new java.lang.String[] { "CompanyMcNumber", "DriverStatus", "CompanyRole", "TrailerType", "CurrentState", "CurrentZIPCODE", });
+        new java.lang.String[] { "CompanyMcNumber", "DriverStatus", "CompanyRole", "TrailerType", "CurrentState", "CurrentZIPCODE", "User", });
     internal_static_dk_via_fleetforward_gRPC_DriverListProto_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_dk_via_fleetforward_gRPC_DriverListProto_fieldAccessorTable = new
@@ -9159,7 +9587,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor,
-        new java.lang.String[] { "CurrentRate", "DriversAssigned", });
+        new java.lang.String[] { "CurrentRate", "DriversAssigned", "User", });
     internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_fieldAccessorTable = new

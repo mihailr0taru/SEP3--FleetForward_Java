@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 
 public class Driver
 {
-  @Id int driver_id;
+  @Id int driverId;
   @Column(name = "company_mc_number", nullable = false)
   String companyMcNumber;
 
@@ -39,14 +39,14 @@ public class Driver
     this.currentLocationState = currentLocationState;
   }
 
-  public int getDriver_id()
+  public int getDriverId()
   {
-    return driver_id;
+    return driverId;
   }
 
-  public void setDriver_id(int driver_id)
+  public void setDriverId(int driver_id)
   {
-    this.driver_id = driver_id;
+    this.driverId = driver_id;
   }
 
   public String getCompanyMcNumber()
