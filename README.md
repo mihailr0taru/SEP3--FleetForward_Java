@@ -26,6 +26,8 @@
 
 ## File System Overview
 
+<img width="299" height="398" alt="image" src="https://github.com/user-attachments/assets/daafd8d4-aaa1-40a7-8fb4-e72d585b387d" />
+
 ## Pom and dependencies
 
 ```xml
