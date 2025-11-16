@@ -31,7 +31,7 @@ public class DriverServiceDatabase implements DriverService{
     }
 
     @Override
-    public DriverProto getSingle(String driverId) {
+    public DriverProto getSingle(int driverId) {
         return null;
     }
 
