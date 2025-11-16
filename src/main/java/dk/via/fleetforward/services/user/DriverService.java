@@ -7,6 +7,6 @@ public interface DriverService {
     DriverProto create(DriverProto driver);
     void update(DriverProto driver);
     void delete(int driverId);
-    DriverProto getSingle(String driverId);
+    DriverProto getSingle(int driverId);
     DriverListProto getAll();
 }
