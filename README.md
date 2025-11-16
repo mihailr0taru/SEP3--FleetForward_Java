@@ -6,7 +6,7 @@
     - [Business Server](#business-server)
     - [Entities and Repositories](#entities-and-repositories)
     - [Handlers and Services](#handlers-and-services)
-    - [Server, Main Handler, Service Provider and GlobalContext](#server-main-handler-service-provider-and-globalcontext)
+    - [Server, Main Handler, SpringBean config](#server-main-handler-springbean-config)
   - [File System Overview](#file-system-overview)
   - [Pom and dependencies](#pom-and-dependencies)
 
@@ -22,14 +22,11 @@
 
 ### [Handlers and Services](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/HandlerServiceDocs.md)
 
-### [Server, Main Handler, Service Provider and GlobalContext](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/ServerDocs.md)
+### [Server, Main Handler, SpringBean config](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/ServerDocs.md)
 
 ## File System Overview
 
-<img width="479" height="788" alt="image" src="https://github.com/user-attachments/assets/9cf88250-2e91-475f-9d53-59725f227468" />
-
 ## Pom and dependencies
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
