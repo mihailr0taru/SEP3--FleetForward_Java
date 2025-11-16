@@ -24,17 +24,11 @@ For a better overview of the project go back to [README](https://github.com/Mari
 //Which table is part of
 @Table(name = "company", schema = "fleetforward")
 public class Company {
-    //serial key
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //wrapper in Integer
-    Integer id;
-    //give the column in the database, if it s unique and nullable
-    @Column(name = "mc_number", unique = true, nullable = false)
+    @Column(name = "mc_number", nullable = false, unique = true)
     String mcNumber;
     @Column(name = "company_name", nullable = false)
     String companyName;
-    //...getters and setters
 
      public void setMcNumber(String mcNumber) {
         //Use the model to put in existance requirements, for example mc is 10 characters long.
@@ -56,11 +50,8 @@ Mark as `@Repository`
 @Repository
 //Type of object and primary key type
 //Company = Object
-//Integer = pk
-public interface CompanyRepository extends JpaRepository<Company, Integer>{
-    //Optional if we want more than just basic crud
-    Optional<Company> findByMcNumber(String mcNumber);
-    void deleteByMcNumber(String mcNumber);
+//String mcNumber= pk
+public interface CompanyRepository extends JpaRepository<Company, String>{
 }
 ```
 
