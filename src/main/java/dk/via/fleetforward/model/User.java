@@ -1,6 +1,9 @@
 package dk.via.fleetforward.model;
 
+import dk.via.fleetforward.model.Enums.UserRole;
 import jakarta.persistence.*;
+
+import dk.via.fleetforward.gRPC.Fleetforward.UserProto;
 
 /**
  * User entity class for storing user information
@@ -12,20 +15,38 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
+
     @Column(name = "first_name", unique = true, nullable = false)
-    String firstName;
+    private String firstName;
+
     @Column(name = "last_name", nullable = false)
-    String lastName;
+    private String lastName;
+
     @Column(name = "email", nullable = false)
-    String email;
+    private String email;
+
     @Column(name = "phone_number", unique = true, nullable = false)
-    String phoneNumber;
+    private String phoneNumber;
+
     @Column(name = "hashed_password", nullable = false)
-    String password;
+    private String password;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
-    UserRole role;
+    private UserRole role;
+
+
+    public User(UserProto tempUser) {
+        setId(tempUser.getId());
+        setFirstName(tempUser.getFirstName());
+        setLastName(tempUser.getLastName());
+        setEmail(tempUser.getEmail());
+        setPhoneNumber(tempUser.getPhoneNumber());
+        setPassword(tempUser.getPassword());
+    }
+
+    public User() {};
 
     public Integer getId() {
         return id;
@@ -81,5 +102,17 @@ public class User {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public static UserProto makeUserProto(User user)
+    {
+        return UserProto.newBuilder()
+                .setId(user.getId())
+                .setFirstName(user.getFirstName())
+                .setLastName(user.getLastName())
+                .setEmail(user.getEmail())
+                .setPhoneNumber(user.getPhoneNumber())
+                .setPassword(user.getPassword())
+                .build();
     }
 }
