@@ -3930,38 +3930,6 @@ public final class Fleetforward {
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
-
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     * @return Whether the driver field is set.
-     */
-    boolean hasDriver();
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     * @return The driver.
-     */
-    dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver();
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     */
-    dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder();
-
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     * @return Whether the dispatcher field is set.
-     */
-    boolean hasDispatcher();
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     * @return The dispatcher.
-     */
-    dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher();
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     */
-    dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder();
-
-    public dk.via.fleetforward.gRPC.Fleetforward.UserProto.RoleCase getRoleCase();
   }
   /**
    * Protobuf type {@code dk.via.fleetforward.gRPC.UserProto}
@@ -4048,34 +4016,6 @@ public final class Fleetforward {
               password_ = s;
               break;
             }
-            case 58: {
-              dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder subBuilder = null;
-              if (roleCase_ == 7) {
-                subBuilder = ((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_).toBuilder();
-              }
-              role_ =
-                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.DriverProto.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
-                role_ = subBuilder.buildPartial();
-              }
-              roleCase_ = 7;
-              break;
-            }
-            case 66: {
-              dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder subBuilder = null;
-              if (roleCase_ == 8) {
-                subBuilder = ((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_).toBuilder();
-              }
-              role_ =
-                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
-                role_ = subBuilder.buildPartial();
-              }
-              roleCase_ = 8;
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4108,47 +4048,6 @@ public final class Fleetforward {
       return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               dk.via.fleetforward.gRPC.Fleetforward.UserProto.class, dk.via.fleetforward.gRPC.Fleetforward.UserProto.Builder.class);
-    }
-
-    private int roleCase_ = 0;
-    private java.lang.Object role_;
-    public enum RoleCase
-        implements com.google.protobuf.Internal.EnumLite,
-            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      DRIVER(7),
-      DISPATCHER(8),
-      ROLE_NOT_SET(0);
-      private final int value;
-      private RoleCase(int value) {
-        this.value = value;
-      }
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static RoleCase valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static RoleCase forNumber(int value) {
-        switch (value) {
-          case 7: return DRIVER;
-          case 8: return DISPATCHER;
-          case 0: return ROLE_NOT_SET;
-          default: return null;
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    };
-
-    public RoleCase
-    getRoleCase() {
-      return RoleCase.forNumber(
-          roleCase_);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -4352,68 +4251,6 @@ public final class Fleetforward {
       }
     }
 
-    public static final int DRIVER_FIELD_NUMBER = 7;
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     * @return Whether the driver field is set.
-     */
-    @java.lang.Override
-    public boolean hasDriver() {
-      return roleCase_ == 7;
-    }
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     * @return The driver.
-     */
-    @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver() {
-      if (roleCase_ == 7) {
-         return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
-      }
-      return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-    }
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-     */
-    @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder() {
-      if (roleCase_ == 7) {
-         return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
-      }
-      return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-    }
-
-    public static final int DISPATCHER_FIELD_NUMBER = 8;
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     * @return Whether the dispatcher field is set.
-     */
-    @java.lang.Override
-    public boolean hasDispatcher() {
-      return roleCase_ == 8;
-    }
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     * @return The dispatcher.
-     */
-    @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher() {
-      if (roleCase_ == 8) {
-         return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
-      }
-      return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-    }
-    /**
-     * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-     */
-    @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder() {
-      if (roleCase_ == 8) {
-         return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
-      }
-      return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4446,12 +4283,6 @@ public final class Fleetforward {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, password_);
       }
-      if (roleCase_ == 7) {
-        output.writeMessage(7, (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
-      }
-      if (roleCase_ == 8) {
-        output.writeMessage(8, (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -4480,14 +4311,6 @@ public final class Fleetforward {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, password_);
       }
-      if (roleCase_ == 7) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_);
-      }
-      if (roleCase_ == 8) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4515,19 +4338,6 @@ public final class Fleetforward {
           .equals(other.getPhoneNumber())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
-      if (!getRoleCase().equals(other.getRoleCase())) return false;
-      switch (roleCase_) {
-        case 7:
-          if (!getDriver()
-              .equals(other.getDriver())) return false;
-          break;
-        case 8:
-          if (!getDispatcher()
-              .equals(other.getDispatcher())) return false;
-          break;
-        case 0:
-        default:
-      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4551,18 +4361,6 @@ public final class Fleetforward {
       hash = (53 * hash) + getPhoneNumber().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
-      switch (roleCase_) {
-        case 7:
-          hash = (37 * hash) + DRIVER_FIELD_NUMBER;
-          hash = (53 * hash) + getDriver().hashCode();
-          break;
-        case 8:
-          hash = (37 * hash) + DISPATCHER_FIELD_NUMBER;
-          hash = (53 * hash) + getDispatcher().hashCode();
-          break;
-        case 0:
-        default:
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4708,8 +4506,6 @@ public final class Fleetforward {
 
         password_ = "";
 
-        roleCase_ = 0;
-        role_ = null;
         return this;
       }
 
@@ -4742,21 +4538,6 @@ public final class Fleetforward {
         result.email_ = email_;
         result.phoneNumber_ = phoneNumber_;
         result.password_ = password_;
-        if (roleCase_ == 7) {
-          if (driverBuilder_ == null) {
-            result.role_ = role_;
-          } else {
-            result.role_ = driverBuilder_.build();
-          }
-        }
-        if (roleCase_ == 8) {
-          if (dispatcherBuilder_ == null) {
-            result.role_ = role_;
-          } else {
-            result.role_ = dispatcherBuilder_.build();
-          }
-        }
-        result.roleCase_ = roleCase_;
         onBuilt();
         return result;
       }
@@ -4828,19 +4609,6 @@ public final class Fleetforward {
           password_ = other.password_;
           onChanged();
         }
-        switch (other.getRoleCase()) {
-          case DRIVER: {
-            mergeDriver(other.getDriver());
-            break;
-          }
-          case DISPATCHER: {
-            mergeDispatcher(other.getDispatcher());
-            break;
-          }
-          case ROLE_NOT_SET: {
-            break;
-          }
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4869,21 +4637,6 @@ public final class Fleetforward {
         }
         return this;
       }
-      private int roleCase_ = 0;
-      private java.lang.Object role_;
-      public RoleCase
-          getRoleCase() {
-        return RoleCase.forNumber(
-            roleCase_);
-      }
-
-      public Builder clearRole() {
-        roleCase_ = 0;
-        role_ = null;
-        onChanged();
-        return this;
-      }
-
 
       private int id_ ;
       /**
@@ -5294,290 +5047,6 @@ public final class Fleetforward {
         password_ = value;
         onChanged();
         return this;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder> driverBuilder_;
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       * @return Whether the driver field is set.
-       */
-      @java.lang.Override
-      public boolean hasDriver() {
-        return roleCase_ == 7;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       * @return The driver.
-       */
-      @java.lang.Override
-      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto getDriver() {
-        if (driverBuilder_ == null) {
-          if (roleCase_ == 7) {
-            return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-        } else {
-          if (roleCase_ == 7) {
-            return driverBuilder_.getMessage();
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      public Builder setDriver(dk.via.fleetforward.gRPC.Fleetforward.DriverProto value) {
-        if (driverBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          role_ = value;
-          onChanged();
-        } else {
-          driverBuilder_.setMessage(value);
-        }
-        roleCase_ = 7;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      public Builder setDriver(
-          dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder builderForValue) {
-        if (driverBuilder_ == null) {
-          role_ = builderForValue.build();
-          onChanged();
-        } else {
-          driverBuilder_.setMessage(builderForValue.build());
-        }
-        roleCase_ = 7;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      public Builder mergeDriver(dk.via.fleetforward.gRPC.Fleetforward.DriverProto value) {
-        if (driverBuilder_ == null) {
-          if (roleCase_ == 7 &&
-              role_ != dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance()) {
-            role_ = dk.via.fleetforward.gRPC.Fleetforward.DriverProto.newBuilder((dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            role_ = value;
-          }
-          onChanged();
-        } else {
-          if (roleCase_ == 7) {
-            driverBuilder_.mergeFrom(value);
-          } else {
-            driverBuilder_.setMessage(value);
-          }
-        }
-        roleCase_ = 7;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      public Builder clearDriver() {
-        if (driverBuilder_ == null) {
-          if (roleCase_ == 7) {
-            roleCase_ = 0;
-            role_ = null;
-            onChanged();
-          }
-        } else {
-          if (roleCase_ == 7) {
-            roleCase_ = 0;
-            role_ = null;
-          }
-          driverBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      public dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder getDriverBuilder() {
-        return getDriverFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      @java.lang.Override
-      public dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder getDriverOrBuilder() {
-        if ((roleCase_ == 7) && (driverBuilder_ != null)) {
-          return driverBuilder_.getMessageOrBuilder();
-        } else {
-          if (roleCase_ == 7) {
-            return (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_;
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DriverProto driver = 7;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder> 
-          getDriverFieldBuilder() {
-        if (driverBuilder_ == null) {
-          if (!(roleCase_ == 7)) {
-            role_ = dk.via.fleetforward.gRPC.Fleetforward.DriverProto.getDefaultInstance();
-          }
-          driverBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              dk.via.fleetforward.gRPC.Fleetforward.DriverProto, dk.via.fleetforward.gRPC.Fleetforward.DriverProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DriverProtoOrBuilder>(
-                  (dk.via.fleetforward.gRPC.Fleetforward.DriverProto) role_,
-                  getParentForChildren(),
-                  isClean());
-          role_ = null;
-        }
-        roleCase_ = 7;
-        onChanged();;
-        return driverBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder> dispatcherBuilder_;
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       * @return Whether the dispatcher field is set.
-       */
-      @java.lang.Override
-      public boolean hasDispatcher() {
-        return roleCase_ == 8;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       * @return The dispatcher.
-       */
-      @java.lang.Override
-      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto getDispatcher() {
-        if (dispatcherBuilder_ == null) {
-          if (roleCase_ == 8) {
-            return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-        } else {
-          if (roleCase_ == 8) {
-            return dispatcherBuilder_.getMessage();
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      public Builder setDispatcher(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto value) {
-        if (dispatcherBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          role_ = value;
-          onChanged();
-        } else {
-          dispatcherBuilder_.setMessage(value);
-        }
-        roleCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      public Builder setDispatcher(
-          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder builderForValue) {
-        if (dispatcherBuilder_ == null) {
-          role_ = builderForValue.build();
-          onChanged();
-        } else {
-          dispatcherBuilder_.setMessage(builderForValue.build());
-        }
-        roleCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      public Builder mergeDispatcher(dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto value) {
-        if (dispatcherBuilder_ == null) {
-          if (roleCase_ == 8 &&
-              role_ != dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance()) {
-            role_ = dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.newBuilder((dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            role_ = value;
-          }
-          onChanged();
-        } else {
-          if (roleCase_ == 8) {
-            dispatcherBuilder_.mergeFrom(value);
-          } else {
-            dispatcherBuilder_.setMessage(value);
-          }
-        }
-        roleCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      public Builder clearDispatcher() {
-        if (dispatcherBuilder_ == null) {
-          if (roleCase_ == 8) {
-            roleCase_ = 0;
-            role_ = null;
-            onChanged();
-          }
-        } else {
-          if (roleCase_ == 8) {
-            roleCase_ = 0;
-            role_ = null;
-          }
-          dispatcherBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder getDispatcherBuilder() {
-        return getDispatcherFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      @java.lang.Override
-      public dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder getDispatcherOrBuilder() {
-        if ((roleCase_ == 8) && (dispatcherBuilder_ != null)) {
-          return dispatcherBuilder_.getMessageOrBuilder();
-        } else {
-          if (roleCase_ == 8) {
-            return (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_;
-          }
-          return dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.dk.via.fleetforward.gRPC.DispatcherProto dispatcher = 8;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder> 
-          getDispatcherFieldBuilder() {
-        if (dispatcherBuilder_ == null) {
-          if (!(roleCase_ == 8)) {
-            role_ = dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.getDefaultInstance();
-          }
-          dispatcherBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.DispatcherProtoOrBuilder>(
-                  (dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto) role_,
-                  getParentForChildren(),
-                  isClean());
-          role_ = null;
-        }
-        roleCase_ = 8;
-        onChanged();;
-        return dispatcherBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -9494,46 +8963,43 @@ public final class Fleetforward {
       "\001(\0132\024.google.protobuf.Any\"q\n\rResponsePro" +
       "to\0229\n\006status\030\001 \001(\0162).dk.via.fleetforward" +
       ".gRPC.StatusTypeProto\022%\n\007payload\030\002 \001(\0132\024" +
-      ".google.protobuf.Any\"\364\001\n\tUserProto\022\n\n\002id" +
-      "\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 " +
-      "\001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022" +
-      "\020\n\010password\030\006 \001(\t\0227\n\006driver\030\007 \001(\0132%.dk.v" +
-      "ia.fleetforward.gRPC.DriverProtoH\000\022?\n\ndi" +
-      "spatcher\030\010 \001(\0132).dk.via.fleetforward.gRP" +
-      "C.DispatcherProtoH\000B\006\n\004role\"\322\002\n\013DriverPr" +
-      "oto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014driverSt" +
-      "atus\030\002 \001(\0162+.dk.via.fleetforward.gRPC.St" +
-      "atusDriverProto\022E\n\013companyRole\030\003 \001(\01620.d" +
-      "k.via.fleetforward.gRPC.DriverCompanyRol" +
-      "eProto\022?\n\013trailerType\030\004 \001(\0162*.dk.via.fle" +
-      "etforward.gRPC.TrailerTypeProto\022\024\n\014curre" +
-      "ntState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\0221\n" +
-      "\004user\030\007 \001(\0132#.dk.via.fleetforward.gRPC.U" +
-      "serProto\"I\n\017DriverListProto\0226\n\007drivers\030\001" +
-      " \003(\0132%.dk.via.fleetforward.gRPC.DriverPr" +
-      "oto\"r\n\017DispatcherProto\022\023\n\013currentRate\030\001 " +
-      "\001(\001\022\027\n\017driversAssigned\030\002 \003(\005\0221\n\004user\030\003 \001" +
-      "(\0132#.dk.via.fleetforward.gRPC.UserProto\"" +
-      "U\n\023DispatcherListProto\022>\n\013dispatchers\030\001 " +
-      "\003(\0132).dk.via.fleetforward.gRPC.Dispatche" +
-      "rProto*h\n\020HandlerTypeProto\022\023\n\017HANDLER_UN" +
-      "KNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001\022\022\n\016HANDLER_" +
-      "DRIVER\020\002\022\026\n\022HANDLER_DISPATCHER\020\003*\177\n\017Acti" +
-      "onTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021\n\rACTIO" +
-      "N_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACTION_UPD" +
-      "ATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTION_LIST\020" +
-      "\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UNKNOWN\020\000" +
-      "\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002\022\032\n\026STA" +
-      "TUS_INVALID_PAYLOAD\020\003*G\n\021StatusDriverPro" +
-      "to\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002" +
-      "\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRoleProto" +
-      "\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022" +
-      "\n\016OWNER_OPERATOR\020\002*M\n\020TrailerTypeProto\022\023" +
-      "\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLAT" +
-      "BED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetServiceProto\022^" +
-      "\n\013SendRequest\022&.dk.via.fleetforward.gRPC" +
-      ".RequestProto\032\'.dk.via.fleetforward.gRPC" +
-      ".ResponseProtob\006proto3"
+      ".google.protobuf.Any\"r\n\tUserProto\022\n\n\002id\030" +
+      "\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001" +
+      "(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022\020" +
+      "\n\010password\030\006 \001(\t\"\322\002\n\013DriverProto\022\027\n\017comp" +
+      "anyMcNumber\030\001 \001(\t\022A\n\014driverStatus\030\002 \001(\0162" +
+      "+.dk.via.fleetforward.gRPC.StatusDriverP" +
+      "roto\022E\n\013companyRole\030\003 \001(\01620.dk.via.fleet" +
+      "forward.gRPC.DriverCompanyRoleProto\022?\n\013t" +
+      "railerType\030\004 \001(\0162*.dk.via.fleetforward.g" +
+      "RPC.TrailerTypeProto\022\024\n\014currentState\030\005 \001" +
+      "(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\0221\n\004user\030\007 \001(\013" +
+      "2#.dk.via.fleetforward.gRPC.UserProto\"I\n" +
+      "\017DriverListProto\0226\n\007drivers\030\001 \003(\0132%.dk.v" +
+      "ia.fleetforward.gRPC.DriverProto\"r\n\017Disp" +
+      "atcherProto\022\023\n\013currentRate\030\001 \001(\001\022\027\n\017driv" +
+      "ersAssigned\030\002 \003(\005\0221\n\004user\030\003 \001(\0132#.dk.via" +
+      ".fleetforward.gRPC.UserProto\"U\n\023Dispatch" +
+      "erListProto\022>\n\013dispatchers\030\001 \003(\0132).dk.vi" +
+      "a.fleetforward.gRPC.DispatcherProto*h\n\020H" +
+      "andlerTypeProto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017" +
+      "HANDLER_COMPANY\020\001\022\022\n\016HANDLER_DRIVER\020\002\022\026\n" +
+      "\022HANDLER_DISPATCHER\020\003*\177\n\017ActionTypeProto" +
+      "\022\022\n\016ACTION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022" +
+      "\016\n\nACTION_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rAC" +
+      "TION_DELETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017Status" +
+      "TypeProto\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_" +
+      "OK\020\001\022\020\n\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID" +
+      "_PAYLOAD\020\003*G\n\021StatusDriverProto\022\013\n\007UNKNO" +
+      "WN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUT" +
+      "Y\020\003*R\n\026DriverCompanyRoleProto\022\030\n\024UNKNOWN" +
+      "_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPE" +
+      "RATOR\020\002*M\n\020TrailerTypeProto\022\023\n\017UNKNOWN_T" +
+      "RAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006RE" +
+      "EFER\020\0032s\n\021FleetServiceProto\022^\n\013SendReque" +
+      "st\022&.dk.via.fleetforward.gRPC.RequestPro" +
+      "to\032\'.dk.via.fleetforward.gRPC.ResponsePr" +
+      "otob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9569,7 +9035,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor,
-        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Password", "Driver", "Dispatcher", "Role", });
+        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Password", });
     internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable = new

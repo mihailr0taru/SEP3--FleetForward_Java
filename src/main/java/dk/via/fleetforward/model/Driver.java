@@ -8,6 +8,8 @@ import dk.via.fleetforward.gRPC.Fleetforward.DriverProto;
 import dk.via.fleetforward.model.Enums.DriverCompanyRole;
 import dk.via.fleetforward.model.Enums.StatusDriver;
 import dk.via.fleetforward.model.Enums.TrailerType;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
 
 /**
@@ -19,17 +21,19 @@ import jakarta.persistence.*;
 @Table(name = "driver", schema = "fleetforward")
 public class Driver {
     @Id
-    int driverId; // will this work??
+    private Integer driverId;
 
     @Column(name = "company_mc_number", nullable = false)
     private String companyMcNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", columnDefinition = "driver_status", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "status", columnDefinition = "fleetforward.driver_status", nullable = false)
     private StatusDriver status;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "current_trailer_type", columnDefinition = "trailer_type", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "current_trailer_type", columnDefinition = "fleetforward.trailer_type", nullable = false)
     private TrailerType currentTrailerType;
 
     @Column(name = "current_location_state", nullable = false)
@@ -39,8 +43,9 @@ public class Driver {
     private int currentLocationZipCode;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_in_company", columnDefinition = "driver_company_role", nullable = false)
-    private DriverCompanyRole driverCompanyRole;
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "role_in_company", columnDefinition = "fleetforward.driver_company_role", nullable = false)
+    private DriverCompanyRole roleInCompany;
 
     public Driver() {}
 
@@ -138,11 +143,11 @@ public class Driver {
     }
 
     public DriverCompanyRole getDriverCompanyRole() {
-        return driverCompanyRole;
+        return roleInCompany;
     }
 
     public void setDriverCompanyRole(DriverCompanyRole driverCompanyRole) {
-        this.driverCompanyRole = driverCompanyRole;
+        this.roleInCompany = driverCompanyRole;
     }
 
     public static DriverProto makeDriverProto(Driver driver, User user) {
@@ -157,7 +162,7 @@ public class Driver {
                         }
                 )
                 .setCompanyRole(
-                        switch (driver.driverCompanyRole) {
+                        switch (driver.roleInCompany) {
                             case driver -> DriverCompanyRoleProto.DRIVER;
                             case owner_operator -> DriverCompanyRoleProto.OWNER_OPERATOR;
                             case null, default -> throw new RuntimeException("Unknown role");

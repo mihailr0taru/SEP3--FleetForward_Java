@@ -1,5 +1,6 @@
 package dk.via.fleetforward.services.user;
 
+import dk.via.fleetforward.gRPC.Fleetforward;
 import dk.via.fleetforward.gRPC.Fleetforward.DriverProto;
 import dk.via.fleetforward.gRPC.Fleetforward.DriverListProto;
 import dk.via.fleetforward.model.Driver;
