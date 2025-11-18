@@ -83,13 +83,6 @@ public class CompanyServiceDatabase implements CompanyService{
     /**
      * {@inheritDoc}
      *
-     * @param id {@inheritDoc}
-     * @return {@inheritDoc}
-     * @implNote Optional is in case the company is not found in the database to ensure null safety.
-     */
-    /**
-     * {@inheritDoc}
-     *
      * @param mcNumber {@inheritDoc}
      * @return {@inheritDoc}
      */
