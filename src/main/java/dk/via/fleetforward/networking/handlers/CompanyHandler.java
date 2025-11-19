@@ -7,6 +7,8 @@ import dk.via.fleetforward.services.company.CompanyService;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyHandler implements FleetNetworkHandler {
 
+    private static final Logger log = LoggerFactory.getLogger(CompanyHandler.class);
     private final CompanyService companyService;
 
     public CompanyHandler(CompanyService companyService) {
@@ -51,28 +54,36 @@ public class CompanyHandler implements FleetNetworkHandler {
       try
       {
         request = payloadAny.unpack(CompanyProto.class);
+        log.info("Received request {}", request);
       }
       catch (InvalidProtocolBufferException e)
       {
+          log.error("Error unpacking CompanyProto", e);
         throw new RuntimeException(e);
       }
       switch (actionType) {
             case ACTION_GET -> {
                 proto = companyService.getSingle(request.getMcNumber());
+                log.info("Fetched company {}", proto);
             }
             case ACTION_CREATE -> {
                 proto = companyService.create(request);
+                log.info("Created company {}", proto);
             }
             case ACTION_UPDATE -> {
                 proto = companyService.update(request);
+                log.info("Updated company {}", proto);
             }
             case ACTION_DELETE -> {
                 companyService.delete(request.getMcNumber());
+                log.info("Deleted company {}", request.getMcNumber());
             }
             case ACTION_LIST -> {
                 proto = companyService.getAll();
+                log.info("Fetched all companies {}", proto);
             }
             default -> {
+                log.error("Invalid action type: {}", actionType);
                 throw new IllegalArgumentException("Invalid action type: " + actionType);
             }
         }

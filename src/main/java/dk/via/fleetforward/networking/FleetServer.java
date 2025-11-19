@@ -1,6 +1,8 @@
 package dk.via.fleetforward.networking;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,6 +18,7 @@ import java.io.IOException;
 public class FleetServer  {
 
     private static final int PORT = 6032;
+    private static final Logger log = LoggerFactory.getLogger(FleetServer.class);
     private final FleetMainHandler mainHandler;
     private Server grpcServer;
 
@@ -45,10 +48,10 @@ public class FleetServer  {
                         .build()
                         .start();
 
-                System.out.println("Fleet gRPC Server started on port " + PORT);
+                log.info("Fleet gRPC Server started on port " + PORT);
 
                 Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                    System.err.println("Shutting down gRPC server...");
+                    log.info("Shutting down gRPC server");
                     if (grpcServer != null) grpcServer.shutdown();
                 }));
 
