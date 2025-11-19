@@ -4,6 +4,9 @@ package dk.via.fleetforward.model;
 import dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table (name = "dispatcher", schema = "fleetforward")
 public class Dispatcher
@@ -15,6 +18,16 @@ public class Dispatcher
     private Double commissionRate;
 
     public Dispatcher() {}
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable
+            (
+                    name = "drivers_managed_by_dispatcher",
+                    schema = "fleetforward",
+                    joinColumns = @JoinColumn(name = "dispatcher_id")
+            )
+    @Column (name = "driver_id")
+    private List<Integer> assignedDrivers = new ArrayList<>();
 
     public Dispatcher(DispatcherProto dispatcherProto, int id)
     {
@@ -42,11 +55,22 @@ public class Dispatcher
         return commissionRate;
     }
 
+    public List<Integer> getAssignedDrivers()
+    {
+        return assignedDrivers;
+    }
+
+    public void setAssignedDrivers(ArrayList<Integer> assignedDrivers)
+    {
+        this.assignedDrivers = assignedDrivers;
+    }
+
     public static DispatcherProto makeDispatcherProto(Dispatcher dispatcher, User user)
     {
         return DispatcherProto.newBuilder()
                 .setCurrentRate(dispatcher.getCommissionRate())
                 .setUser(User.makeUserProto(user))
+                .addAllDriversAssigned(dispatcher.getAssignedDrivers())
                 .build();
     }
 }
