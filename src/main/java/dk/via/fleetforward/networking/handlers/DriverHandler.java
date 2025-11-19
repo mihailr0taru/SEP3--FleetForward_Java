@@ -8,6 +8,8 @@ import dk.via.fleetforward.gRPC.Fleetforward.DriverProto;
 import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.services.user.DriverService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,7 +22,8 @@ import org.springframework.stereotype.Service;
 @Service public class DriverHandler implements FleetNetworkHandler
 {
 
-  private final DriverService driverService;
+    private static final Logger log = LoggerFactory.getLogger(DriverHandler.class);
+    private final DriverService driverService;
 
   public DriverHandler(DriverService driverService)
   {
@@ -41,9 +44,11 @@ import org.springframework.stereotype.Service;
     try
     {
       request = payloadAny.unpack(DriverProto.class);
+      log.info("Received request {}", request);
     }
     catch (InvalidProtocolBufferException e)
     {
+        log.error("Error unpacking DriverProto", e);
       throw new RuntimeException(e);
     }
 
@@ -52,23 +57,28 @@ import org.springframework.stereotype.Service;
       case ACTION_CREATE ->
       {
         proto = driverService.create(request);
+        log.info("Created driver {}", proto);
       }
       case ACTION_UPDATE ->
       {
         driverService.update(request);
+        log.info("Updated driver {}", request);
       }
 
       case ACTION_DELETE ->
       {
         driverService.delete(request.getUser().getId());
+        log.info("Deleted driver {}", request);
       }
       case ACTION_GET ->
       {
         proto = driverService.getSingle(request.getUser().getId());
+        log.info("Fetched driver {}", proto);
       }
       case ACTION_LIST ->
       {
         proto = driverService.getAll();
+        log.info("Fetched all drivers {}", proto);
       }
       default ->
       {
@@ -80,6 +90,7 @@ import org.springframework.stereotype.Service;
     {
       proto = Fleetforward.DriverProto.newBuilder().build();
     }
+    log.info("Returning proto {}", proto);
     return Any.pack(proto);
 
   }

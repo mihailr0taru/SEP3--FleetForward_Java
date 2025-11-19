@@ -12,6 +12,8 @@ import dk.via.fleetforward.gRPC.Fleetforward.StatusTypeProto;
 import dk.via.fleetforward.networking.handlers.FleetNetworkHandler;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -25,6 +27,7 @@ import java.util.Map;
 @Service
 @GRpcService
 public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImplBase {
+    private static final Logger log = LoggerFactory.getLogger(FleetMainHandler.class);
     private final Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider;
     public FleetMainHandler(Map<HandlerTypeProto, FleetNetworkHandler> serviceProvider) {
         this.serviceProvider = serviceProvider;
@@ -39,6 +42,7 @@ public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImp
         try {
             FleetNetworkHandler handler = serviceProvider.get(request.getHandler());
             if (handler == null) {
+                log.error("Unknown handler type for request {}", request);
                 throw new IllegalArgumentException("Unknown handler type");
             }
             // Message is the protobuf object
@@ -55,6 +59,7 @@ public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImp
                     .setStatus(StatusTypeProto.STATUS_OK)
                     .setPayload(payload)
                     .build();
+            log.info("Sending response {}", response);
             sendResponseWithHandleException(responseObserver, response);
 
         } catch (Exception e) {
@@ -97,7 +102,7 @@ public class FleetMainHandler extends FleetServiceProtoGrpc.FleetServiceProtoImp
         try {
             responseObserver.onCompleted();
         } catch (Exception e) {
-            System.err.println("Error completing gRPC response: " + e.getMessage());
+            log.error("Error sending response", e);
         }
     }
 
