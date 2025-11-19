@@ -30,7 +30,7 @@ public class User {
     private String phoneNumber;
 
     @Column(name = "hashed_password", nullable = false)
-    private String password;
+    private String hashedPassword;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
@@ -89,11 +89,11 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return hashedPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.hashedPassword = password;
     }
 
     public UserRole getRole() {

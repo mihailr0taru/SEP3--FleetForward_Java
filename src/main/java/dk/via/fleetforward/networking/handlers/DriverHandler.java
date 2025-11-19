@@ -72,6 +72,7 @@ import org.springframework.stereotype.Service;
       }
       case ACTION_GET ->
       {
+          log.info("Received request {}", request.getUser().getId());
         proto = driverService.getSingle(request.getUser().getId());
         log.info("Fetched driver {}", proto);
       }
