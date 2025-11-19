@@ -8,6 +8,7 @@ import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DriverRepository;
 import dk.via.fleetforward.repositories.database.UserRepository;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -28,19 +29,21 @@ public class DriverServiceDatabase implements DriverService{
     }
 
     @Override
+    @Transactional
     public DriverProto create(DriverProto payload) {
         User user = new User(payload.getUser());
         user.setRole(UserRole.driver);
         User createdUser = userRepository.save(user);
         log.info("Created user {}", createdUser);
 
-        Driver driver = new Driver(payload);
+        Driver driver = new Driver(payload,createdUser.getId());
         Driver createdDriver = driverRepository.save(driver);
         log.info("Created driver {}", createdDriver);
         return Driver.makeDriverProto(createdDriver, createdUser);
     }
 
     @Override
+    @Transactional
     public void update(DriverProto payload) {
         userRepository.findById(payload.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
@@ -52,12 +55,13 @@ public class DriverServiceDatabase implements DriverService{
         userRepository.save(user);
         log.info("Updated user {}", user);
 
-        Driver driver = new Driver(payload);
+        Driver driver = new Driver(payload, user.getId());
         driverRepository.save(driver);
         log.info("Updated driver {}", driver);
     }
 
     @Override
+    @Transactional
     public void delete(int driverId) {
         driverRepository.deleteById(driverId);
         log.info("Deleted driver {}", driverId);

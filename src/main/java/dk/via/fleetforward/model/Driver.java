@@ -49,8 +49,8 @@ public class Driver {
 
     public Driver() {}
 
-    public Driver(DriverProto driverProto) {
-        setDriverId(driverProto.getUser().getId());
+    public Driver(DriverProto driverProto,int id) {
+        setDriverId(id);
         setCompanyMcNumber(driverProto.getCompanyMcNumber());
         setCurrentLocationState(driverProto.getCurrentState());
         setCurrentLocationZipCode(driverProto.getCurrentZIPCODE());
