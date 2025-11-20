@@ -91,6 +91,7 @@ message DispatcherProto{
   repeated int32 driversAssigned = 2;
   UserProto user = 3;
 }
+
 message DispatcherListProto{
   repeated DispatcherProto dispatchers = 1;
 }
