@@ -103,16 +103,4 @@ public class User {
     public void setRole(UserRole role) {
         this.role = role;
     }
-
-    public static UserProto makeUserProto(User user)
-    {
-        return UserProto.newBuilder()
-                .setId(user.getId())
-                .setFirstName(user.getFirstName())
-                .setLastName(user.getLastName())
-                .setEmail(user.getEmail())
-                .setPhoneNumber(user.getPhoneNumber())
-                .setPassword(user.getPassword())
-                .build();
-    }
 }

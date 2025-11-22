@@ -149,36 +149,4 @@ public class Driver {
     public void setDriverCompanyRole(DriverCompanyRole driverCompanyRole) {
         this.roleInCompany = driverCompanyRole;
     }
-
-    public static DriverProto makeDriverProto(Driver driver, User user) {
-        return DriverProto.newBuilder()
-                .setCompanyMcNumber(driver.getCompanyMcNumber())
-                .setDriverStatus(
-                        switch (driver.status) {
-                            case available -> StatusDriverProto.AVAILABLE;
-                            case busy -> StatusDriverProto.BUSY;
-                            case off_duty -> StatusDriverProto.OFF_DUTY;
-                            case null, default -> throw new RuntimeException("Unknown status");
-                        }
-                )
-                .setCompanyRole(
-                        switch (driver.roleInCompany) {
-                            case driver -> DriverCompanyRoleProto.DRIVER;
-                            case owner_operator -> DriverCompanyRoleProto.OWNER_OPERATOR;
-                            case null, default -> throw new RuntimeException("Unknown role");
-                        }
-                )
-                .setTrailerType(
-                        switch (driver.currentTrailerType) {
-                            case flatbed -> TrailerTypeProto.FLATBED;
-                            case dry_van -> TrailerTypeProto.DRY_VAN;
-                            case reefer -> TrailerTypeProto.REEFER;
-                            case null, default -> throw new RuntimeException("Unknown trailer type");
-                        }
-                )
-                .setCurrentState(driver.getCurrentLocationState())
-                .setCurrentZIPCODE(driver.getCurrentLocationZipCode())
-                .setUser(User.makeUserProto(user))
-                .build();
-    }
 }

@@ -35,6 +35,10 @@ public final class Fleetforward {
      * <code>HANDLER_DISPATCHER = 3;</code>
      */
     HANDLER_DISPATCHER(3),
+    /**
+     * <code>HANDLER_AUTH = 4;</code>
+     */
+    HANDLER_AUTH(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -54,6 +58,10 @@ public final class Fleetforward {
      * <code>HANDLER_DISPATCHER = 3;</code>
      */
     public static final int HANDLER_DISPATCHER_VALUE = 3;
+    /**
+     * <code>HANDLER_AUTH = 4;</code>
+     */
+    public static final int HANDLER_AUTH_VALUE = 4;
 
 
     public final int getNumber() {
@@ -84,6 +92,7 @@ public final class Fleetforward {
         case 1: return HANDLER_COMPANY;
         case 2: return HANDLER_DRIVER;
         case 3: return HANDLER_DISPATCHER;
+        case 4: return HANDLER_AUTH;
         default: return null;
       }
     }
@@ -8981,25 +8990,25 @@ public final class Fleetforward {
       "ersAssigned\030\002 \003(\005\0221\n\004user\030\003 \001(\0132#.dk.via" +
       ".fleetforward.gRPC.UserProto\"U\n\023Dispatch" +
       "erListProto\022>\n\013dispatchers\030\001 \003(\0132).dk.vi" +
-      "a.fleetforward.gRPC.DispatcherProto*h\n\020H" +
+      "a.fleetforward.gRPC.DispatcherProto*z\n\020H" +
       "andlerTypeProto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017" +
       "HANDLER_COMPANY\020\001\022\022\n\016HANDLER_DRIVER\020\002\022\026\n" +
-      "\022HANDLER_DISPATCHER\020\003*\177\n\017ActionTypeProto" +
-      "\022\022\n\016ACTION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022" +
-      "\016\n\nACTION_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rAC" +
-      "TION_DELETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017Status" +
-      "TypeProto\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_" +
-      "OK\020\001\022\020\n\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID" +
-      "_PAYLOAD\020\003*G\n\021StatusDriverProto\022\013\n\007UNKNO" +
-      "WN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUT" +
-      "Y\020\003*R\n\026DriverCompanyRoleProto\022\030\n\024UNKNOWN" +
-      "_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPE" +
-      "RATOR\020\002*M\n\020TrailerTypeProto\022\023\n\017UNKNOWN_T" +
-      "RAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006RE" +
-      "EFER\020\0032s\n\021FleetServiceProto\022^\n\013SendReque" +
-      "st\022&.dk.via.fleetforward.gRPC.RequestPro" +
-      "to\032\'.dk.via.fleetforward.gRPC.ResponsePr" +
-      "otob\006proto3"
+      "\022HANDLER_DISPATCHER\020\003\022\020\n\014HANDLER_AUTH\020\004*" +
+      "\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021" +
+      "\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACT" +
+      "ION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTIO" +
+      "N_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UN" +
+      "KNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002" +
+      "\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\021StatusDr" +
+      "iverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n" +
+      "\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRo" +
+      "leProto\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRI" +
+      "VER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020TrailerType" +
+      "Proto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022" +
+      "\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetService" +
+      "Proto\022^\n\013SendRequest\022&.dk.via.fleetforwa" +
+      "rd.gRPC.RequestProto\032\'.dk.via.fleetforwa" +
+      "rd.gRPC.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

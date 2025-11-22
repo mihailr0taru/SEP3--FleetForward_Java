@@ -8,6 +8,7 @@ import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DriverRepository;
 import dk.via.fleetforward.repositories.database.UserRepository;
+import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +40,7 @@ public class DriverServiceDatabase implements DriverService{
         Driver driver = new Driver(payload,createdUser.getId());
         Driver createdDriver = driverRepository.save(driver);
         log.info("Created driver {}", createdDriver);
-        return Driver.makeDriverProto(createdDriver, createdUser);
+        return ProtoUtils.parseDriverProto(createdDriver, createdUser);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class DriverServiceDatabase implements DriverService{
         Driver fetchedDriver = driverRepository.findById(driverId)
                 .orElseThrow(() -> new RuntimeException("Driver not found, driver must be created first"));
         log.info("Fetched driver {}", fetchedDriver);
-        return Driver.makeDriverProto(fetchedDriver, fetchedUser);
+        return ProtoUtils.parseDriverProto(fetchedDriver, fetchedUser);
     }
 
     @Override
@@ -93,7 +94,7 @@ public class DriverServiceDatabase implements DriverService{
         for (User user : users) {
             Driver driver = driverMap.get(user.getId());
             if (driver != null) {
-                builder.addDrivers(Driver.makeDriverProto(driver, user));
+                builder.addDrivers(ProtoUtils.parseDriverProto(driver, user));
                 log.info("Added driver {}", driver);
             }
         }
