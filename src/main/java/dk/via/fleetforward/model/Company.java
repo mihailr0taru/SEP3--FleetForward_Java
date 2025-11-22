@@ -1,5 +1,6 @@
 package dk.via.fleetforward.model;
 
+import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.utility.StringUtility;
 import jakarta.persistence.*;
 
@@ -16,6 +17,20 @@ public class Company {
     String mcNumber;
     @Column(name = "company_name", nullable = false)
     String companyName;
+
+    /**
+     * Default constructor
+     */
+    public Company() {}
+
+    /**
+     * Constructor for creating a new company from a gRPC CompanyProto object
+     * @param proto The gRPC CompanyProto object to create the company from
+     */
+    public Company(CompanyProto proto) {
+        setMcNumber(proto.getMcNumber());
+        setCompanyName(proto.getCompanyName());
+    }
     /**
      * Get the mc number of the company
      * @return The mc number

@@ -6,18 +6,15 @@ import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DispatcherRepository;
 import dk.via.fleetforward.repositories.database.UserRepository;
+import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-//TODO implement database operations for DispatcherService interface
 //Mihai
 @Service
 public class DispatcherServiceDatabase implements DispatcherService{
@@ -40,7 +37,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
         Dispatcher dispatcher = new Dispatcher(payload, createdUser.getId());
         Dispatcher createdDispatcher = dispatcherRepository.save(dispatcher);
         log.info("Created dispatcher {}", createdDispatcher);
-        return Dispatcher.makeDispatcherProto(createdDispatcher, createdUser);
+        return ProtoUtils.parseDispatcherProto(createdDispatcher, createdUser);
     }
 
     @Override
@@ -81,7 +78,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
         Dispatcher fetchedDispatcher = dispatcherRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dispatcher not found, dispatcher must be created first"));
         log.info("Fetched dispatcher {}", fetchedDispatcher);
-        return Dispatcher.makeDispatcherProto(fetchedDispatcher, fetchedUser);
+        return ProtoUtils.parseDispatcherProto(fetchedDispatcher, fetchedUser);
     }
 
     @Override
@@ -101,7 +98,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
             Dispatcher dispatcher = dispatcherMap.get(user.getId());
             if(dispatcher != null)
             {
-                builder.addDispatchers(Dispatcher.makeDispatcherProto(dispatcher, user));
+                builder.addDispatchers(ProtoUtils.parseDispatcherProto(dispatcher, user));
                 log.info("Added dispatcher {}", dispatcher);
             }
         }

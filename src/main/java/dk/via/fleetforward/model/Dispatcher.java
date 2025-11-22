@@ -64,13 +64,4 @@ public class Dispatcher
     {
         this.assignedDrivers = assignedDrivers;
     }
-
-    public static DispatcherProto makeDispatcherProto(Dispatcher dispatcher, User user)
-    {
-        return DispatcherProto.newBuilder()
-                .setCurrentRate(dispatcher.getCommissionRate())
-                .setUser(User.makeUserProto(user))
-                .addAllDriversAssigned(dispatcher.getAssignedDrivers())
-                .build();
-    }
 }

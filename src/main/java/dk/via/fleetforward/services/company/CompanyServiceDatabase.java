@@ -1,6 +1,7 @@
 package dk.via.fleetforward.services.company;
 import dk.via.fleetforward.model.Company;
 import dk.via.fleetforward.repositories.database.CompanyRepository;
+import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,14 +38,10 @@ public class CompanyServiceDatabase implements CompanyService{
      */
     @Transactional
     public CompanyProto create(CompanyProto payload) {
-        Company company = new Company();
-        company.setMcNumber(payload.getMcNumber());
-        company.setCompanyName(payload.getCompanyName());
+        Company company = new Company(payload);
         Company created = companyRepository.save(company);
         log.info("Created company {}", created);
-        return CompanyProto.newBuilder()
-                .setMcNumber(created.getMcNumber())
-                .setCompanyName(created.getCompanyName()).build();
+        return ProtoUtils.parseCompanyProto(created);
     }
     /**
      * {@inheritDoc}
@@ -63,10 +60,7 @@ public class CompanyServiceDatabase implements CompanyService{
         Company updated = companyRepository.save(existing);
         log.info("Updated company {}", updated);
 
-        return CompanyProto.newBuilder()
-                .setMcNumber(updated.getMcNumber())
-                .setCompanyName(updated.getCompanyName())
-                .build();
+        return ProtoUtils.parseCompanyProto(updated);
     }
     /**
      * {@inheritDoc}
@@ -80,10 +74,7 @@ public class CompanyServiceDatabase implements CompanyService{
         Optional<Company> fetched = companyRepository.findById(mcNumber); //null safety
         Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
         log.info("Fetched company {}", company);
-        return CompanyProto.newBuilder()
-                .setMcNumber(company.getMcNumber())
-                .setCompanyName(company.getCompanyName())
-                .build();
+        return ProtoUtils.parseCompanyProto(company);
     }
     /**
      * {@inheritDoc}
@@ -112,12 +103,8 @@ public class CompanyServiceDatabase implements CompanyService{
 
       // Convert each Company entity to CompanyProto
       for (Company company : companies) {
-        CompanyProto companyProto = CompanyProto.newBuilder()
-            .setMcNumber(company.getMcNumber())
-            .setCompanyName(company.getCompanyName())
-            .build();
+        CompanyProto companyProto = ProtoUtils.parseCompanyProto(company);
         companiesProtoBuilder.addCompanies(companyProto);
-        log.info("Added company {}", companyProto);
       }
       log.info("Created proto company list");
       // Build and return the list
