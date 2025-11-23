@@ -1,6 +1,9 @@
 package dk.via.fleetforward.networking.handlers;
 
+import com.google.protobuf.Any;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
+import dk.via.fleetforward.gRPC.Fleetforward;
 import dk.via.fleetforward.gRPC.Fleetforward.UserProto;
 import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
@@ -23,12 +26,15 @@ public class AuthentificationHandler implements FleetNetworkHandler{
 
     @Override
     public Message handle(ActionTypeProto actionType, Object payload) {
-        if(!(payload instanceof UserProto))
-        {
-            log.error("Invalid payload, must be a UserProto");
-            throw new RuntimeException("Invalid payload, must be a UserProto");
+        Message proto = null;
+        Any payloadAny = (Any) payload;
+        UserProto user = null;
+        try {
+            user = payloadAny.unpack(UserProto.class);
+        } catch (InvalidProtocolBufferException e) {
+            log.error("Error unpacking UserProto", e);
+            throw new RuntimeException(e);
         }
-        UserProto user = (UserProto) payload;
         log.info("Authenticating user {}", user);
         return authentificationService.login(user);
     }

@@ -1,5 +1,6 @@
 package dk.via.fleetforward.utility;
 
+import dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto;
 import dk.via.fleetforward.gRPC.Fleetforward.UserProto;
@@ -13,6 +14,7 @@ import dk.via.fleetforward.model.Driver;
 import dk.via.fleetforward.model.Enums.DriverCompanyRole;
 import dk.via.fleetforward.model.Enums.StatusDriver;
 import dk.via.fleetforward.model.Enums.TrailerType;
+import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -119,7 +121,7 @@ public class ProtoUtils {
     public static UserProto parseUserProto(User user)
     {
         if (user == null) {
-            log.error("User is null");
+            log.error("User is null in ParseUserProto");
             throw new RuntimeException("User is null");
         }
         return UserProto.newBuilder()
@@ -134,10 +136,19 @@ public class ProtoUtils {
                         == null ? "" : user.getPhoneNumber())
                 .setPassword(user.getPassword()
                         == null ? "" : user.getPassword())
+                .setRole(parseFromUserRoleToProto(user.getRole()))
                 .build();
     }
     public static DispatcherProto parseDispatcherProto(Dispatcher dispatcher, User user)
     {
+        if (dispatcher == null) {
+            log.error("Dispatcher is null");
+            throw new RuntimeException("Dispatcher is null");
+        }
+        if (user == null) {
+            log.error("User is null in ParseDispatcherProto");
+            throw new RuntimeException("User is null");
+        }
         return DispatcherProto.newBuilder()
                 .setCurrentRate(dispatcher.getCommissionRate())
                 .setUser(parseUserProto(user))
@@ -146,9 +157,53 @@ public class ProtoUtils {
     }
     public static CompanyProto parseCompanyProto(Company company)
     {
+        if (company == null) {
+            log.error("Company is null");
+            throw new RuntimeException("Company is null");
+        }
         return CompanyProto.newBuilder()
                 .setMcNumber(company.getMcNumber())
                 .setCompanyName(company.getCompanyName())
                 .build();
+    }
+    public static UserRoleProto parseFromUserRoleToProto(UserRole role)
+    {
+        if(role == null)
+        {
+            log.error("Role is null");
+            throw new RuntimeException("Role is null");
+        }
+        switch (role) {
+            case driver -> {
+                return UserRoleProto.USER_DRIVER;
+            }
+            case dispatcher -> {
+                return UserRoleProto.USER_DISPATCHER;
+            }
+            default -> {
+                log.error("Unknown user role");
+                throw new RuntimeException("Unknown role");
+            }
+        }
+    }
+    public static UserRole parseFromUserRoleProto(UserRoleProto role)
+    {
+        if(role == null)
+        {
+            log.error("Role is null");
+            throw new RuntimeException("Role is null");
+        }
+        switch (role) {
+            case USER_DRIVER -> {
+                return UserRole.driver;
+            }
+            case USER_DISPATCHER -> {
+                return UserRole.dispatcher;
+            }
+            default -> {
+                log.error("Unknown user role");
+                throw new RuntimeException("Unknown role");
+            }
+        }
     }
 }
