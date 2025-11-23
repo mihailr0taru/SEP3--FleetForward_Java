@@ -23,23 +23,17 @@ public class AuthentificationServiceProvider implements AuthentificationService 
     }
     @Override
     public Message login(UserProto user) {
-        User fetchedUser = userRepository.findById(user.getId())
-                .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
-        if (user.getPassword().equals(fetchedUser.getPassword())) {
-            log.info("User {} logged in", fetchedUser);
+        User fetchedUser = userRepository.findByEmail(user.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
             switch (fetchedUser.getRole()) {
                 case driver:
                     log.info("Driver {} logged in", fetchedUser);
-                    return driverService.getSingle(user.getId());
+                    return driverService.getSingle(fetchedUser.getId());
                 case dispatcher:
                     log.info("Dispatcher {} logged in", fetchedUser);
-                    return dispatcherService.getSingle(user.getId());
+                    return dispatcherService.getSingle(fetchedUser.getId());
                 default:
                     log.warn("Unsupported role");
                     throw new RuntimeException("Unsupported role");
-            }
         }
-        log.warn("Invalid password for user {}", fetchedUser);
-        throw new RuntimeException("Invalid password");
     }
 }

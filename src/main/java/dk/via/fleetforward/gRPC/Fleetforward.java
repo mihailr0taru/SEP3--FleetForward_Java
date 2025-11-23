@@ -420,6 +420,123 @@ public final class Fleetforward {
   }
 
   /**
+   * Protobuf enum {@code dk.via.fleetforward.gRPC.UserRoleProto}
+   */
+  public enum UserRoleProto
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UNKNOWN_ROLE = 0;</code>
+     */
+    UNKNOWN_ROLE(0),
+    /**
+     * <code>USER_DISPATCHER = 1;</code>
+     */
+    USER_DISPATCHER(1),
+    /**
+     * <code>USER_DRIVER = 2;</code>
+     */
+    USER_DRIVER(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UNKNOWN_ROLE = 0;</code>
+     */
+    public static final int UNKNOWN_ROLE_VALUE = 0;
+    /**
+     * <code>USER_DISPATCHER = 1;</code>
+     */
+    public static final int USER_DISPATCHER_VALUE = 1;
+    /**
+     * <code>USER_DRIVER = 2;</code>
+     */
+    public static final int USER_DRIVER_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static UserRoleProto valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static UserRoleProto forNumber(int value) {
+      switch (value) {
+        case 0: return UNKNOWN_ROLE;
+        case 1: return USER_DISPATCHER;
+        case 2: return USER_DRIVER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<UserRoleProto>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        UserRoleProto> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<UserRoleProto>() {
+            public UserRoleProto findValueByNumber(int number) {
+              return UserRoleProto.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final UserRoleProto[] VALUES = values();
+
+    public static UserRoleProto valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private UserRoleProto(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.UserRoleProto)
+  }
+
+  /**
    * Protobuf enum {@code dk.via.fleetforward.gRPC.StatusDriverProto}
    */
   public enum StatusDriverProto
@@ -519,7 +636,7 @@ public final class Fleetforward {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(3);
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(4);
     }
 
     private static final StatusDriverProto[] VALUES = values();
@@ -636,7 +753,7 @@ public final class Fleetforward {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(4);
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final DriverCompanyRoleProto[] VALUES = values();
@@ -762,7 +879,7 @@ public final class Fleetforward {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(5);
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(6);
     }
 
     private static final TrailerTypeProto[] VALUES = values();
@@ -3939,6 +4056,17 @@ public final class Fleetforward {
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    int getRoleValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+     * @return The role.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto getRole();
   }
   /**
    * Protobuf type {@code dk.via.fleetforward.gRPC.UserProto}
@@ -3958,6 +4086,7 @@ public final class Fleetforward {
       email_ = "";
       phoneNumber_ = "";
       password_ = "";
+      role_ = 0;
     }
 
     @java.lang.Override
@@ -4023,6 +4152,12 @@ public final class Fleetforward {
               java.lang.String s = input.readStringRequireUtf8();
 
               password_ = s;
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+
+              role_ = rawValue;
               break;
             }
             default: {
@@ -4260,6 +4395,25 @@ public final class Fleetforward {
       }
     }
 
+    public static final int ROLE_FIELD_NUMBER = 7;
+    private int role_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+     * @return The enum numeric value on the wire for role.
+     */
+    @java.lang.Override public int getRoleValue() {
+      return role_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+     * @return The role.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto getRole() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto result = dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.valueOf(role_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4292,6 +4446,9 @@ public final class Fleetforward {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, password_);
       }
+      if (role_ != dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.UNKNOWN_ROLE.getNumber()) {
+        output.writeEnum(7, role_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4320,6 +4477,10 @@ public final class Fleetforward {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, password_);
       }
+      if (role_ != dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.UNKNOWN_ROLE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, role_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4347,6 +4508,7 @@ public final class Fleetforward {
           .equals(other.getPhoneNumber())) return false;
       if (!getPassword()
           .equals(other.getPassword())) return false;
+      if (role_ != other.role_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4370,6 +4532,8 @@ public final class Fleetforward {
       hash = (53 * hash) + getPhoneNumber().hashCode();
       hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + role_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4515,6 +4679,8 @@ public final class Fleetforward {
 
         password_ = "";
 
+        role_ = 0;
+
         return this;
       }
 
@@ -4547,6 +4713,7 @@ public final class Fleetforward {
         result.email_ = email_;
         result.phoneNumber_ = phoneNumber_;
         result.password_ = password_;
+        result.role_ = role_;
         onBuilt();
         return result;
       }
@@ -4617,6 +4784,9 @@ public final class Fleetforward {
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
           onChanged();
+        }
+        if (other.role_ != 0) {
+          setRoleValue(other.getRoleValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5054,6 +5224,60 @@ public final class Fleetforward {
   checkByteStringIsUtf8(value);
         
         password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int role_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+       * @return The enum numeric value on the wire for role.
+       */
+      @java.lang.Override public int getRoleValue() {
+        return role_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+       * @param value The enum numeric value on the wire for role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoleValue(int value) {
+        
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+       * @return The role.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto getRole() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto result = dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.valueOf(role_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRole(dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        role_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.UserRoleProto role = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRole() {
+        
+        role_ = 0;
         onChanged();
         return this;
       }
@@ -8972,43 +9196,46 @@ public final class Fleetforward {
       "\001(\0132\024.google.protobuf.Any\"q\n\rResponsePro" +
       "to\0229\n\006status\030\001 \001(\0162).dk.via.fleetforward" +
       ".gRPC.StatusTypeProto\022%\n\007payload\030\002 \001(\0132\024" +
-      ".google.protobuf.Any\"r\n\tUserProto\022\n\n\002id\030" +
-      "\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001" +
-      "(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022\020" +
-      "\n\010password\030\006 \001(\t\"\322\002\n\013DriverProto\022\027\n\017comp" +
-      "anyMcNumber\030\001 \001(\t\022A\n\014driverStatus\030\002 \001(\0162" +
-      "+.dk.via.fleetforward.gRPC.StatusDriverP" +
-      "roto\022E\n\013companyRole\030\003 \001(\01620.dk.via.fleet" +
-      "forward.gRPC.DriverCompanyRoleProto\022?\n\013t" +
-      "railerType\030\004 \001(\0162*.dk.via.fleetforward.g" +
-      "RPC.TrailerTypeProto\022\024\n\014currentState\030\005 \001" +
-      "(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\0221\n\004user\030\007 \001(\013" +
-      "2#.dk.via.fleetforward.gRPC.UserProto\"I\n" +
-      "\017DriverListProto\0226\n\007drivers\030\001 \003(\0132%.dk.v" +
-      "ia.fleetforward.gRPC.DriverProto\"r\n\017Disp" +
-      "atcherProto\022\023\n\013currentRate\030\001 \001(\001\022\027\n\017driv" +
-      "ersAssigned\030\002 \003(\005\0221\n\004user\030\003 \001(\0132#.dk.via" +
-      ".fleetforward.gRPC.UserProto\"U\n\023Dispatch" +
-      "erListProto\022>\n\013dispatchers\030\001 \003(\0132).dk.vi" +
-      "a.fleetforward.gRPC.DispatcherProto*z\n\020H" +
-      "andlerTypeProto\022\023\n\017HANDLER_UNKNOWN\020\000\022\023\n\017" +
-      "HANDLER_COMPANY\020\001\022\022\n\016HANDLER_DRIVER\020\002\022\026\n" +
-      "\022HANDLER_DISPATCHER\020\003\022\020\n\014HANDLER_AUTH\020\004*" +
-      "\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021" +
-      "\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACT" +
-      "ION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTIO" +
-      "N_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UN" +
-      "KNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002" +
-      "\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\021StatusDr" +
-      "iverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n" +
-      "\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRo" +
-      "leProto\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRI" +
-      "VER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020TrailerType" +
-      "Proto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022" +
-      "\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021FleetService" +
-      "Proto\022^\n\013SendRequest\022&.dk.via.fleetforwa" +
-      "rd.gRPC.RequestProto\032\'.dk.via.fleetforwa" +
-      "rd.gRPC.ResponseProtob\006proto3"
+      ".google.protobuf.Any\"\251\001\n\tUserProto\022\n\n\002id" +
+      "\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 " +
+      "\001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022" +
+      "\020\n\010password\030\006 \001(\t\0225\n\004role\030\007 \001(\0162\'.dk.via" +
+      ".fleetforward.gRPC.UserRoleProto\"\322\002\n\013Dri" +
+      "verProto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014dri" +
+      "verStatus\030\002 \001(\0162+.dk.via.fleetforward.gR" +
+      "PC.StatusDriverProto\022E\n\013companyRole\030\003 \001(" +
+      "\01620.dk.via.fleetforward.gRPC.DriverCompa" +
+      "nyRoleProto\022?\n\013trailerType\030\004 \001(\0162*.dk.vi" +
+      "a.fleetforward.gRPC.TrailerTypeProto\022\024\n\014" +
+      "currentState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001" +
+      "(\005\0221\n\004user\030\007 \001(\0132#.dk.via.fleetforward.g" +
+      "RPC.UserProto\"I\n\017DriverListProto\0226\n\007driv" +
+      "ers\030\001 \003(\0132%.dk.via.fleetforward.gRPC.Dri" +
+      "verProto\"r\n\017DispatcherProto\022\023\n\013currentRa" +
+      "te\030\001 \001(\001\022\027\n\017driversAssigned\030\002 \003(\005\0221\n\004use" +
+      "r\030\003 \001(\0132#.dk.via.fleetforward.gRPC.UserP" +
+      "roto\"U\n\023DispatcherListProto\022>\n\013dispatche" +
+      "rs\030\001 \003(\0132).dk.via.fleetforward.gRPC.Disp" +
+      "atcherProto*z\n\020HandlerTypeProto\022\023\n\017HANDL" +
+      "ER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001\022\022\n\016HAN" +
+      "DLER_DRIVER\020\002\022\026\n\022HANDLER_DISPATCHER\020\003\022\020\n" +
+      "\014HANDLER_AUTH\020\004*\177\n\017ActionTypeProto\022\022\n\016AC" +
+      "TION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACT" +
+      "ION_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rACTION_D" +
+      "ELETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017StatusTypePr" +
+      "oto\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020" +
+      "\n\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID_PAYLO" +
+      "AD\020\003*G\n\rUserRoleProto\022\020\n\014UNKNOWN_ROLE\020\000\022" +
+      "\023\n\017USER_DISPATCHER\020\001\022\017\n\013USER_DRIVER\020\002*G\n" +
+      "\021StatusDriverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAIL" +
+      "ABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026Driver" +
+      "CompanyRoleProto\022\030\n\024UNKNOWN_ROLE_COMPANY" +
+      "\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020Tr" +
+      "ailerTypeProto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007D" +
+      "RY_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021Fle" +
+      "etServiceProto\022^\n\013SendRequest\022&.dk.via.f" +
+      "leetforward.gRPC.RequestProto\032\'.dk.via.f" +
+      "leetforward.gRPC.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9044,7 +9271,7 @@ public final class Fleetforward {
     internal_static_dk_via_fleetforward_gRPC_UserProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_UserProto_descriptor,
-        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Password", });
+        new java.lang.String[] { "Id", "FirstName", "LastName", "Email", "PhoneNumber", "Password", "Role", });
     internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable = new
