@@ -70,6 +70,7 @@ public class CompanyServiceDatabase implements CompanyService{
      * @implNote Optional is in case the company is not found in the database to ensure null safety.
      */
     @Override
+    @Transactional
     public CompanyProto getSingle(String mcNumber) {
         Optional<Company> fetched = companyRepository.findById(mcNumber); //null safety
         Company company = fetched.orElseThrow(() -> new RuntimeException("Company not found"));
@@ -94,6 +95,7 @@ public class CompanyServiceDatabase implements CompanyService{
      * @return {@inheritDoc}
      */
     @Override
+    @Transactional
     public CompanyProtoList getAll() {
       List<Company> companies = companyRepository.findAll();
       log.info("Fetched {} companies", companies.size());
