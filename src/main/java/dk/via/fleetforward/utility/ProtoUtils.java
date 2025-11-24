@@ -19,6 +19,9 @@ import dk.via.fleetforward.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProtoUtils {
 
     private static final Logger log = LoggerFactory.getLogger(ProtoUtils.class);
@@ -149,10 +152,10 @@ public class ProtoUtils {
             log.error("User is null in ParseDispatcherProto");
             throw new RuntimeException("User is null");
         }
-        return DispatcherProto.newBuilder()
-                .setCurrentRate(dispatcher.getCommissionRate())
+        return DispatcherProto.newBuilder().setCurrentRate(dispatcher.getCommissionRate())
                 .setUser(parseUserProto(user))
-                .addAllDriversAssigned(dispatcher.getAssignedDrivers())
+                .addAllDriversAssigned(dispatcher.getAssignedDrivers()
+                        == null ? new ArrayList<>() : dispatcher.getAssignedDrivers())
                 .build();
     }
     public static CompanyProto parseCompanyProto(Company company)

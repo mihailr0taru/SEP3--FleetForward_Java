@@ -71,6 +71,7 @@ public class DriverServiceDatabase implements DriverService{
     }
 
     @Override
+    @Transactional
     public DriverProto getSingle(int driverId) {
         User fetchedUser = userRepository.findById(driverId)
                 .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
@@ -81,6 +82,7 @@ public class DriverServiceDatabase implements DriverService{
     }
 
     @Override
+    @Transactional
     public DriverListProto getAll() {
         List<User> users = userRepository.findAllByRole(UserRole.driver);
         List<Driver> drivers = driverRepository.findAll();

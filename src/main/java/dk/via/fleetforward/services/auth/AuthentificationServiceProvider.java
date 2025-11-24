@@ -6,6 +6,7 @@ import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.UserRepository;
 import dk.via.fleetforward.services.user.DispatcherService;
 import dk.via.fleetforward.services.user.DriverService;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class AuthentificationServiceProvider implements AuthentificationService 
         this.dispatcherService = dispatcherService;
     }
     @Override
+    @Transactional
     public Message login(UserProto user) {
         User fetchedUser = userRepository.findByEmail(user.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
             switch (fetchedUser.getRole()) {

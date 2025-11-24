@@ -71,6 +71,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
     }
 
     @Override
+    @Transactional
     public DispatcherProto getSingle(int id)
     {
         User fetchedUser =  userRepository.findById(id)
@@ -82,6 +83,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
     }
 
     @Override
+    @Transactional
     public DispatcherListProto getAll()
     {
         List<User> users = userRepository.findAllByRole(UserRole.dispatcher);
