@@ -8,6 +8,7 @@ import dk.via.fleetforward.gRPC.Fleetforward.DriverProto;
 import dk.via.fleetforward.model.Enums.DriverCompanyRole;
 import dk.via.fleetforward.model.Enums.StatusDriver;
 import dk.via.fleetforward.model.Enums.TrailerType;
+import dk.via.fleetforward.utility.ProtoUtils;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import jakarta.persistence.*;
@@ -54,45 +55,9 @@ public class Driver {
         setCompanyMcNumber(driverProto.getCompanyMcNumber());
         setCurrentLocationState(driverProto.getCurrentState());
         setCurrentLocationZipCode(driverProto.getCurrentZIPCODE());
-        switch (driverProto.getDriverStatus())
-        {
-            case AVAILABLE:
-                setStatus(StatusDriver.available);
-                break;
-            case BUSY:
-                setStatus(StatusDriver.busy);
-                break;
-            case OFF_DUTY:
-                setStatus(StatusDriver.off_duty);
-                break;
-            default:
-                throw new RuntimeException("Unknown status");
-        }
-        switch (driverProto.getTrailerType())
-        {
-            case FLATBED:
-                setCurrentTrailerType(TrailerType.flatbed);
-                break;
-            case REEFER:
-                setCurrentTrailerType(TrailerType.reefer);
-                break;
-            case DRY_VAN:
-                setCurrentTrailerType(TrailerType.dry_van);
-                break;
-            default:
-                throw new RuntimeException("Unknown trailer type");
-        }
-        switch (driverProto.getCompanyRole())
-        {
-            case DRIVER:
-                setDriverCompanyRole(DriverCompanyRole.driver);
-                break;
-            case OWNER_OPERATOR:
-                setDriverCompanyRole(DriverCompanyRole.owner_operator);
-                break;
-            default:
-                throw new RuntimeException("Unknown role");
-        }
+        setStatus(ProtoUtils.parseStatusDriverProto(driverProto.getDriverStatus()));
+        setCurrentTrailerType(ProtoUtils.parseTrailerType(driverProto.getTrailerType()));
+        setDriverCompanyRole(ProtoUtils.parseDriverCompanyRoleProto(driverProto.getCompanyRole()));
     }
     public String getCurrentLocationState() {
         return currentLocationState;

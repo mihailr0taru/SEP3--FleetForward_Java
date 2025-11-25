@@ -33,6 +33,8 @@ public class DriverServiceDatabase implements DriverService{
     @Transactional
     public DriverProto create(DriverProto payload) {
         User user = new User(payload.getUser());
+        user.setId(null);//create not update
+        // if id is not null and an entry with the same id exist JPA will update instead of create
         user.setRole(UserRole.driver);
         User createdUser = userRepository.save(user);
         log.info("Created user {}", createdUser);
