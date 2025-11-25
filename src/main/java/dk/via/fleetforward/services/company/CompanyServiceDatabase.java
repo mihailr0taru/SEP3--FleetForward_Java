@@ -38,6 +38,11 @@ public class CompanyServiceDatabase implements CompanyService{
      */
     @Transactional
     public CompanyProto create(CompanyProto payload) {
+        if( companyRepository.existsById(payload.getMcNumber())) {
+            log.warn("Company already exists {}", payload);
+            throw new RuntimeException("Company already exists");
+        }
+        log.info("Creating company {}", payload);
         Company company = new Company(payload);
         Company created = companyRepository.save(company);
         log.info("Created company {}", created);
