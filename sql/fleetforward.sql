@@ -81,12 +81,22 @@ create table if not exists job
 create table if not exists message
 (
     sender_id int references app_user(id),
-    reciever_id int references app_user(id),
+    receiver_id int references app_user(id),
     message varchar(500) not null
 );
 
 create table drivers_managed_by_dispatcher
 (
-    dispatcher_id int references dispatcher(dispatcher_id),
-    driver_id int references driver(driver_id) unique
+    dispatcher_id int not null,
+    driver_id int not null,
+
+    constraint fk_dispatcher
+        foreign key (dispatcher_id) references dispatcher(dispatcher_id),
+
+    constraint fk_driver
+        foreign key (driver_id) references driver(driver_id),
+
+    constraint pk_drivers_managed_by_dispatcher
+        primary key (dispatcher_id, driver_id)
 );
+
