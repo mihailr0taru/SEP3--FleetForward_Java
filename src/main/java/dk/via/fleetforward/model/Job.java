@@ -1,7 +1,11 @@
 package dk.via.fleetforward.model;
 
+import dk.via.fleetforward.model.Enums.JobStatus;
+import dk.via.fleetforward.model.Enums.TrailerType;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 
@@ -21,13 +25,32 @@ import java.time.Instant;
 
   @Column(name = "weight_of_cargo", nullable = false) private Integer weightOfCargo;
 
+  @Enumerated(EnumType.STRING)
+  @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+  @Column(name = "type_of_trailer_needed", columnDefinition = "fleetforward.trailer_type", nullable = false)
+  private TrailerType TrailerTypeNeeded;
+
   @Column(name = "total_price", nullable = false) private Integer totalPrice;
 
   @Column(name = "cargo_info", nullable = false, length = 30) private String cargoInfo;
 
   @Column(name = "pickup_time", nullable = false) private Instant pickupTime;
   @Column(name = "delivery_time", nullable = false) private Instant deliveryTime;
+  @Column(name = "pickup_location_state", nullable = false)
+  private String pickupLocationState;
 
+  @Column(name = "pickup_location_zip_code", nullable = false)
+  private int pickupLocationZipCode;
+
+  @Column(name = "drop_location_state", nullable = false)
+  private String dropLocationState;
+  @Column(name = "drop_location_zip_code", nullable = false)
+  private int dropLocationZipCode;
+
+  @Enumerated(EnumType.STRING)
+  @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+  @Column(name = "current_job_status", columnDefinition = "fleetforward.job_status", nullable = false)
+  private JobStatus currentJobStatus;
   public Integer getId()
   {
     return id;
@@ -78,6 +101,15 @@ import java.time.Instant;
     this.description = description;
   }
 
+  public void setTrailerTypeNeeded(TrailerType TrailerTypeNeeded)
+  {
+    this.TrailerTypeNeeded = TrailerTypeNeeded;
+  }
+
+  public TrailerType getTrailerTypeNeeded()
+  {
+    return TrailerTypeNeeded;
+  }
   public Integer getLoadedMiles()
   {
     return loadedMiles;
@@ -138,14 +170,55 @@ import java.time.Instant;
     this.deliveryTime = deliveryTime;
   }
 
-/*
- TODO [Reverse Engineering] create field to map the 'type_of_trailer_needed' column
- Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "type_of_trailer_needed", columnDefinition = "trailer_type not null") private Object typeOfTrailerNeeded;
-*/
-/*
- TODO [Reverse Engineering] create field to map the 'current_job_status' column
- Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @ColumnDefault("'available'") @Column(name = "current_job_status", columnDefinition = "job_status not null") private Object currentJobStatus;
-*/
+  public void setPickupLocationState(String pState)
+  {
+    this.pickupLocationState = pState;
+  }
+  public String getPickupLocationState()
+  {
+    return pickupLocationState;
+  }
+
+  public void setPickupLocationZipCode(int pZipCode)
+  {
+    this.pickupLocationZipCode = pZipCode;
+  }
+
+  public int getPickupLocationZipCode()
+  {
+    return pickupLocationZipCode;
+  }
+
+  public void setDropLocationState(String dState)
+  {
+    this.dropLocationState = dState;
+  }
+
+  public String getDropLocationState()
+  {
+    return dropLocationState;
+  }
+
+  public void setDropLocationZipCode(int dZipCode)
+  {
+    this.dropLocationZipCode = dZipCode;
+  }
+
+  public int getDropLocationZipCode()
+  {
+    return dropLocationZipCode;
+  }
+
+  public void setCurrentJobStatus(JobStatus currentJobStatus)
+  {
+    this.currentJobStatus = currentJobStatus;
+  }
+
+  public JobStatus getCurrentJobStatus()
+  {
+    return currentJobStatus;
+  }
+
+
+
 }
