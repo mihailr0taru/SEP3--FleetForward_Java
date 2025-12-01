@@ -270,4 +270,21 @@ public class ProtoUtils {
                 throw new RuntimeException("Unknown job status");
         };
     }
+    public static JobStatus parseJobStatusFromProto(JobStatusProto jobStatus)
+    {
+        if (jobStatus == null) {
+            log.error("JobStatusProto is null");
+            throw new RuntimeException("JobStatus is null");
+        }
+        return switch (jobStatus)
+        {
+            case JOB_AVAILABLE ->   JobStatus.available;
+            case JOB_ASSIGNED ->   JobStatus.assigned;
+            case JOB_COMPLETED ->   JobStatus.completed;
+            case JOB_EXPIRED ->   JobStatus.expired;
+            case JOB_ONGOING ->   JobStatus.ongoing;
+            case null, default ->
+                throw new RuntimeException("Unknown job status");
+        };
+    }
 }
