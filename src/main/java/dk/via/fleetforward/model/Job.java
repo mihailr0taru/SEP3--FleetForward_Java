@@ -57,22 +57,9 @@ import java.time.Instant;
 
   public Job(){}
 
-  public Job(Fleetforward.JobProto jobProto, int id) {
-    setId(id);
+  public Job(Fleetforward.JobProto jobProto) {
+    setId(jobProto.getJobId());
 
-    // Dispatcher
-    if (jobProto.getJobDispatcherId() != 0) {
-      Dispatcher dispatcher = new Dispatcher();
-      dispatcher.setDispatcherId(jobProto.getJobDispatcherId());
-      setDispatcher(dispatcher);
-    }
-
-    // Driver
-    if (jobProto.getJobDriverId() != 0) {
-      Driver driver = new Driver();
-      driver.setDriverId(jobProto.getJobDriverId());
-      setDriver(driver);
-    }
 
     setTitle(jobProto.getTitle());
     setDescription(jobProto.getDescription());
