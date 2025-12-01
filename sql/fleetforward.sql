@@ -4,6 +4,7 @@ create type user_role as enum('admin', 'dispatcher', 'driver');
 create type driver_status as enum('available', 'busy', 'off_duty');
 create type trailer_type as enum('dry_van', 'flatbed', 'reefer');
 create type driver_company_role as enum('driver', 'owner_operator');
+create type job_status as enum ('completed','available','expired','assigned','ongoing');
 
 create table if not exists app_user
 (
@@ -62,7 +63,7 @@ create table if not exists job
     title varchar(20) not null,
     description varchar(300) not null,
     loaded_miles int not null check(loaded_miles > 0),
-    weight_of_cargo int not null check (loaded_miles > 0),
+    weight_of_cargo int not null check (weight_of_cargo > 0),
     type_of_trailer_needed trailer_type not null,
     total_price int not null check ( total_price > 0 ),
     cargo_info varchar(30) not null,
@@ -73,7 +74,8 @@ create table if not exists job
     drop_location_state varchar(2),
     drop_location_zip_code int4 CHECK (pickup_location_zip_code>0 and pickup_location_zip_code<100000),
     foreign key (pickup_location_state,pickup_location_zip_code) references addresses(state_abbr, zip_code),
-    foreign key (drop_location_state,drop_location_zip_code) references addresses(state_abbr, zip_code)
+    foreign key (drop_location_state,drop_location_zip_code) references addresses(state_abbr, zip_code),
+    current_job_status job_status not null
 );
 
 create table if not exists message
