@@ -81,7 +81,7 @@ create table if not exists job
 create table if not exists message
 (
     sender_id int references app_user(id),
-    reciever_id int references app_user(id),
+    receiver_id int references app_user(id),
     message varchar(500) not null
 );
 
