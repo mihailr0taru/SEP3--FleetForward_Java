@@ -39,7 +39,9 @@ public final class Fleetforward {
      * <code>HANDLER_AUTH = 4;</code>
      */
     HANDLER_AUTH(4),
-
+    /**
+     * <code>HANDLER_JOB = 5;</code>
+     */
     HANDLER_JOB(5),
     UNRECOGNIZED(-1),
     ;
@@ -64,9 +66,8 @@ public final class Fleetforward {
      * <code>HANDLER_AUTH = 4;</code>
      */
     public static final int HANDLER_AUTH_VALUE = 4;
-
     /**
-     * <code>HANDLER_JOB = 4;</code>
+     * <code>HANDLER_JOB = 5;</code>
      */
     public static final int HANDLER_JOB_VALUE = 5;
 
@@ -911,6 +912,150 @@ public final class Fleetforward {
     }
 
     // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.TrailerTypeProto)
+  }
+
+  /**
+   * Protobuf enum {@code dk.via.fleetforward.gRPC.JobStatusProto}
+   */
+  public enum JobStatusProto
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>JOB_UNKNOWN = 0;</code>
+     */
+    JOB_UNKNOWN(0),
+    /**
+     * <code>JOB_AVAILABLE = 1;</code>
+     */
+    JOB_AVAILABLE(1),
+    /**
+     * <code>JOB_ONGOING = 2;</code>
+     */
+    JOB_ONGOING(2),
+    /**
+     * <code>JOB_ASSIGNED = 3;</code>
+     */
+    JOB_ASSIGNED(3),
+    /**
+     * <code>JOB_COMPLETED = 4;</code>
+     */
+    JOB_COMPLETED(4),
+    /**
+     * <code>JOB_EXPIRED = 5;</code>
+     */
+    JOB_EXPIRED(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>JOB_UNKNOWN = 0;</code>
+     */
+    public static final int JOB_UNKNOWN_VALUE = 0;
+    /**
+     * <code>JOB_AVAILABLE = 1;</code>
+     */
+    public static final int JOB_AVAILABLE_VALUE = 1;
+    /**
+     * <code>JOB_ONGOING = 2;</code>
+     */
+    public static final int JOB_ONGOING_VALUE = 2;
+    /**
+     * <code>JOB_ASSIGNED = 3;</code>
+     */
+    public static final int JOB_ASSIGNED_VALUE = 3;
+    /**
+     * <code>JOB_COMPLETED = 4;</code>
+     */
+    public static final int JOB_COMPLETED_VALUE = 4;
+    /**
+     * <code>JOB_EXPIRED = 5;</code>
+     */
+    public static final int JOB_EXPIRED_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static JobStatusProto valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static JobStatusProto forNumber(int value) {
+      switch (value) {
+        case 0: return JOB_UNKNOWN;
+        case 1: return JOB_AVAILABLE;
+        case 2: return JOB_ONGOING;
+        case 3: return JOB_ASSIGNED;
+        case 4: return JOB_COMPLETED;
+        case 5: return JOB_EXPIRED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<JobStatusProto>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        JobStatusProto> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<JobStatusProto>() {
+            public JobStatusProto findValueByNumber(int number) {
+              return JobStatusProto.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.getDescriptor().getEnumTypes().get(7);
+    }
+
+    private static final JobStatusProto[] VALUES = values();
+
+    public static JobStatusProto valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private JobStatusProto(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:dk.via.fleetforward.gRPC.JobStatusProto)
   }
 
   public interface CompanyProtoListOrBuilder extends
@@ -6656,6 +6801,2356 @@ public final class Fleetforward {
 
   }
 
+  public interface JobProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.JobProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 jobId = 1;</code>
+     * @return The jobId.
+     */
+    int getJobId();
+
+    /**
+     * <code>int32 jobDispatcherId = 2;</code>
+     * @return The jobDispatcherId.
+     */
+    int getJobDispatcherId();
+
+    /**
+     * <code>int32 jobDriverId = 3;</code>
+     * @return The jobDriverId.
+     */
+    int getJobDriverId();
+
+    /**
+     * <code>string title = 4;</code>
+     * @return The title.
+     */
+    java.lang.String getTitle();
+    /**
+     * <code>string title = 4;</code>
+     * @return The bytes for title.
+     */
+    com.google.protobuf.ByteString
+        getTitleBytes();
+
+    /**
+     * <code>string description = 5;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 5;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <code>int32 loadedMiles = 6;</code>
+     * @return The loadedMiles.
+     */
+    int getLoadedMiles();
+
+    /**
+     * <code>int32 weightOfCargo = 7;</code>
+     * @return The weightOfCargo.
+     */
+    int getWeightOfCargo();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+     * @return The enum numeric value on the wire for jobTrailerType.
+     */
+    int getJobTrailerTypeValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+     * @return The jobTrailerType.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getJobTrailerType();
+
+    /**
+     * <code>int32 totalPrice = 9;</code>
+     * @return The totalPrice.
+     */
+    int getTotalPrice();
+
+    /**
+     * <code>string cargoInfo = 10;</code>
+     * @return The cargoInfo.
+     */
+    java.lang.String getCargoInfo();
+    /**
+     * <code>string cargoInfo = 10;</code>
+     * @return The bytes for cargoInfo.
+     */
+    com.google.protobuf.ByteString
+        getCargoInfoBytes();
+
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     * @return Whether the pickUpTime field is set.
+     */
+    boolean hasPickUpTime();
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     * @return The pickUpTime.
+     */
+    com.google.protobuf.Timestamp getPickUpTime();
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getPickUpTimeOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     * @return Whether the deliveryTime field is set.
+     */
+    boolean hasDeliveryTime();
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     * @return The deliveryTime.
+     */
+    com.google.protobuf.Timestamp getDeliveryTime();
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getDeliveryTimeOrBuilder();
+
+    /**
+     * <code>string pickUpLocationState = 13;</code>
+     * @return The pickUpLocationState.
+     */
+    java.lang.String getPickUpLocationState();
+    /**
+     * <code>string pickUpLocationState = 13;</code>
+     * @return The bytes for pickUpLocationState.
+     */
+    com.google.protobuf.ByteString
+        getPickUpLocationStateBytes();
+
+    /**
+     * <code>int32 pickUpLocationZipCode = 14;</code>
+     * @return The pickUpLocationZipCode.
+     */
+    int getPickUpLocationZipCode();
+
+    /**
+     * <code>string dropLocationState = 15;</code>
+     * @return The dropLocationState.
+     */
+    java.lang.String getDropLocationState();
+    /**
+     * <code>string dropLocationState = 15;</code>
+     * @return The bytes for dropLocationState.
+     */
+    com.google.protobuf.ByteString
+        getDropLocationStateBytes();
+
+    /**
+     * <code>int32 dropLocationZipCode = 16;</code>
+     * @return The dropLocationZipCode.
+     */
+    int getDropLocationZipCode();
+
+    /**
+     * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+     * @return The enum numeric value on the wire for currentJobStatus.
+     */
+    int getCurrentJobStatusValue();
+    /**
+     * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+     * @return The currentJobStatus.
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto getCurrentJobStatus();
+  }
+  /**
+   * Protobuf type {@code dk.via.fleetforward.gRPC.JobProto}
+   */
+  public static final class JobProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dk.via.fleetforward.gRPC.JobProto)
+      JobProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JobProto.newBuilder() to construct.
+    private JobProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JobProto() {
+      title_ = "";
+      description_ = "";
+      jobTrailerType_ = 0;
+      cargoInfo_ = "";
+      pickUpLocationState_ = "";
+      dropLocationState_ = "";
+      currentJobStatus_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JobProto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              jobId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              jobDispatcherId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              jobDriverId_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              title_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 48: {
+
+              loadedMiles_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              weightOfCargo_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+
+              jobTrailerType_ = rawValue;
+              break;
+            }
+            case 72: {
+
+              totalPrice_ = input.readInt32();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cargoInfo_ = s;
+              break;
+            }
+            case 90: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (pickUpTime_ != null) {
+                subBuilder = pickUpTime_.toBuilder();
+              }
+              pickUpTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pickUpTime_);
+                pickUpTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 98: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (deliveryTime_ != null) {
+                subBuilder = deliveryTime_.toBuilder();
+              }
+              deliveryTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(deliveryTime_);
+                deliveryTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pickUpLocationState_ = s;
+              break;
+            }
+            case 112: {
+
+              pickUpLocationZipCode_ = input.readInt32();
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dropLocationState_ = s;
+              break;
+            }
+            case 128: {
+
+              dropLocationZipCode_ = input.readInt32();
+              break;
+            }
+            case 136: {
+              int rawValue = input.readEnum();
+
+              currentJobStatus_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dk.via.fleetforward.gRPC.Fleetforward.JobProto.class, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder.class);
+    }
+
+    public static final int JOBID_FIELD_NUMBER = 1;
+    private int jobId_;
+    /**
+     * <code>int32 jobId = 1;</code>
+     * @return The jobId.
+     */
+    @java.lang.Override
+    public int getJobId() {
+      return jobId_;
+    }
+
+    public static final int JOBDISPATCHERID_FIELD_NUMBER = 2;
+    private int jobDispatcherId_;
+    /**
+     * <code>int32 jobDispatcherId = 2;</code>
+     * @return The jobDispatcherId.
+     */
+    @java.lang.Override
+    public int getJobDispatcherId() {
+      return jobDispatcherId_;
+    }
+
+    public static final int JOBDRIVERID_FIELD_NUMBER = 3;
+    private int jobDriverId_;
+    /**
+     * <code>int32 jobDriverId = 3;</code>
+     * @return The jobDriverId.
+     */
+    @java.lang.Override
+    public int getJobDriverId() {
+      return jobDriverId_;
+    }
+
+    public static final int TITLE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object title_;
+    /**
+     * <code>string title = 4;</code>
+     * @return The title.
+     */
+    @java.lang.Override
+    public java.lang.String getTitle() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        title_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string title = 4;</code>
+     * @return The bytes for title.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTitleBytes() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 5;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 5;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 5;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LOADEDMILES_FIELD_NUMBER = 6;
+    private int loadedMiles_;
+    /**
+     * <code>int32 loadedMiles = 6;</code>
+     * @return The loadedMiles.
+     */
+    @java.lang.Override
+    public int getLoadedMiles() {
+      return loadedMiles_;
+    }
+
+    public static final int WEIGHTOFCARGO_FIELD_NUMBER = 7;
+    private int weightOfCargo_;
+    /**
+     * <code>int32 weightOfCargo = 7;</code>
+     * @return The weightOfCargo.
+     */
+    @java.lang.Override
+    public int getWeightOfCargo() {
+      return weightOfCargo_;
+    }
+
+    public static final int JOBTRAILERTYPE_FIELD_NUMBER = 8;
+    private int jobTrailerType_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+     * @return The enum numeric value on the wire for jobTrailerType.
+     */
+    @java.lang.Override public int getJobTrailerTypeValue() {
+      return jobTrailerType_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+     * @return The jobTrailerType.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getJobTrailerType() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto result = dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.valueOf(jobTrailerType_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNRECOGNIZED : result;
+    }
+
+    public static final int TOTALPRICE_FIELD_NUMBER = 9;
+    private int totalPrice_;
+    /**
+     * <code>int32 totalPrice = 9;</code>
+     * @return The totalPrice.
+     */
+    @java.lang.Override
+    public int getTotalPrice() {
+      return totalPrice_;
+    }
+
+    public static final int CARGOINFO_FIELD_NUMBER = 10;
+    private volatile java.lang.Object cargoInfo_;
+    /**
+     * <code>string cargoInfo = 10;</code>
+     * @return The cargoInfo.
+     */
+    @java.lang.Override
+    public java.lang.String getCargoInfo() {
+      java.lang.Object ref = cargoInfo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cargoInfo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string cargoInfo = 10;</code>
+     * @return The bytes for cargoInfo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCargoInfoBytes() {
+      java.lang.Object ref = cargoInfo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cargoInfo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PICKUPTIME_FIELD_NUMBER = 11;
+    private com.google.protobuf.Timestamp pickUpTime_;
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     * @return Whether the pickUpTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasPickUpTime() {
+      return pickUpTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     * @return The pickUpTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getPickUpTime() {
+      return pickUpTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : pickUpTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getPickUpTimeOrBuilder() {
+      return getPickUpTime();
+    }
+
+    public static final int DELIVERYTIME_FIELD_NUMBER = 12;
+    private com.google.protobuf.Timestamp deliveryTime_;
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     * @return Whether the deliveryTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasDeliveryTime() {
+      return deliveryTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     * @return The deliveryTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getDeliveryTime() {
+      return deliveryTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deliveryTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getDeliveryTimeOrBuilder() {
+      return getDeliveryTime();
+    }
+
+    public static final int PICKUPLOCATIONSTATE_FIELD_NUMBER = 13;
+    private volatile java.lang.Object pickUpLocationState_;
+    /**
+     * <code>string pickUpLocationState = 13;</code>
+     * @return The pickUpLocationState.
+     */
+    @java.lang.Override
+    public java.lang.String getPickUpLocationState() {
+      java.lang.Object ref = pickUpLocationState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pickUpLocationState_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pickUpLocationState = 13;</code>
+     * @return The bytes for pickUpLocationState.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPickUpLocationStateBytes() {
+      java.lang.Object ref = pickUpLocationState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pickUpLocationState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PICKUPLOCATIONZIPCODE_FIELD_NUMBER = 14;
+    private int pickUpLocationZipCode_;
+    /**
+     * <code>int32 pickUpLocationZipCode = 14;</code>
+     * @return The pickUpLocationZipCode.
+     */
+    @java.lang.Override
+    public int getPickUpLocationZipCode() {
+      return pickUpLocationZipCode_;
+    }
+
+    public static final int DROPLOCATIONSTATE_FIELD_NUMBER = 15;
+    private volatile java.lang.Object dropLocationState_;
+    /**
+     * <code>string dropLocationState = 15;</code>
+     * @return The dropLocationState.
+     */
+    @java.lang.Override
+    public java.lang.String getDropLocationState() {
+      java.lang.Object ref = dropLocationState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dropLocationState_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string dropLocationState = 15;</code>
+     * @return The bytes for dropLocationState.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDropLocationStateBytes() {
+      java.lang.Object ref = dropLocationState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dropLocationState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DROPLOCATIONZIPCODE_FIELD_NUMBER = 16;
+    private int dropLocationZipCode_;
+    /**
+     * <code>int32 dropLocationZipCode = 16;</code>
+     * @return The dropLocationZipCode.
+     */
+    @java.lang.Override
+    public int getDropLocationZipCode() {
+      return dropLocationZipCode_;
+    }
+
+    public static final int CURRENTJOBSTATUS_FIELD_NUMBER = 17;
+    private int currentJobStatus_;
+    /**
+     * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+     * @return The enum numeric value on the wire for currentJobStatus.
+     */
+    @java.lang.Override public int getCurrentJobStatusValue() {
+      return currentJobStatus_;
+    }
+    /**
+     * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+     * @return The currentJobStatus.
+     */
+    @java.lang.Override public dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto getCurrentJobStatus() {
+      @SuppressWarnings("deprecation")
+      dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto result = dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.valueOf(currentJobStatus_);
+      return result == null ? dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (jobId_ != 0) {
+        output.writeInt32(1, jobId_);
+      }
+      if (jobDispatcherId_ != 0) {
+        output.writeInt32(2, jobDispatcherId_);
+      }
+      if (jobDriverId_ != 0) {
+        output.writeInt32(3, jobDriverId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, description_);
+      }
+      if (loadedMiles_ != 0) {
+        output.writeInt32(6, loadedMiles_);
+      }
+      if (weightOfCargo_ != 0) {
+        output.writeInt32(7, weightOfCargo_);
+      }
+      if (jobTrailerType_ != dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNKNOWN_TRAILER.getNumber()) {
+        output.writeEnum(8, jobTrailerType_);
+      }
+      if (totalPrice_ != 0) {
+        output.writeInt32(9, totalPrice_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cargoInfo_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, cargoInfo_);
+      }
+      if (pickUpTime_ != null) {
+        output.writeMessage(11, getPickUpTime());
+      }
+      if (deliveryTime_ != null) {
+        output.writeMessage(12, getDeliveryTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pickUpLocationState_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, pickUpLocationState_);
+      }
+      if (pickUpLocationZipCode_ != 0) {
+        output.writeInt32(14, pickUpLocationZipCode_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dropLocationState_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, dropLocationState_);
+      }
+      if (dropLocationZipCode_ != 0) {
+        output.writeInt32(16, dropLocationZipCode_);
+      }
+      if (currentJobStatus_ != dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.JOB_UNKNOWN.getNumber()) {
+        output.writeEnum(17, currentJobStatus_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (jobId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, jobId_);
+      }
+      if (jobDispatcherId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, jobDispatcherId_);
+      }
+      if (jobDriverId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, jobDriverId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, description_);
+      }
+      if (loadedMiles_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, loadedMiles_);
+      }
+      if (weightOfCargo_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, weightOfCargo_);
+      }
+      if (jobTrailerType_ != dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNKNOWN_TRAILER.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, jobTrailerType_);
+      }
+      if (totalPrice_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, totalPrice_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cargoInfo_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, cargoInfo_);
+      }
+      if (pickUpTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, getPickUpTime());
+      }
+      if (deliveryTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, getDeliveryTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pickUpLocationState_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, pickUpLocationState_);
+      }
+      if (pickUpLocationZipCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(14, pickUpLocationZipCode_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dropLocationState_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, dropLocationState_);
+      }
+      if (dropLocationZipCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, dropLocationZipCode_);
+      }
+      if (currentJobStatus_ != dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.JOB_UNKNOWN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(17, currentJobStatus_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dk.via.fleetforward.gRPC.Fleetforward.JobProto)) {
+        return super.equals(obj);
+      }
+      dk.via.fleetforward.gRPC.Fleetforward.JobProto other = (dk.via.fleetforward.gRPC.Fleetforward.JobProto) obj;
+
+      if (getJobId()
+          != other.getJobId()) return false;
+      if (getJobDispatcherId()
+          != other.getJobDispatcherId()) return false;
+      if (getJobDriverId()
+          != other.getJobDriverId()) return false;
+      if (!getTitle()
+          .equals(other.getTitle())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (getLoadedMiles()
+          != other.getLoadedMiles()) return false;
+      if (getWeightOfCargo()
+          != other.getWeightOfCargo()) return false;
+      if (jobTrailerType_ != other.jobTrailerType_) return false;
+      if (getTotalPrice()
+          != other.getTotalPrice()) return false;
+      if (!getCargoInfo()
+          .equals(other.getCargoInfo())) return false;
+      if (hasPickUpTime() != other.hasPickUpTime()) return false;
+      if (hasPickUpTime()) {
+        if (!getPickUpTime()
+            .equals(other.getPickUpTime())) return false;
+      }
+      if (hasDeliveryTime() != other.hasDeliveryTime()) return false;
+      if (hasDeliveryTime()) {
+        if (!getDeliveryTime()
+            .equals(other.getDeliveryTime())) return false;
+      }
+      if (!getPickUpLocationState()
+          .equals(other.getPickUpLocationState())) return false;
+      if (getPickUpLocationZipCode()
+          != other.getPickUpLocationZipCode()) return false;
+      if (!getDropLocationState()
+          .equals(other.getDropLocationState())) return false;
+      if (getDropLocationZipCode()
+          != other.getDropLocationZipCode()) return false;
+      if (currentJobStatus_ != other.currentJobStatus_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + JOBID_FIELD_NUMBER;
+      hash = (53 * hash) + getJobId();
+      hash = (37 * hash) + JOBDISPATCHERID_FIELD_NUMBER;
+      hash = (53 * hash) + getJobDispatcherId();
+      hash = (37 * hash) + JOBDRIVERID_FIELD_NUMBER;
+      hash = (53 * hash) + getJobDriverId();
+      hash = (37 * hash) + TITLE_FIELD_NUMBER;
+      hash = (53 * hash) + getTitle().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + LOADEDMILES_FIELD_NUMBER;
+      hash = (53 * hash) + getLoadedMiles();
+      hash = (37 * hash) + WEIGHTOFCARGO_FIELD_NUMBER;
+      hash = (53 * hash) + getWeightOfCargo();
+      hash = (37 * hash) + JOBTRAILERTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + jobTrailerType_;
+      hash = (37 * hash) + TOTALPRICE_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalPrice();
+      hash = (37 * hash) + CARGOINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getCargoInfo().hashCode();
+      if (hasPickUpTime()) {
+        hash = (37 * hash) + PICKUPTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getPickUpTime().hashCode();
+      }
+      if (hasDeliveryTime()) {
+        hash = (37 * hash) + DELIVERYTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getDeliveryTime().hashCode();
+      }
+      hash = (37 * hash) + PICKUPLOCATIONSTATE_FIELD_NUMBER;
+      hash = (53 * hash) + getPickUpLocationState().hashCode();
+      hash = (37 * hash) + PICKUPLOCATIONZIPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getPickUpLocationZipCode();
+      hash = (37 * hash) + DROPLOCATIONSTATE_FIELD_NUMBER;
+      hash = (53 * hash) + getDropLocationState().hashCode();
+      hash = (37 * hash) + DROPLOCATIONZIPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getDropLocationZipCode();
+      hash = (37 * hash) + CURRENTJOBSTATUS_FIELD_NUMBER;
+      hash = (53 * hash) + currentJobStatus_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dk.via.fleetforward.gRPC.Fleetforward.JobProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dk.via.fleetforward.gRPC.JobProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dk.via.fleetforward.gRPC.JobProto)
+        dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dk.via.fleetforward.gRPC.Fleetforward.JobProto.class, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder.class);
+      }
+
+      // Construct using dk.via.fleetforward.gRPC.Fleetforward.JobProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        jobId_ = 0;
+
+        jobDispatcherId_ = 0;
+
+        jobDriverId_ = 0;
+
+        title_ = "";
+
+        description_ = "";
+
+        loadedMiles_ = 0;
+
+        weightOfCargo_ = 0;
+
+        jobTrailerType_ = 0;
+
+        totalPrice_ = 0;
+
+        cargoInfo_ = "";
+
+        if (pickUpTimeBuilder_ == null) {
+          pickUpTime_ = null;
+        } else {
+          pickUpTime_ = null;
+          pickUpTimeBuilder_ = null;
+        }
+        if (deliveryTimeBuilder_ == null) {
+          deliveryTime_ = null;
+        } else {
+          deliveryTime_ = null;
+          deliveryTimeBuilder_ = null;
+        }
+        pickUpLocationState_ = "";
+
+        pickUpLocationZipCode_ = 0;
+
+        dropLocationState_ = "";
+
+        dropLocationZipCode_ = 0;
+
+        currentJobStatus_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto getDefaultInstanceForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.JobProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto build() {
+        dk.via.fleetforward.gRPC.Fleetforward.JobProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto buildPartial() {
+        dk.via.fleetforward.gRPC.Fleetforward.JobProto result = new dk.via.fleetforward.gRPC.Fleetforward.JobProto(this);
+        result.jobId_ = jobId_;
+        result.jobDispatcherId_ = jobDispatcherId_;
+        result.jobDriverId_ = jobDriverId_;
+        result.title_ = title_;
+        result.description_ = description_;
+        result.loadedMiles_ = loadedMiles_;
+        result.weightOfCargo_ = weightOfCargo_;
+        result.jobTrailerType_ = jobTrailerType_;
+        result.totalPrice_ = totalPrice_;
+        result.cargoInfo_ = cargoInfo_;
+        if (pickUpTimeBuilder_ == null) {
+          result.pickUpTime_ = pickUpTime_;
+        } else {
+          result.pickUpTime_ = pickUpTimeBuilder_.build();
+        }
+        if (deliveryTimeBuilder_ == null) {
+          result.deliveryTime_ = deliveryTime_;
+        } else {
+          result.deliveryTime_ = deliveryTimeBuilder_.build();
+        }
+        result.pickUpLocationState_ = pickUpLocationState_;
+        result.pickUpLocationZipCode_ = pickUpLocationZipCode_;
+        result.dropLocationState_ = dropLocationState_;
+        result.dropLocationZipCode_ = dropLocationZipCode_;
+        result.currentJobStatus_ = currentJobStatus_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dk.via.fleetforward.gRPC.Fleetforward.JobProto) {
+          return mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.JobProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.JobProto other) {
+        if (other == dk.via.fleetforward.gRPC.Fleetforward.JobProto.getDefaultInstance()) return this;
+        if (other.getJobId() != 0) {
+          setJobId(other.getJobId());
+        }
+        if (other.getJobDispatcherId() != 0) {
+          setJobDispatcherId(other.getJobDispatcherId());
+        }
+        if (other.getJobDriverId() != 0) {
+          setJobDriverId(other.getJobDriverId());
+        }
+        if (!other.getTitle().isEmpty()) {
+          title_ = other.title_;
+          onChanged();
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        if (other.getLoadedMiles() != 0) {
+          setLoadedMiles(other.getLoadedMiles());
+        }
+        if (other.getWeightOfCargo() != 0) {
+          setWeightOfCargo(other.getWeightOfCargo());
+        }
+        if (other.jobTrailerType_ != 0) {
+          setJobTrailerTypeValue(other.getJobTrailerTypeValue());
+        }
+        if (other.getTotalPrice() != 0) {
+          setTotalPrice(other.getTotalPrice());
+        }
+        if (!other.getCargoInfo().isEmpty()) {
+          cargoInfo_ = other.cargoInfo_;
+          onChanged();
+        }
+        if (other.hasPickUpTime()) {
+          mergePickUpTime(other.getPickUpTime());
+        }
+        if (other.hasDeliveryTime()) {
+          mergeDeliveryTime(other.getDeliveryTime());
+        }
+        if (!other.getPickUpLocationState().isEmpty()) {
+          pickUpLocationState_ = other.pickUpLocationState_;
+          onChanged();
+        }
+        if (other.getPickUpLocationZipCode() != 0) {
+          setPickUpLocationZipCode(other.getPickUpLocationZipCode());
+        }
+        if (!other.getDropLocationState().isEmpty()) {
+          dropLocationState_ = other.dropLocationState_;
+          onChanged();
+        }
+        if (other.getDropLocationZipCode() != 0) {
+          setDropLocationZipCode(other.getDropLocationZipCode());
+        }
+        if (other.currentJobStatus_ != 0) {
+          setCurrentJobStatusValue(other.getCurrentJobStatusValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dk.via.fleetforward.gRPC.Fleetforward.JobProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dk.via.fleetforward.gRPC.Fleetforward.JobProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int jobId_ ;
+      /**
+       * <code>int32 jobId = 1;</code>
+       * @return The jobId.
+       */
+      @java.lang.Override
+      public int getJobId() {
+        return jobId_;
+      }
+      /**
+       * <code>int32 jobId = 1;</code>
+       * @param value The jobId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJobId(int value) {
+        
+        jobId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 jobId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJobId() {
+        
+        jobId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int jobDispatcherId_ ;
+      /**
+       * <code>int32 jobDispatcherId = 2;</code>
+       * @return The jobDispatcherId.
+       */
+      @java.lang.Override
+      public int getJobDispatcherId() {
+        return jobDispatcherId_;
+      }
+      /**
+       * <code>int32 jobDispatcherId = 2;</code>
+       * @param value The jobDispatcherId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJobDispatcherId(int value) {
+        
+        jobDispatcherId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 jobDispatcherId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJobDispatcherId() {
+        
+        jobDispatcherId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int jobDriverId_ ;
+      /**
+       * <code>int32 jobDriverId = 3;</code>
+       * @return The jobDriverId.
+       */
+      @java.lang.Override
+      public int getJobDriverId() {
+        return jobDriverId_;
+      }
+      /**
+       * <code>int32 jobDriverId = 3;</code>
+       * @param value The jobDriverId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJobDriverId(int value) {
+        
+        jobDriverId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 jobDriverId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJobDriverId() {
+        
+        jobDriverId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object title_ = "";
+      /**
+       * <code>string title = 4;</code>
+       * @return The title.
+       */
+      public java.lang.String getTitle() {
+        java.lang.Object ref = title_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          title_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @return The bytes for title.
+       */
+      public com.google.protobuf.ByteString
+          getTitleBytes() {
+        java.lang.Object ref = title_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          title_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @param value The title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitle(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        title_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTitle() {
+        
+        title_ = getDefaultInstance().getTitle();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @param value The bytes for title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        title_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 5;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int loadedMiles_ ;
+      /**
+       * <code>int32 loadedMiles = 6;</code>
+       * @return The loadedMiles.
+       */
+      @java.lang.Override
+      public int getLoadedMiles() {
+        return loadedMiles_;
+      }
+      /**
+       * <code>int32 loadedMiles = 6;</code>
+       * @param value The loadedMiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLoadedMiles(int value) {
+        
+        loadedMiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 loadedMiles = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLoadedMiles() {
+        
+        loadedMiles_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int weightOfCargo_ ;
+      /**
+       * <code>int32 weightOfCargo = 7;</code>
+       * @return The weightOfCargo.
+       */
+      @java.lang.Override
+      public int getWeightOfCargo() {
+        return weightOfCargo_;
+      }
+      /**
+       * <code>int32 weightOfCargo = 7;</code>
+       * @param value The weightOfCargo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWeightOfCargo(int value) {
+        
+        weightOfCargo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 weightOfCargo = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWeightOfCargo() {
+        
+        weightOfCargo_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int jobTrailerType_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+       * @return The enum numeric value on the wire for jobTrailerType.
+       */
+      @java.lang.Override public int getJobTrailerTypeValue() {
+        return jobTrailerType_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+       * @param value The enum numeric value on the wire for jobTrailerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJobTrailerTypeValue(int value) {
+        
+        jobTrailerType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+       * @return The jobTrailerType.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto getJobTrailerType() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto result = dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.valueOf(jobTrailerType_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+       * @param value The jobTrailerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setJobTrailerType(dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        jobTrailerType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.TrailerTypeProto jobTrailerType = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearJobTrailerType() {
+        
+        jobTrailerType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int totalPrice_ ;
+      /**
+       * <code>int32 totalPrice = 9;</code>
+       * @return The totalPrice.
+       */
+      @java.lang.Override
+      public int getTotalPrice() {
+        return totalPrice_;
+      }
+      /**
+       * <code>int32 totalPrice = 9;</code>
+       * @param value The totalPrice to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTotalPrice(int value) {
+        
+        totalPrice_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 totalPrice = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTotalPrice() {
+        
+        totalPrice_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object cargoInfo_ = "";
+      /**
+       * <code>string cargoInfo = 10;</code>
+       * @return The cargoInfo.
+       */
+      public java.lang.String getCargoInfo() {
+        java.lang.Object ref = cargoInfo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cargoInfo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string cargoInfo = 10;</code>
+       * @return The bytes for cargoInfo.
+       */
+      public com.google.protobuf.ByteString
+          getCargoInfoBytes() {
+        java.lang.Object ref = cargoInfo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cargoInfo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string cargoInfo = 10;</code>
+       * @param value The cargoInfo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCargoInfo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cargoInfo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cargoInfo = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCargoInfo() {
+        
+        cargoInfo_ = getDefaultInstance().getCargoInfo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string cargoInfo = 10;</code>
+       * @param value The bytes for cargoInfo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCargoInfoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cargoInfo_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp pickUpTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> pickUpTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       * @return Whether the pickUpTime field is set.
+       */
+      public boolean hasPickUpTime() {
+        return pickUpTimeBuilder_ != null || pickUpTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       * @return The pickUpTime.
+       */
+      public com.google.protobuf.Timestamp getPickUpTime() {
+        if (pickUpTimeBuilder_ == null) {
+          return pickUpTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : pickUpTime_;
+        } else {
+          return pickUpTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public Builder setPickUpTime(com.google.protobuf.Timestamp value) {
+        if (pickUpTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pickUpTime_ = value;
+          onChanged();
+        } else {
+          pickUpTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public Builder setPickUpTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (pickUpTimeBuilder_ == null) {
+          pickUpTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          pickUpTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public Builder mergePickUpTime(com.google.protobuf.Timestamp value) {
+        if (pickUpTimeBuilder_ == null) {
+          if (pickUpTime_ != null) {
+            pickUpTime_ =
+              com.google.protobuf.Timestamp.newBuilder(pickUpTime_).mergeFrom(value).buildPartial();
+          } else {
+            pickUpTime_ = value;
+          }
+          onChanged();
+        } else {
+          pickUpTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public Builder clearPickUpTime() {
+        if (pickUpTimeBuilder_ == null) {
+          pickUpTime_ = null;
+          onChanged();
+        } else {
+          pickUpTime_ = null;
+          pickUpTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getPickUpTimeBuilder() {
+        
+        onChanged();
+        return getPickUpTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getPickUpTimeOrBuilder() {
+        if (pickUpTimeBuilder_ != null) {
+          return pickUpTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return pickUpTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : pickUpTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp pickUpTime = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getPickUpTimeFieldBuilder() {
+        if (pickUpTimeBuilder_ == null) {
+          pickUpTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getPickUpTime(),
+                  getParentForChildren(),
+                  isClean());
+          pickUpTime_ = null;
+        }
+        return pickUpTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp deliveryTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> deliveryTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       * @return Whether the deliveryTime field is set.
+       */
+      public boolean hasDeliveryTime() {
+        return deliveryTimeBuilder_ != null || deliveryTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       * @return The deliveryTime.
+       */
+      public com.google.protobuf.Timestamp getDeliveryTime() {
+        if (deliveryTimeBuilder_ == null) {
+          return deliveryTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deliveryTime_;
+        } else {
+          return deliveryTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public Builder setDeliveryTime(com.google.protobuf.Timestamp value) {
+        if (deliveryTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          deliveryTime_ = value;
+          onChanged();
+        } else {
+          deliveryTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public Builder setDeliveryTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (deliveryTimeBuilder_ == null) {
+          deliveryTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          deliveryTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public Builder mergeDeliveryTime(com.google.protobuf.Timestamp value) {
+        if (deliveryTimeBuilder_ == null) {
+          if (deliveryTime_ != null) {
+            deliveryTime_ =
+              com.google.protobuf.Timestamp.newBuilder(deliveryTime_).mergeFrom(value).buildPartial();
+          } else {
+            deliveryTime_ = value;
+          }
+          onChanged();
+        } else {
+          deliveryTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public Builder clearDeliveryTime() {
+        if (deliveryTimeBuilder_ == null) {
+          deliveryTime_ = null;
+          onChanged();
+        } else {
+          deliveryTime_ = null;
+          deliveryTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getDeliveryTimeBuilder() {
+        
+        onChanged();
+        return getDeliveryTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getDeliveryTimeOrBuilder() {
+        if (deliveryTimeBuilder_ != null) {
+          return deliveryTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return deliveryTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : deliveryTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp deliveryTime = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getDeliveryTimeFieldBuilder() {
+        if (deliveryTimeBuilder_ == null) {
+          deliveryTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getDeliveryTime(),
+                  getParentForChildren(),
+                  isClean());
+          deliveryTime_ = null;
+        }
+        return deliveryTimeBuilder_;
+      }
+
+      private java.lang.Object pickUpLocationState_ = "";
+      /**
+       * <code>string pickUpLocationState = 13;</code>
+       * @return The pickUpLocationState.
+       */
+      public java.lang.String getPickUpLocationState() {
+        java.lang.Object ref = pickUpLocationState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pickUpLocationState_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pickUpLocationState = 13;</code>
+       * @return The bytes for pickUpLocationState.
+       */
+      public com.google.protobuf.ByteString
+          getPickUpLocationStateBytes() {
+        java.lang.Object ref = pickUpLocationState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pickUpLocationState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pickUpLocationState = 13;</code>
+       * @param value The pickUpLocationState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPickUpLocationState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pickUpLocationState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pickUpLocationState = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPickUpLocationState() {
+        
+        pickUpLocationState_ = getDefaultInstance().getPickUpLocationState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pickUpLocationState = 13;</code>
+       * @param value The bytes for pickUpLocationState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPickUpLocationStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pickUpLocationState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int pickUpLocationZipCode_ ;
+      /**
+       * <code>int32 pickUpLocationZipCode = 14;</code>
+       * @return The pickUpLocationZipCode.
+       */
+      @java.lang.Override
+      public int getPickUpLocationZipCode() {
+        return pickUpLocationZipCode_;
+      }
+      /**
+       * <code>int32 pickUpLocationZipCode = 14;</code>
+       * @param value The pickUpLocationZipCode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPickUpLocationZipCode(int value) {
+        
+        pickUpLocationZipCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 pickUpLocationZipCode = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPickUpLocationZipCode() {
+        
+        pickUpLocationZipCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dropLocationState_ = "";
+      /**
+       * <code>string dropLocationState = 15;</code>
+       * @return The dropLocationState.
+       */
+      public java.lang.String getDropLocationState() {
+        java.lang.Object ref = dropLocationState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dropLocationState_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string dropLocationState = 15;</code>
+       * @return The bytes for dropLocationState.
+       */
+      public com.google.protobuf.ByteString
+          getDropLocationStateBytes() {
+        java.lang.Object ref = dropLocationState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dropLocationState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string dropLocationState = 15;</code>
+       * @param value The dropLocationState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropLocationState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dropLocationState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dropLocationState = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDropLocationState() {
+        
+        dropLocationState_ = getDefaultInstance().getDropLocationState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dropLocationState = 15;</code>
+       * @param value The bytes for dropLocationState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropLocationStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dropLocationState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int dropLocationZipCode_ ;
+      /**
+       * <code>int32 dropLocationZipCode = 16;</code>
+       * @return The dropLocationZipCode.
+       */
+      @java.lang.Override
+      public int getDropLocationZipCode() {
+        return dropLocationZipCode_;
+      }
+      /**
+       * <code>int32 dropLocationZipCode = 16;</code>
+       * @param value The dropLocationZipCode to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDropLocationZipCode(int value) {
+        
+        dropLocationZipCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 dropLocationZipCode = 16;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDropLocationZipCode() {
+        
+        dropLocationZipCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int currentJobStatus_ = 0;
+      /**
+       * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+       * @return The enum numeric value on the wire for currentJobStatus.
+       */
+      @java.lang.Override public int getCurrentJobStatusValue() {
+        return currentJobStatus_;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+       * @param value The enum numeric value on the wire for currentJobStatus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentJobStatusValue(int value) {
+        
+        currentJobStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+       * @return The currentJobStatus.
+       */
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto getCurrentJobStatus() {
+        @SuppressWarnings("deprecation")
+        dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto result = dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.valueOf(currentJobStatus_);
+        return result == null ? dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+       * @param value The currentJobStatus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentJobStatus(dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        currentJobStatus_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.dk.via.fleetforward.gRPC.JobStatusProto currentJobStatus = 17;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCurrentJobStatus() {
+        
+        currentJobStatus_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dk.via.fleetforward.gRPC.JobProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:dk.via.fleetforward.gRPC.JobProto)
+    private static final dk.via.fleetforward.gRPC.Fleetforward.JobProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dk.via.fleetforward.gRPC.Fleetforward.JobProto();
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JobProto>
+        PARSER = new com.google.protobuf.AbstractParser<JobProto>() {
+      @java.lang.Override
+      public JobProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JobProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.JobProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DriverListProtoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.DriverListProto)
       com.google.protobuf.MessageOrBuilder {
@@ -9138,6 +11633,801 @@ public final class Fleetforward {
 
   }
 
+  public interface JobListProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dk.via.fleetforward.gRPC.JobListProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> 
+        getJobsList();
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index);
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    int getJobsCount();
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+        getJobsOrBuilderList();
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code dk.via.fleetforward.gRPC.JobListProto}
+   */
+  public static final class JobListProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dk.via.fleetforward.gRPC.JobListProto)
+      JobListProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JobListProto.newBuilder() to construct.
+    private JobListProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JobListProto() {
+      jobs_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JobListProto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JobListProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobListProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              jobs_.add(
+                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.JobListProto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          jobs_ = java.util.Collections.unmodifiableList(jobs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobListProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dk.via.fleetforward.gRPC.Fleetforward.JobListProto.class, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder.class);
+    }
+
+    public static final int JOBS_FIELD_NUMBER = 1;
+    private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> jobs_;
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> getJobsList() {
+      return jobs_;
+    }
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+        getJobsOrBuilderList() {
+      return jobs_;
+    }
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    @java.lang.Override
+    public int getJobsCount() {
+      return jobs_.size();
+    }
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index) {
+      return jobs_.get(index);
+    }
+    /**
+     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     */
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+        int index) {
+      return jobs_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < jobs_.size(); i++) {
+        output.writeMessage(1, jobs_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < jobs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, jobs_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dk.via.fleetforward.gRPC.Fleetforward.JobListProto)) {
+        return super.equals(obj);
+      }
+      dk.via.fleetforward.gRPC.Fleetforward.JobListProto other = (dk.via.fleetforward.gRPC.Fleetforward.JobListProto) obj;
+
+      if (!getJobsList()
+          .equals(other.getJobsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getJobsCount() > 0) {
+        hash = (37 * hash) + JOBS_FIELD_NUMBER;
+        hash = (53 * hash) + getJobsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dk.via.fleetforward.gRPC.Fleetforward.JobListProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dk.via.fleetforward.gRPC.JobListProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dk.via.fleetforward.gRPC.JobListProto)
+        dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobListProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dk.via.fleetforward.gRPC.Fleetforward.JobListProto.class, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder.class);
+      }
+
+      // Construct using dk.via.fleetforward.gRPC.Fleetforward.JobListProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getJobsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (jobsBuilder_ == null) {
+          jobs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          jobsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getDefaultInstanceForType() {
+        return dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto build() {
+        dk.via.fleetforward.gRPC.Fleetforward.JobListProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto buildPartial() {
+        dk.via.fleetforward.gRPC.Fleetforward.JobListProto result = new dk.via.fleetforward.gRPC.Fleetforward.JobListProto(this);
+        int from_bitField0_ = bitField0_;
+        if (jobsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            jobs_ = java.util.Collections.unmodifiableList(jobs_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.jobs_ = jobs_;
+        } else {
+          result.jobs_ = jobsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dk.via.fleetforward.gRPC.Fleetforward.JobListProto) {
+          return mergeFrom((dk.via.fleetforward.gRPC.Fleetforward.JobListProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dk.via.fleetforward.gRPC.Fleetforward.JobListProto other) {
+        if (other == dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance()) return this;
+        if (jobsBuilder_ == null) {
+          if (!other.jobs_.isEmpty()) {
+            if (jobs_.isEmpty()) {
+              jobs_ = other.jobs_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureJobsIsMutable();
+              jobs_.addAll(other.jobs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.jobs_.isEmpty()) {
+            if (jobsBuilder_.isEmpty()) {
+              jobsBuilder_.dispose();
+              jobsBuilder_ = null;
+              jobs_ = other.jobs_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              jobsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getJobsFieldBuilder() : null;
+            } else {
+              jobsBuilder_.addAllMessages(other.jobs_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dk.via.fleetforward.gRPC.Fleetforward.JobListProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dk.via.fleetforward.gRPC.Fleetforward.JobListProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> jobs_ =
+        java.util.Collections.emptyList();
+      private void ensureJobsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobListProto>(jobs_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> jobsBuilder_;
+
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> getJobsList() {
+        if (jobsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(jobs_);
+        } else {
+          return jobsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public int getJobsCount() {
+        if (jobsBuilder_ == null) {
+          return jobs_.size();
+        } else {
+          return jobsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index) {
+        if (jobsBuilder_ == null) {
+          return jobs_.get(index);
+        } else {
+          return jobsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder setJobs(
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+        if (jobsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureJobsIsMutable();
+          jobs_.set(index, value);
+          onChanged();
+        } else {
+          jobsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder setJobs(
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+        if (jobsBuilder_ == null) {
+          ensureJobsIsMutable();
+          jobs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          jobsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder addJobs(dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+        if (jobsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureJobsIsMutable();
+          jobs_.add(value);
+          onChanged();
+        } else {
+          jobsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder addJobs(
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+        if (jobsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureJobsIsMutable();
+          jobs_.add(index, value);
+          onChanged();
+        } else {
+          jobsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder addJobs(
+          dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+        if (jobsBuilder_ == null) {
+          ensureJobsIsMutable();
+          jobs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          jobsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder addJobs(
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+        if (jobsBuilder_ == null) {
+          ensureJobsIsMutable();
+          jobs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          jobsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder addAllJobs(
+          java.lang.Iterable<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProto> values) {
+        if (jobsBuilder_ == null) {
+          ensureJobsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, jobs_);
+          onChanged();
+        } else {
+          jobsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder clearJobs() {
+        if (jobsBuilder_ == null) {
+          jobs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          jobsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public Builder removeJobs(int index) {
+        if (jobsBuilder_ == null) {
+          ensureJobsIsMutable();
+          jobs_.remove(index);
+          onChanged();
+        } else {
+          jobsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder getJobsBuilder(
+          int index) {
+        return getJobsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+          int index) {
+        if (jobsBuilder_ == null) {
+          return jobs_.get(index);  } else {
+          return jobsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+           getJobsOrBuilderList() {
+        if (jobsBuilder_ != null) {
+          return jobsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(jobs_);
+        }
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder addJobsBuilder() {
+        return getJobsFieldBuilder().addBuilder(
+            dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder addJobsBuilder(
+          int index) {
+        return getJobsFieldBuilder().addBuilder(
+            index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       */
+      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder> 
+           getJobsBuilderList() {
+        return getJobsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+          getJobsFieldBuilder() {
+        if (jobsBuilder_ == null) {
+          jobsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder>(
+                  jobs_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          jobs_ = null;
+        }
+        return jobsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dk.via.fleetforward.gRPC.JobListProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:dk.via.fleetforward.gRPC.JobListProto)
+    private static final dk.via.fleetforward.gRPC.Fleetforward.JobListProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dk.via.fleetforward.gRPC.Fleetforward.JobListProto();
+    }
+
+    public static dk.via.fleetforward.gRPC.Fleetforward.JobListProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JobListProto>
+        PARSER = new com.google.protobuf.AbstractParser<JobListProto>() {
+      @java.lang.Override
+      public JobListProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JobListProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JobListProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JobListProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_fleetforward_gRPC_CompanyProtoList_descriptor;
   private static final 
@@ -9169,6 +12459,11 @@ public final class Fleetforward {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_fleetforward_gRPC_DriverProto_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_fleetforward_gRPC_JobProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dk_via_fleetforward_gRPC_DriverListProto_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -9183,6 +12478,11 @@ public final class Fleetforward {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dk_via_fleetforward_gRPC_JobListProto_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9193,62 +12493,83 @@ public final class Fleetforward {
   static {
     java.lang.String[] descriptorData = {
       "\n\022fleetforward.proto\022\030dk.via.fleetforwar" +
-      "d.gRPC\032\031google/protobuf/any.proto\"M\n\020Com" +
-      "panyProtoList\0229\n\tcompanies\030\001 \003(\0132&.dk.vi" +
-      "a.fleetforward.gRPC.CompanyProto\"7\n\014Comp" +
-      "anyProto\022\021\n\tmc_number\030\001 \001(\t\022\024\n\014company_n" +
-      "ame\030\002 \001(\t\"\255\001\n\014RequestProto\022;\n\007handler\030\001 " +
-      "\001(\0162*.dk.via.fleetforward.gRPC.HandlerTy" +
-      "peProto\0229\n\006action\030\002 \001(\0162).dk.via.fleetfo" +
-      "rward.gRPC.ActionTypeProto\022%\n\007payload\030\003 " +
-      "\001(\0132\024.google.protobuf.Any\"q\n\rResponsePro" +
-      "to\0229\n\006status\030\001 \001(\0162).dk.via.fleetforward" +
-      ".gRPC.StatusTypeProto\022%\n\007payload\030\002 \001(\0132\024" +
-      ".google.protobuf.Any\"\251\001\n\tUserProto\022\n\n\002id" +
-      "\030\001 \001(\005\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 " +
-      "\001(\t\022\r\n\005email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022" +
-      "\020\n\010password\030\006 \001(\t\0225\n\004role\030\007 \001(\0162\'.dk.via" +
-      ".fleetforward.gRPC.UserRoleProto\"\322\002\n\013Dri" +
-      "verProto\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014dri" +
-      "verStatus\030\002 \001(\0162+.dk.via.fleetforward.gR" +
-      "PC.StatusDriverProto\022E\n\013companyRole\030\003 \001(" +
-      "\01620.dk.via.fleetforward.gRPC.DriverCompa" +
-      "nyRoleProto\022?\n\013trailerType\030\004 \001(\0162*.dk.vi" +
-      "a.fleetforward.gRPC.TrailerTypeProto\022\024\n\014" +
-      "currentState\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001" +
-      "(\005\0221\n\004user\030\007 \001(\0132#.dk.via.fleetforward.g" +
-      "RPC.UserProto\"I\n\017DriverListProto\0226\n\007driv" +
-      "ers\030\001 \003(\0132%.dk.via.fleetforward.gRPC.Dri" +
-      "verProto\"r\n\017DispatcherProto\022\023\n\013currentRa" +
-      "te\030\001 \001(\001\022\027\n\017driversAssigned\030\002 \003(\005\0221\n\004use" +
-      "r\030\003 \001(\0132#.dk.via.fleetforward.gRPC.UserP" +
-      "roto\"U\n\023DispatcherListProto\022>\n\013dispatche" +
-      "rs\030\001 \003(\0132).dk.via.fleetforward.gRPC.Disp" +
-      "atcherProto*z\n\020HandlerTypeProto\022\023\n\017HANDL" +
-      "ER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001\022\022\n\016HAN" +
-      "DLER_DRIVER\020\002\022\026\n\022HANDLER_DISPATCHER\020\003\022\020\n" +
-      "\014HANDLER_AUTH\020\004*\177\n\017ActionTypeProto\022\022\n\016AC" +
-      "TION_UNKNOWN\020\000\022\021\n\rACTION_CREATE\020\001\022\016\n\nACT" +
-      "ION_GET\020\002\022\021\n\rACTION_UPDATE\020\003\022\021\n\rACTION_D" +
-      "ELETE\020\004\022\017\n\013ACTION_LIST\020\005*b\n\017StatusTypePr" +
-      "oto\022\022\n\016STATUS_UNKNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020" +
-      "\n\014STATUS_ERROR\020\002\022\032\n\026STATUS_INVALID_PAYLO" +
-      "AD\020\003*G\n\rUserRoleProto\022\020\n\014UNKNOWN_ROLE\020\000\022" +
-      "\023\n\017USER_DISPATCHER\020\001\022\017\n\013USER_DRIVER\020\002*G\n" +
-      "\021StatusDriverProto\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAIL" +
-      "ABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010OFF_DUTY\020\003*R\n\026Driver" +
-      "CompanyRoleProto\022\030\n\024UNKNOWN_ROLE_COMPANY" +
-      "\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OWNER_OPERATOR\020\002*M\n\020Tr" +
-      "ailerTypeProto\022\023\n\017UNKNOWN_TRAILER\020\000\022\013\n\007D" +
-      "RY_VAN\020\001\022\013\n\007FLATBED\020\002\022\n\n\006REEFER\020\0032s\n\021Fle" +
-      "etServiceProto\022^\n\013SendRequest\022&.dk.via.f" +
-      "leetforward.gRPC.RequestProto\032\'.dk.via.f" +
-      "leetforward.gRPC.ResponseProtob\006proto3"
+      "d.gRPC\032\031google/protobuf/any.proto\032\037googl" +
+      "e/protobuf/timestamp.proto\"M\n\020CompanyPro" +
+      "toList\0229\n\tcompanies\030\001 \003(\0132&.dk.via.fleet" +
+      "forward.gRPC.CompanyProto\"7\n\014CompanyProt" +
+      "o\022\021\n\tmc_number\030\001 \001(\t\022\024\n\014company_name\030\002 \001" +
+      "(\t\"\255\001\n\014RequestProto\022;\n\007handler\030\001 \001(\0162*.d" +
+      "k.via.fleetforward.gRPC.HandlerTypeProto" +
+      "\0229\n\006action\030\002 \001(\0162).dk.via.fleetforward.g" +
+      "RPC.ActionTypeProto\022%\n\007payload\030\003 \001(\0132\024.g" +
+      "oogle.protobuf.Any\"q\n\rResponseProto\0229\n\006s" +
+      "tatus\030\001 \001(\0162).dk.via.fleetforward.gRPC.S" +
+      "tatusTypeProto\022%\n\007payload\030\002 \001(\0132\024.google" +
+      ".protobuf.Any\"\251\001\n\tUserProto\022\n\n\002id\030\001 \001(\005\022" +
+      "\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001(\t\022\r\n\005" +
+      "email\030\004 \001(\t\022\023\n\013phoneNumber\030\005 \001(\t\022\020\n\010pass" +
+      "word\030\006 \001(\t\0225\n\004role\030\007 \001(\0162\'.dk.via.fleetf" +
+      "orward.gRPC.UserRoleProto\"\322\002\n\013DriverProt" +
+      "o\022\027\n\017companyMcNumber\030\001 \001(\t\022A\n\014driverStat" +
+      "us\030\002 \001(\0162+.dk.via.fleetforward.gRPC.Stat" +
+      "usDriverProto\022E\n\013companyRole\030\003 \001(\01620.dk." +
+      "via.fleetforward.gRPC.DriverCompanyRoleP" +
+      "roto\022?\n\013trailerType\030\004 \001(\0162*.dk.via.fleet" +
+      "forward.gRPC.TrailerTypeProto\022\024\n\014current" +
+      "State\030\005 \001(\t\022\026\n\016currentZIPCODE\030\006 \001(\005\0221\n\004u" +
+      "ser\030\007 \001(\0132#.dk.via.fleetforward.gRPC.Use" +
+      "rProto\"\234\004\n\010JobProto\022\r\n\005jobId\030\001 \001(\005\022\027\n\017jo" +
+      "bDispatcherId\030\002 \001(\005\022\023\n\013jobDriverId\030\003 \001(\005" +
+      "\022\r\n\005title\030\004 \001(\t\022\023\n\013description\030\005 \001(\t\022\023\n\013" +
+      "loadedMiles\030\006 \001(\005\022\025\n\rweightOfCargo\030\007 \001(\005" +
+      "\022B\n\016jobTrailerType\030\010 \001(\0162*.dk.via.fleetf" +
+      "orward.gRPC.TrailerTypeProto\022\022\n\ntotalPri" +
+      "ce\030\t \001(\005\022\021\n\tcargoInfo\030\n \001(\t\022.\n\npickUpTim" +
+      "e\030\013 \001(\0132\032.google.protobuf.Timestamp\0220\n\014d" +
+      "eliveryTime\030\014 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022\033\n\023pickUpLocationState\030\r \001(\t\022\035\n\025pi" +
+      "ckUpLocationZipCode\030\016 \001(\005\022\031\n\021dropLocatio" +
+      "nState\030\017 \001(\t\022\033\n\023dropLocationZipCode\030\020 \001(" +
+      "\005\022B\n\020currentJobStatus\030\021 \001(\0162(.dk.via.fle" +
+      "etforward.gRPC.JobStatusProto\"I\n\017DriverL" +
+      "istProto\0226\n\007drivers\030\001 \003(\0132%.dk.via.fleet" +
+      "forward.gRPC.DriverProto\"r\n\017DispatcherPr" +
+      "oto\022\023\n\013currentRate\030\001 \001(\001\022\027\n\017driversAssig" +
+      "ned\030\002 \003(\005\0221\n\004user\030\003 \001(\0132#.dk.via.fleetfo" +
+      "rward.gRPC.UserProto\"U\n\023DispatcherListPr" +
+      "oto\022>\n\013dispatchers\030\001 \003(\0132).dk.via.fleetf" +
+      "orward.gRPC.DispatcherProto\"D\n\014JobListPr" +
+      "oto\0224\n\004jobs\030\001 \003(\0132&.dk.via.fleetforward." +
+      "gRPC.JobListProto*\213\001\n\020HandlerTypeProto\022\023" +
+      "\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001" +
+      "\022\022\n\016HANDLER_DRIVER\020\002\022\026\n\022HANDLER_DISPATCH" +
+      "ER\020\003\022\020\n\014HANDLER_AUTH\020\004\022\017\n\013HANDLER_JOB\020\005*" +
+      "\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021" +
+      "\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACT" +
+      "ION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTIO" +
+      "N_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UN" +
+      "KNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002" +
+      "\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\rUserRole" +
+      "Proto\022\020\n\014UNKNOWN_ROLE\020\000\022\023\n\017USER_DISPATCH" +
+      "ER\020\001\022\017\n\013USER_DRIVER\020\002*G\n\021StatusDriverPro" +
+      "to\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002" +
+      "\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRoleProto" +
+      "\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022" +
+      "\n\016OWNER_OPERATOR\020\002*M\n\020TrailerTypeProto\022\023" +
+      "\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLAT" +
+      "BED\020\002\022\n\n\006REEFER\020\003*{\n\016JobStatusProto\022\017\n\013J" +
+      "OB_UNKNOWN\020\000\022\021\n\rJOB_AVAILABLE\020\001\022\017\n\013JOB_O" +
+      "NGOING\020\002\022\020\n\014JOB_ASSIGNED\020\003\022\021\n\rJOB_COMPLE" +
+      "TED\020\004\022\017\n\013JOB_EXPIRED\020\0052s\n\021FleetServicePr" +
+      "oto\022^\n\013SendRequest\022&.dk.via.fleetforward" +
+      ".gRPC.RequestProto\032\'.dk.via.fleetforward" +
+      ".gRPC.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.AnyProto.getDescriptor(),
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_dk_via_fleetforward_gRPC_CompanyProtoList_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -9286,25 +12607,38 @@ public final class Fleetforward {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DriverProto_descriptor,
         new java.lang.String[] { "CompanyMcNumber", "DriverStatus", "CompanyRole", "TrailerType", "CurrentState", "CurrentZIPCODE", "User", });
-    internal_static_dk_via_fleetforward_gRPC_DriverListProto_descriptor =
+    internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_dk_via_fleetforward_gRPC_JobProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_fleetforward_gRPC_JobProto_descriptor,
+        new java.lang.String[] { "JobId", "JobDispatcherId", "JobDriverId", "Title", "Description", "LoadedMiles", "WeightOfCargo", "JobTrailerType", "TotalPrice", "CargoInfo", "PickUpTime", "DeliveryTime", "PickUpLocationState", "PickUpLocationZipCode", "DropLocationState", "DropLocationZipCode", "CurrentJobStatus", });
+    internal_static_dk_via_fleetforward_gRPC_DriverListProto_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_dk_via_fleetforward_gRPC_DriverListProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DriverListProto_descriptor,
         new java.lang.String[] { "Drivers", });
     internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_dk_via_fleetforward_gRPC_DispatcherProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DispatcherProto_descriptor,
         new java.lang.String[] { "CurrentRate", "DriversAssigned", "User", });
     internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dk_via_fleetforward_gRPC_DispatcherListProto_descriptor,
         new java.lang.String[] { "Dispatchers", });
+    internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_dk_via_fleetforward_gRPC_JobListProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dk_via_fleetforward_gRPC_JobListProto_descriptor,
+        new java.lang.String[] { "Jobs", });
     com.google.protobuf.AnyProto.getDescriptor();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
