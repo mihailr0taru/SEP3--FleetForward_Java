@@ -39,6 +39,8 @@ public final class Fleetforward {
      * <code>HANDLER_AUTH = 4;</code>
      */
     HANDLER_AUTH(4),
+
+    HANDLER_JOB(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -62,6 +64,11 @@ public final class Fleetforward {
      * <code>HANDLER_AUTH = 4;</code>
      */
     public static final int HANDLER_AUTH_VALUE = 4;
+
+    /**
+     * <code>HANDLER_JOB = 4;</code>
+     */
+    public static final int HANDLER_JOB_VALUE = 5;
 
 
     public final int getNumber() {
@@ -93,6 +100,7 @@ public final class Fleetforward {
         case 2: return HANDLER_DRIVER;
         case 3: return HANDLER_DISPATCHER;
         case 4: return HANDLER_AUTH;
+        case 5: return HANDLER_JOB;
         default: return null;
       }
     }
