@@ -1,7 +1,9 @@
 package dk.via.fleetforward.model;
 
+import dk.via.fleetforward.gRPC.Fleetforward;
 import dk.via.fleetforward.model.Enums.JobStatus;
 import dk.via.fleetforward.model.Enums.TrailerType;
+import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -51,6 +53,53 @@ import java.time.Instant;
   @JdbcTypeCode(SqlTypes.NAMED_ENUM)
   @Column(name = "current_job_status", columnDefinition = "fleetforward.job_status", nullable = false)
   private JobStatus currentJobStatus;
+
+
+  public Job(){}
+
+  public Job(Fleetforward.JobProto jobProto, int id) {
+    setId(id);
+
+    // Dispatcher
+    if (jobProto.getJobDispatcherId() != 0) {
+      Dispatcher dispatcher = new Dispatcher();
+      dispatcher.setDispatcherId(jobProto.getJobDispatcherId());
+      setDispatcher(dispatcher);
+    }
+
+    // Driver
+    if (jobProto.getJobDriverId() != 0) {
+      Driver driver = new Driver();
+      driver.setDriverId(jobProto.getJobDriverId());
+      setDriver(driver);
+    }
+
+    setTitle(jobProto.getTitle());
+    setDescription(jobProto.getDescription());
+    setLoadedMiles(jobProto.getLoadedMiles());
+    setWeightOfCargo(jobProto.getWeightOfCargo());
+    setTotalPrice(jobProto.getTotalPrice());
+    setCargoInfo(jobProto.getCargoInfo());
+
+    setTrailerTypeNeeded(ProtoUtils.parseTrailerType(jobProto.getJobTrailerType()));
+    setCurrentJobStatus(ProtoUtils.parseJobStatus(jobProto.getCurrentJobStatus()));
+
+    setPickupTime(Instant.ofEpochSecond(
+        jobProto.getPickUpTime().getSeconds(),
+        jobProto.getPickUpTime().getNanos()
+    ));
+
+    setDeliveryTime(Instant.ofEpochSecond(
+        jobProto.getDeliveryTime().getSeconds(),
+        jobProto.getDeliveryTime().getNanos()
+    ));
+
+    setPickupLocationState(jobProto.getPickUpLocationState());
+    setPickupLocationZipCode(jobProto.getPickUpLocationZipCode());
+    setDropLocationState(jobProto.getDropLocationState());
+    setDropLocationZipCode(jobProto.getDropLocationZipCode());
+  }
+
   public Integer getId()
   {
     return id;
