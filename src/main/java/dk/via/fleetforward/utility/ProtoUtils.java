@@ -1,5 +1,6 @@
 package dk.via.fleetforward.utility;
 
+import dk.via.fleetforward.gRPC.Fleetforward.JobStatusProto;
 import dk.via.fleetforward.gRPC.Fleetforward.UserRoleProto;
 import dk.via.fleetforward.gRPC.Fleetforward.CompanyProto;
 import dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto;
@@ -8,17 +9,19 @@ import dk.via.fleetforward.gRPC.Fleetforward.DriverProto;
 import dk.via.fleetforward.gRPC.Fleetforward.DriverCompanyRoleProto;
 import dk.via.fleetforward.gRPC.Fleetforward.StatusDriverProto;
 import dk.via.fleetforward.gRPC.Fleetforward.TrailerTypeProto;
+import com.google.protobuf.Timestamp;
+import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
 import dk.via.fleetforward.model.Company;
 import dk.via.fleetforward.model.Dispatcher;
 import dk.via.fleetforward.model.Driver;
-import dk.via.fleetforward.model.Enums.DriverCompanyRole;
-import dk.via.fleetforward.model.Enums.StatusDriver;
-import dk.via.fleetforward.model.Enums.TrailerType;
-import dk.via.fleetforward.model.Enums.UserRole;
+import dk.via.fleetforward.model.Enums.*;
 import dk.via.fleetforward.model.User;
+import dk.via.fleetforward.model.Job;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -208,5 +211,63 @@ public class ProtoUtils {
                 throw new RuntimeException("Unknown role");
             }
         }
+    }
+    public static JobProto parseFromJobToProto(Job job)
+    {
+        if (job == null) {
+            log.error("Job is null");
+            throw new RuntimeException("Job is null");
+        }
+        return JobProto.newBuilder()
+                .setJobId(job.getId())
+                .setJobDriverId(job.getDriver() == null ? 0 : job.getDriver().getDriverId())
+                .setJobDispatcherId(job.getDispatcher() == null ? 0 : job.getDispatcher().getDispatcherId())
+                .setTitle(job.getTitle() == null ? "" : job.getTitle())
+                .setCargoInfo(job.getCargoInfo() == null ? "" : job.getCargoInfo())
+                .setDescription(job.getDescription() == null ? "": job.getDescription())
+                .setDeliveryTime(job.getDeliveryTime() == null ? parseToTimestampProto(Instant.now()) : parseToTimestampProto(job.getDeliveryTime()))
+                .setPickUpTime(job.getPickupTime() == null ? parseToTimestampProto(Instant.now()) : parseToTimestampProto(job.getPickupTime()))
+                .setDropLocationState(job.getDropLocationState() == null ? "AL" : job.getDropLocationState())
+                .setDropLocationZipCode(job.getDropLocationZipCode() == 0 ? 35010 : job.getDropLocationZipCode())
+                .setPickUpLocationState(job.getPickupLocationState() ==null ? "AL" : job.getPickupLocationState())
+                .setPickUpLocationZipCode(job.getPickupLocationZipCode() == 0 ? 35010 : job.getPickupLocationZipCode())
+                .setLoadedMiles(job.getLoadedMiles())
+                .setWeightOfCargo(job.getWeightOfCargo())
+                .setJobTrailerType(job.getTrailerTypeNeeded() == null ? TrailerTypeProto.DRY_VAN : parseTrailerTypeProto(job.getTrailerTypeNeeded()))
+                .setCurrentJobStatus(job.getCurrentJobStatus() == null ? JobStatusProto.JOB_AVAILABLE : parseJobStatusToProto(job.getCurrentJobStatus()))
+                .build();
+    }
+    public static Instant  parseFromTimestampProto(Timestamp timestamp)
+    {
+        if (timestamp == null) {
+            log.error("Timestamp is null");
+            throw new RuntimeException("Timestamp is null");
+        }
+        return Instant.ofEpochSecond(timestamp.getSeconds(), timestamp.getNanos());
+    }
+    public static Timestamp parseToTimestampProto(Instant instant)
+    {
+        if (instant == null) {
+            log.error("Instant is null");
+            throw new RuntimeException("Instant is null");
+        }
+        return Timestamp.newBuilder().setSeconds(instant.getEpochSecond()).setNanos(instant.getNano()).build();
+    }
+    public static JobStatusProto parseJobStatusToProto(JobStatus jobStatus)
+    {
+        if (jobStatus == null) {
+            log.error("JobStatus is null");
+            throw new RuntimeException("JobStatus is null");
+        }
+        return switch (jobStatus)
+        {
+            case assigned ->  JobStatusProto.JOB_ASSIGNED;
+            case completed ->  JobStatusProto.JOB_COMPLETED;
+            case expired ->   JobStatusProto.JOB_EXPIRED;
+            case ongoing ->   JobStatusProto.JOB_ONGOING;
+            case available ->   JobStatusProto.JOB_AVAILABLE;
+            case null, default ->
+                throw new RuntimeException("Unknown job status");
+        };
     }
 }
