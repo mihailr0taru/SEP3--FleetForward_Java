@@ -82,7 +82,7 @@ import java.time.Instant;
     setCargoInfo(jobProto.getCargoInfo());
 
     setTrailerTypeNeeded(ProtoUtils.parseTrailerType(jobProto.getJobTrailerType()));
-    setCurrentJobStatus(ProtoUtils.parseJobStatus(jobProto.getCurrentJobStatus()));
+    setCurrentJobStatus(ProtoUtils.parseJobStatusFromProto(jobProto.getCurrentJobStatus()));
 
     setPickupTime(Instant.ofEpochSecond(
         jobProto.getPickUpTime().getSeconds(),
