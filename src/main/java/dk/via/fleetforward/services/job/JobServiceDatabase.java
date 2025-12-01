@@ -2,6 +2,7 @@ package dk.via.fleetforward.services.job;
 
 import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
 import dk.via.fleetforward.gRPC.Fleetforward.JobListProto;
+import dk.via.fleetforward.model.Job;
 import dk.via.fleetforward.repositories.database.JobRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,9 @@ public class JobServiceDatabase implements JobService {
     }
     @Override
     @Transactional
-    public JobProto create(JobProto payload) {
-        return null;
+    public JobProto create(JobProto payload)
+    {
+        Job job = new Job(payload.getJobId());
     }
 
     @Override
