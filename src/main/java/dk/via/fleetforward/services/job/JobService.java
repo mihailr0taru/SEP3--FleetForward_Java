@@ -5,7 +5,7 @@ import dk.via.fleetforward.gRPC.Fleetforward.JobListProto;
 
 public interface JobService {
     JobProto create(JobProto payload);
-    void update(JobProto payload);
+    JobProto update(JobProto payload);
     void delete(int id);
     JobProto getSingle (int id);
     JobListProto getAll();
