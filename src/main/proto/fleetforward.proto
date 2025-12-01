@@ -132,5 +132,5 @@ message DispatcherListProto{
   repeated DispatcherProto dispatchers = 1;
 }
 message JobListProto{
-  repeated JobListProto jobs = 1;
+  repeated JobProto jobs = 1;
 }

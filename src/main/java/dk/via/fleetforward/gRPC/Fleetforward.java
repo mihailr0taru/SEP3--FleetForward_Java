@@ -11638,27 +11638,27 @@ public final class Fleetforward {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
-    java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> 
+    java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto> 
         getJobsList();
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
-    dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index);
+    dk.via.fleetforward.gRPC.Fleetforward.JobProto getJobs(int index);
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     int getJobsCount();
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
-    java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+    java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder> 
         getJobsOrBuilderList();
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
-    dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+    dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder getJobsOrBuilder(
         int index);
   }
   /**
@@ -11710,11 +11710,11 @@ public final class Fleetforward {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobListProto>();
+                jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobProto>();
                 mutable_bitField0_ |= 0x00000001;
               }
               jobs_.add(
-                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.JobListProto.parser(), extensionRegistry));
+                  input.readMessage(dk.via.fleetforward.gRPC.Fleetforward.JobProto.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -11755,41 +11755,41 @@ public final class Fleetforward {
     }
 
     public static final int JOBS_FIELD_NUMBER = 1;
-    private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> jobs_;
+    private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto> jobs_;
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> getJobsList() {
+    public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto> getJobsList() {
       return jobs_;
     }
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+    public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder> 
         getJobsOrBuilderList() {
       return jobs_;
     }
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     @java.lang.Override
     public int getJobsCount() {
       return jobs_.size();
     }
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index) {
+    public dk.via.fleetforward.gRPC.Fleetforward.JobProto getJobs(int index) {
       return jobs_.get(index);
     }
     /**
-     * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+     * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
      */
     @java.lang.Override
-    public dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+    public dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder getJobsOrBuilder(
         int index) {
       return jobs_.get(index);
     }
@@ -12136,22 +12136,22 @@ public final class Fleetforward {
       }
       private int bitField0_;
 
-      private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> jobs_ =
+      private java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto> jobs_ =
         java.util.Collections.emptyList();
       private void ensureJobsIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobListProto>(jobs_);
+          jobs_ = new java.util.ArrayList<dk.via.fleetforward.gRPC.Fleetforward.JobProto>(jobs_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> jobsBuilder_;
+          dk.via.fleetforward.gRPC.Fleetforward.JobProto, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder> jobsBuilder_;
 
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto> getJobsList() {
+      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto> getJobsList() {
         if (jobsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(jobs_);
         } else {
@@ -12159,7 +12159,7 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public int getJobsCount() {
         if (jobsBuilder_ == null) {
@@ -12169,9 +12169,9 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto getJobs(int index) {
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto getJobs(int index) {
         if (jobsBuilder_ == null) {
           return jobs_.get(index);
         } else {
@@ -12179,10 +12179,10 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder setJobs(
-          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobProto value) {
         if (jobsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12196,10 +12196,10 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder setJobs(
-          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder builderForValue) {
         if (jobsBuilder_ == null) {
           ensureJobsIsMutable();
           jobs_.set(index, builderForValue.build());
@@ -12210,9 +12210,9 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public Builder addJobs(dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+      public Builder addJobs(dk.via.fleetforward.gRPC.Fleetforward.JobProto value) {
         if (jobsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12226,10 +12226,10 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder addJobs(
-          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto value) {
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobProto value) {
         if (jobsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12243,10 +12243,10 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder addJobs(
-          dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+          dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder builderForValue) {
         if (jobsBuilder_ == null) {
           ensureJobsIsMutable();
           jobs_.add(builderForValue.build());
@@ -12257,10 +12257,10 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder addJobs(
-          int index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder builderForValue) {
+          int index, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder builderForValue) {
         if (jobsBuilder_ == null) {
           ensureJobsIsMutable();
           jobs_.add(index, builderForValue.build());
@@ -12271,10 +12271,10 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder addAllJobs(
-          java.lang.Iterable<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProto> values) {
+          java.lang.Iterable<? extends dk.via.fleetforward.gRPC.Fleetforward.JobProto> values) {
         if (jobsBuilder_ == null) {
           ensureJobsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -12286,7 +12286,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder clearJobs() {
         if (jobsBuilder_ == null) {
@@ -12299,7 +12299,7 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
       public Builder removeJobs(int index) {
         if (jobsBuilder_ == null) {
@@ -12312,16 +12312,16 @@ public final class Fleetforward {
         return this;
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder getJobsBuilder(
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder getJobsBuilder(
           int index) {
         return getJobsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder getJobsOrBuilder(
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder getJobsOrBuilder(
           int index) {
         if (jobsBuilder_ == null) {
           return jobs_.get(index);  } else {
@@ -12329,9 +12329,9 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+      public java.util.List<? extends dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder> 
            getJobsOrBuilderList() {
         if (jobsBuilder_ != null) {
           return jobsBuilder_.getMessageOrBuilderList();
@@ -12340,33 +12340,33 @@ public final class Fleetforward {
         }
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder addJobsBuilder() {
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder addJobsBuilder() {
         return getJobsFieldBuilder().addBuilder(
-            dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance());
+            dk.via.fleetforward.gRPC.Fleetforward.JobProto.getDefaultInstance());
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder addJobsBuilder(
+      public dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder addJobsBuilder(
           int index) {
         return getJobsFieldBuilder().addBuilder(
-            index, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.getDefaultInstance());
+            index, dk.via.fleetforward.gRPC.Fleetforward.JobProto.getDefaultInstance());
       }
       /**
-       * <code>repeated .dk.via.fleetforward.gRPC.JobListProto jobs = 1;</code>
+       * <code>repeated .dk.via.fleetforward.gRPC.JobProto jobs = 1;</code>
        */
-      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder> 
+      public java.util.List<dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder> 
            getJobsBuilderList() {
         return getJobsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder> 
+          dk.via.fleetforward.gRPC.Fleetforward.JobProto, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder> 
           getJobsFieldBuilder() {
         if (jobsBuilder_ == null) {
           jobsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              dk.via.fleetforward.gRPC.Fleetforward.JobListProto, dk.via.fleetforward.gRPC.Fleetforward.JobListProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobListProtoOrBuilder>(
+              dk.via.fleetforward.gRPC.Fleetforward.JobProto, dk.via.fleetforward.gRPC.Fleetforward.JobProto.Builder, dk.via.fleetforward.gRPC.Fleetforward.JobProtoOrBuilder>(
                   jobs_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -12538,32 +12538,32 @@ public final class Fleetforward {
       "ned\030\002 \003(\005\0221\n\004user\030\003 \001(\0132#.dk.via.fleetfo" +
       "rward.gRPC.UserProto\"U\n\023DispatcherListPr" +
       "oto\022>\n\013dispatchers\030\001 \003(\0132).dk.via.fleetf" +
-      "orward.gRPC.DispatcherProto\"D\n\014JobListPr" +
-      "oto\0224\n\004jobs\030\001 \003(\0132&.dk.via.fleetforward." +
-      "gRPC.JobListProto*\213\001\n\020HandlerTypeProto\022\023" +
-      "\n\017HANDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001" +
-      "\022\022\n\016HANDLER_DRIVER\020\002\022\026\n\022HANDLER_DISPATCH" +
-      "ER\020\003\022\020\n\014HANDLER_AUTH\020\004\022\017\n\013HANDLER_JOB\020\005*" +
-      "\177\n\017ActionTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021" +
-      "\n\rACTION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACT" +
-      "ION_UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTIO" +
-      "N_LIST\020\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UN" +
-      "KNOWN\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002" +
-      "\022\032\n\026STATUS_INVALID_PAYLOAD\020\003*G\n\rUserRole" +
-      "Proto\022\020\n\014UNKNOWN_ROLE\020\000\022\023\n\017USER_DISPATCH" +
-      "ER\020\001\022\017\n\013USER_DRIVER\020\002*G\n\021StatusDriverPro" +
-      "to\022\013\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002" +
-      "\022\014\n\010OFF_DUTY\020\003*R\n\026DriverCompanyRoleProto" +
-      "\022\030\n\024UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022" +
-      "\n\016OWNER_OPERATOR\020\002*M\n\020TrailerTypeProto\022\023" +
-      "\n\017UNKNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLAT" +
-      "BED\020\002\022\n\n\006REEFER\020\003*{\n\016JobStatusProto\022\017\n\013J" +
-      "OB_UNKNOWN\020\000\022\021\n\rJOB_AVAILABLE\020\001\022\017\n\013JOB_O" +
-      "NGOING\020\002\022\020\n\014JOB_ASSIGNED\020\003\022\021\n\rJOB_COMPLE" +
-      "TED\020\004\022\017\n\013JOB_EXPIRED\020\0052s\n\021FleetServicePr" +
-      "oto\022^\n\013SendRequest\022&.dk.via.fleetforward" +
-      ".gRPC.RequestProto\032\'.dk.via.fleetforward" +
-      ".gRPC.ResponseProtob\006proto3"
+      "orward.gRPC.DispatcherProto\"@\n\014JobListPr" +
+      "oto\0220\n\004jobs\030\001 \003(\0132\".dk.via.fleetforward." +
+      "gRPC.JobProto*\213\001\n\020HandlerTypeProto\022\023\n\017HA" +
+      "NDLER_UNKNOWN\020\000\022\023\n\017HANDLER_COMPANY\020\001\022\022\n\016" +
+      "HANDLER_DRIVER\020\002\022\026\n\022HANDLER_DISPATCHER\020\003" +
+      "\022\020\n\014HANDLER_AUTH\020\004\022\017\n\013HANDLER_JOB\020\005*\177\n\017A" +
+      "ctionTypeProto\022\022\n\016ACTION_UNKNOWN\020\000\022\021\n\rAC" +
+      "TION_CREATE\020\001\022\016\n\nACTION_GET\020\002\022\021\n\rACTION_" +
+      "UPDATE\020\003\022\021\n\rACTION_DELETE\020\004\022\017\n\013ACTION_LI" +
+      "ST\020\005*b\n\017StatusTypeProto\022\022\n\016STATUS_UNKNOW" +
+      "N\020\000\022\r\n\tSTATUS_OK\020\001\022\020\n\014STATUS_ERROR\020\002\022\032\n\026" +
+      "STATUS_INVALID_PAYLOAD\020\003*G\n\rUserRoleProt" +
+      "o\022\020\n\014UNKNOWN_ROLE\020\000\022\023\n\017USER_DISPATCHER\020\001" +
+      "\022\017\n\013USER_DRIVER\020\002*G\n\021StatusDriverProto\022\013" +
+      "\n\007UNKNOWN\020\000\022\r\n\tAVAILABLE\020\001\022\010\n\004BUSY\020\002\022\014\n\010" +
+      "OFF_DUTY\020\003*R\n\026DriverCompanyRoleProto\022\030\n\024" +
+      "UNKNOWN_ROLE_COMPANY\020\000\022\n\n\006DRIVER\020\001\022\022\n\016OW" +
+      "NER_OPERATOR\020\002*M\n\020TrailerTypeProto\022\023\n\017UN" +
+      "KNOWN_TRAILER\020\000\022\013\n\007DRY_VAN\020\001\022\013\n\007FLATBED\020" +
+      "\002\022\n\n\006REEFER\020\003*{\n\016JobStatusProto\022\017\n\013JOB_U" +
+      "NKNOWN\020\000\022\021\n\rJOB_AVAILABLE\020\001\022\017\n\013JOB_ONGOI" +
+      "NG\020\002\022\020\n\014JOB_ASSIGNED\020\003\022\021\n\rJOB_COMPLETED\020" +
+      "\004\022\017\n\013JOB_EXPIRED\020\0052s\n\021FleetServiceProto\022" +
+      "^\n\013SendRequest\022&.dk.via.fleetforward.gRP" +
+      "C.RequestProto\032\'.dk.via.fleetforward.gRP" +
+      "C.ResponseProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -1,23 +1,26 @@
 package dk.via.fleetforward.services.job;
 
-import dk.via.fleetforward.gRPC.Fleetforward;
-import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
+import com.google.protobuf.Timestamp;
 import dk.via.fleetforward.gRPC.Fleetforward.JobListProto;
-import dk.via.fleetforward.model.Company;
+import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
+import dk.via.fleetforward.model.Dispatcher;
 import dk.via.fleetforward.model.Driver;
+import dk.via.fleetforward.model.Enums.JobStatus;
+import dk.via.fleetforward.model.Enums.TrailerType;
 import dk.via.fleetforward.model.Job;
-import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DispatcherRepository;
 import dk.via.fleetforward.repositories.database.DriverRepository;
 import dk.via.fleetforward.repositories.database.JobRepository;
-import dk.via.fleetforward.services.company.CompanyServiceDatabase;
 import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
+
 
 @Service public class JobServiceDatabase implements JobService
 {
@@ -39,53 +42,92 @@ import java.util.List;
 
   @Override @Transactional public JobProto create(JobProto payload)
   {
+    if( jobRepository.existsById(payload.getJobId())) {
+      log.warn("Job already exists {}", payload);
+      throw new RuntimeException("Job already exists");
+    }
+    log.info("Creating job {}", payload);
     Job job = new Job(payload);
-    Driver driver = driverRepository.findById(payload.getJobDriverId())
-        .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
-
-    job.setDriver() jobRepository.save(job);
-    log.info("Generated job ID: {}", job.getId());
-
-    Job jobWithValues = new Job(payload, job.getId());
-
-    jobWithValues.setId(job.getId());
-
-    jobWithValues = jobRepository.save(jobWithValues);
-
-    return ProtoUtils.parseJobProto(jobWithValues);
+    Job created = jobRepository.save(job);
+    log.info("Created job {}", created);
+    return ProtoUtils.parseFromJobToProto(created);
   }
 
-  @Override @Transactional public void update(JobProto payload)
-  {
+  public static Instant toInstant(Timestamp ts) {
+    if (ts == null) return null;
+    return Instant.ofEpochSecond(ts.getSeconds(), ts.getNanos());
+  }
 
+  @Override @Transactional public JobProto update(JobProto payload)
+  {
+    Job existing = jobRepository.findById(payload.getJobId())
+            .orElseThrow(() -> new RuntimeException("Job not found"));
+
+    Dispatcher eDispatcher = dispatcherRepository.findById(payload.getJobDispatcherId())
+            .orElseThrow(()->new RuntimeException("Dispatcher not found"));
+
+    Driver eDriver = driverRepository.findById(payload.getJobDriverId())
+            .orElseThrow(()->new RuntimeException("Driver not found"));
+
+    TrailerType trailerType = TrailerType.valueOf(payload.getJobTrailerType().name());
+    Instant pickupTime = toInstant(payload.getPickUpTime());
+    Instant deliveryTime = toInstant(payload.getDeliveryTime());
+    JobStatus currentJobStatus = JobStatus.valueOf(payload.getCurrentJobStatus().name());
+
+    existing.setDispatcher(eDispatcher);
+    existing.setDriver(eDriver);
+    existing.setTitle(payload.getTitle());
+    existing.setDescription(payload.getDescription());
+    existing.setTrailerTypeNeeded(trailerType);
+    existing.setLoadedMiles(payload.getLoadedMiles());
+    existing.setWeightOfCargo(payload.getWeightOfCargo());
+    existing.setTotalPrice(payload.getTotalPrice());
+    existing.setCargoInfo(payload.getCargoInfo());
+    existing.setPickupTime(pickupTime);
+    existing.setDeliveryTime(deliveryTime);
+    existing.setPickupLocationState(payload.getPickUpLocationState());
+    existing.setPickupLocationZipCode(payload.getPickUpLocationZipCode());
+    existing.setDropLocationState(payload.getDropLocationState());
+    existing.setDropLocationZipCode(payload.getDropLocationZipCode());
+    existing.setCurrentJobStatus(currentJobStatus);
+
+    Job updated = jobRepository.save(existing);
+    log.info("Updated job {}", updated);
+
+    return ProtoUtils.parseFromJobToProto(updated);
   }
 
   @Override @Transactional public void delete(int id)
   {
-
+    jobRepository.deleteById(id);
+    log.info("Deleted job {}", id);
   }
 
   @Override @Transactional public JobProto getSingle(int id)
   {
-    return null;
+    Optional<Job> fetched = jobRepository.findById(id); //null safety
+    Job job = fetched.orElseThrow(() -> new RuntimeException("Job not found"));
+    log.info("Fetched job {}", job);
+    return ProtoUtils.parseFromJobToProto(job);
   }
 
-  @Override @Transactional public JobListProto getAll()
+  @Override
+  @Transactional
+  public JobListProto getAll()
   {
     List<Job> jobs = jobRepository.findAll();
     log.info("Fetched {} jobs", jobs.size());
 
-    // Builder for the list
-    Fleetforward.JobListProto.Builder jobsProtoBuilder = Fleetforward.JobListProto.newBuilder();
+    JobListProto.Builder builder = JobListProto.newBuilder();
 
-    // Convert each Company entity to CompanyProto
     for (Job job : jobs)
     {
-      Fleetforward.JobProto jobProto = ProtoUtils.parseJobProto(job);
-      jobsProtoBuilder.addJobs(jobProto);
+      builder.addJobs(ProtoUtils.parseFromJobToProto(job));
+      log.info("Added job {}", job);
     }
-    log.info("Created proto company list");
-    // Build and return the list
-    return jobsProtoBuilder.build();
+
+    log.info("Created list of jobs");
+
+    return builder.build();
   }
 }

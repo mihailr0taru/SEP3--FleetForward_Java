@@ -1,6 +1,5 @@
 package dk.via.fleetforward.networking.handlers;
 
-
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
@@ -9,15 +8,14 @@ import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
 import dk.via.fleetforward.gRPC.Fleetforward.HandlerTypeProto;
 import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.services.job.JobService;
-import dk.via.fleetforward.services.user.DriverService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 public class JobHandler implements FleetNetworkHandler{
     private static final Logger log = LoggerFactory.getLogger(DriverHandler.class);
     private final JobService jobService;
     public JobHandler(JobService jobService) {
+
         this.jobService = jobService;
     }
     @Override
@@ -27,6 +25,7 @@ public class JobHandler implements FleetNetworkHandler{
 
     @Override
     public Message handle(ActionTypeProto actionType, Object payload) {
+
         Message proto = null;
         Any payloadAny = (Any) payload;
         Fleetforward.JobProto request = null;
