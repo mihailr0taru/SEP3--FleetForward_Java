@@ -17,6 +17,12 @@ public class DriversManagedByDispatcher {
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "driver_id", nullable = false)
     private Driver driver;
+    public DriversManagedByDispatcher() {}
+    public DriversManagedByDispatcher(Dispatcher dispatcher, Driver driver) {
+        setDispatcher(dispatcher);
+        setDriver(driver);
+        setId(new DriversManagedByDispatcherId(dispatcher.getDispatcherId(),driver.getDriverId()));
+    }
 
     public DriversManagedByDispatcherId getId() {
         return id;
