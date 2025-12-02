@@ -15,7 +15,11 @@ public class DriversManagedByDispatcherId implements Serializable {
 
     @Column(name = "driver_id", nullable = false)
     private Integer driverId;
-
+    public DriversManagedByDispatcherId() {}
+    public DriversManagedByDispatcherId(int dispatcherId, int driverId) {
+        this.dispatcherId = dispatcherId;
+        this.driverId = driverId;
+    }
     public Integer getDispatcherId() {
         return dispatcherId;
     }

@@ -98,7 +98,6 @@ public class DriverServiceDatabase implements DriverService{
             Driver driver = driverMap.get(user.getId());
             if (driver != null) {
                 builder.addDrivers(ProtoUtils.parseDriverProto(driver, user));
-                log.info("Added driver {}", driver);
             }
         }
         log.info("Created proto driver list");

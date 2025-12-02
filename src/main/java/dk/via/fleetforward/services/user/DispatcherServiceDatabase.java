@@ -80,6 +80,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
                 .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
         Dispatcher fetchedDispatcher = dispatcherRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Dispatcher not found, dispatcher must be created first"));
+        fetchedDispatcher.getAssignedDrivers();
         log.info("Fetched dispatcher {}", fetchedDispatcher);
         return ProtoUtils.parseDispatcherProto(fetchedDispatcher, fetchedUser);
     }
@@ -102,6 +103,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
             Dispatcher dispatcher = dispatcherMap.get(user.getId());
             if(dispatcher != null)
             {
+                dispatcher.getAssignedDrivers();
                 builder.addDispatchers(ProtoUtils.parseDispatcherProto(dispatcher, user));
                 log.info("Added dispatcher {}", dispatcher);
             }
