@@ -1,4 +1,4 @@
-package services;
+package dk.via.fleetforward.services;
 
 import dk.via.fleetforward.gRPC.Fleetforward.DispatcherListProto;
 import dk.via.fleetforward.gRPC.Fleetforward.DispatcherProto;
