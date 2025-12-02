@@ -1,4 +1,4 @@
-package services;
+package dk.via.fleetforward.services;
 
 import com.google.protobuf.Timestamp;
 import dk.via.fleetforward.gRPC.Fleetforward;
