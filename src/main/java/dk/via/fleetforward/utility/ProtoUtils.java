@@ -217,6 +217,7 @@ public class ProtoUtils {
                 .setPickUpLocationState(job.getPickupLocationState() ==null ? "AL" : job.getPickupLocationState())
                 .setPickUpLocationZipCode(job.getPickupLocationZipCode() == 0 ? 35010 : job.getPickupLocationZipCode())
                 .setLoadedMiles(job.getLoadedMiles())
+                .setTotalPrice(job.getTotalPrice() == null ? 0 : job.getTotalPrice())
                 .setWeightOfCargo(job.getWeightOfCargo())
                 .setJobTrailerType(job.getTrailerTypeNeeded() == null ? TrailerTypeProto.DRY_VAN : parseTrailerTypeProto(job.getTrailerTypeNeeded()))
                 .setCurrentJobStatus(job.getCurrentJobStatus() == null ? JobStatusProto.JOB_AVAILABLE : parseJobStatusToProto(job.getCurrentJobStatus()))

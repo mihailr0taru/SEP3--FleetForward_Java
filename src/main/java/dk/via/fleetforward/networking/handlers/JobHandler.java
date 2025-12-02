@@ -10,7 +10,9 @@ import dk.via.fleetforward.gRPC.Fleetforward.ActionTypeProto;
 import dk.via.fleetforward.services.job.JobService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JobHandler implements FleetNetworkHandler{
     private static final Logger log = LoggerFactory.getLogger(DriverHandler.class);
     private final JobService jobService;

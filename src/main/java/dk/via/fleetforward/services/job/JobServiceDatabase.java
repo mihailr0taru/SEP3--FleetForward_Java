@@ -1,5 +1,6 @@
 package dk.via.fleetforward.services.job;
 
+import com.google.common.collect.Maps;
 import com.google.protobuf.Timestamp;
 import dk.via.fleetforward.gRPC.Fleetforward.JobListProto;
 import dk.via.fleetforward.gRPC.Fleetforward.JobProto;
@@ -7,7 +8,9 @@ import dk.via.fleetforward.model.Dispatcher;
 import dk.via.fleetforward.model.Driver;
 import dk.via.fleetforward.model.Enums.JobStatus;
 import dk.via.fleetforward.model.Enums.TrailerType;
+import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.Job;
+import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DispatcherRepository;
 import dk.via.fleetforward.repositories.database.DriverRepository;
 import dk.via.fleetforward.repositories.database.JobRepository;
@@ -15,11 +18,16 @@ import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 
 @Service public class JobServiceDatabase implements JobService
@@ -116,12 +124,13 @@ import java.util.Optional;
   public JobListProto getAll()
   {
     List<Job> jobs = jobRepository.findAll();
-    log.info("Fetched {} jobs", jobs.size());
-
+      log.info("Fetched {} jobs", jobs.size());
     JobListProto.Builder builder = JobListProto.newBuilder();
 
     for (Job job : jobs)
     {
+        job.getDispatcher();
+        job.getDriver();
       builder.addJobs(ProtoUtils.parseFromJobToProto(job));
       log.info("Added job {}", job);
     }
