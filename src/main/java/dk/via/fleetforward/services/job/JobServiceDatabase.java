@@ -56,6 +56,7 @@ import java.util.stream.Collectors;
     }
     log.info("Creating job {}", payload);
     Job job = new Job(payload);
+    job.setDispatcher(dispatcherRepository.findById(payload.getJobDispatcherId()).orElse(null));
     Job created = jobRepository.save(job);
     log.info("Created job {}", created);
     return ProtoUtils.parseFromJobToProto(created);
