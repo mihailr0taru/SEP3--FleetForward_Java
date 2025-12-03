@@ -71,11 +71,9 @@ import java.util.stream.Collectors;
     Job existing = jobRepository.findById(payload.getJobId())
             .orElseThrow(() -> new RuntimeException("Job not found"));
 
-    Dispatcher eDispatcher = dispatcherRepository.findById(payload.getJobDispatcherId())
-            .orElseThrow(()->new RuntimeException("Dispatcher not found"));
+    Dispatcher eDispatcher = existing.getDispatcher();
 
-    Driver eDriver = driverRepository.findById(payload.getJobDriverId())
-            .orElseThrow(()->new RuntimeException("Driver not found"));
+    Driver eDriver = existing.getDriver();
 
     TrailerType trailerType = TrailerType.valueOf(payload.getJobTrailerType().name());
     Instant pickupTime = toInstant(payload.getPickUpTime());
