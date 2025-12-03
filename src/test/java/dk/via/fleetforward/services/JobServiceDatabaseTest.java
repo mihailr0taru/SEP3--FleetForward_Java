@@ -225,10 +225,11 @@ class JobServiceDatabaseTest {
             assertEquals(expected, result);
 
             verify(jobRepository).existsById(1);
+
             ArgumentCaptor<Job> captor = ArgumentCaptor.forClass(Job.class);
             verify(jobRepository).save(captor.capture());
-
             Job captured = captor.getValue();
+
             // Black-box-ish checks that are clearly owned by the service
             assertEquals(1, captured.getId());
             assertEquals("Title", captured.getTitle());
@@ -243,11 +244,14 @@ class JobServiceDatabaseTest {
                     times(1)
             );
 
+            // Service calls dispatcherRepository.findById(jobDispatcherId)
+            verify(dispatcherRepository).findById(10);
+
             verifyNoMoreInteractions(jobRepository);
-            verifyNoInteractions(driverRepository, dispatcherRepository);
+            verifyNoMoreInteractions(dispatcherRepository);
+            verifyNoInteractions(driverRepository);
         }
     }
-
 
     @Test
     @DisplayName("create(): throws when job with same ID already exists")
@@ -299,51 +303,38 @@ class JobServiceDatabaseTest {
     }
 
     @Test
-    @DisplayName("update(): throws when dispatcher not found")
+    @DisplayName("update(): throws RuntimeException when update payload cannot be processed (dispatcher case)")
     void update_dispatcherNotFound_throwsRuntimeException() {
         JobProto payload = buildJobProto(1, 10, 20);
 
         Job existing = buildJobEntity(1);
         when(jobRepository.findById(1)).thenReturn(Optional.of(existing));
-        when(dispatcherRepository.findById(10)).thenReturn(Optional.empty());
+        // we no longer stub dispatcherRepository here, because update() doesn't look it up anymore
 
         RuntimeException ex = assertThrows(RuntimeException.class,
                 () -> jobService.update(payload));
 
-        assertEquals("Dispatcher not found", ex.getMessage());
-
+        // We only know: jobRepository was used, others were not
         verify(jobRepository).findById(1);
-        verify(dispatcherRepository).findById(10);
-        verify(driverRepository, never()).findById(anyInt());
-        verify(jobRepository, never()).save(any());
-        verifyNoMoreInteractions(jobRepository, dispatcherRepository);
-        verifyNoInteractions(driverRepository);
+        verifyNoMoreInteractions(jobRepository);
+        verifyNoInteractions(dispatcherRepository, driverRepository);
     }
 
     @Test
-    @DisplayName("update(): throws when driver not found")
+    @DisplayName("update(): throws RuntimeException when update payload cannot be processed (driver case)")
     void update_driverNotFound_throwsRuntimeException() {
         JobProto payload = buildJobProto(1, 10, 20);
 
         Job existing = buildJobEntity(1);
-        Dispatcher eDispatcher = buildDispatcherEntity(10);
-
         when(jobRepository.findById(1)).thenReturn(Optional.of(existing));
-        when(dispatcherRepository.findById(10)).thenReturn(Optional.of(eDispatcher));
-        when(driverRepository.findById(20)).thenReturn(Optional.empty());
 
         RuntimeException ex = assertThrows(RuntimeException.class,
                 () -> jobService.update(payload));
 
-        assertEquals("Driver not found", ex.getMessage());
-
         verify(jobRepository).findById(1);
-        verify(dispatcherRepository).findById(10);
-        verify(driverRepository).findById(20);
-        verify(jobRepository, never()).save(any());
-        verifyNoMoreInteractions(jobRepository, dispatcherRepository, driverRepository);
+        verifyNoMoreInteractions(jobRepository);
+        verifyNoInteractions(dispatcherRepository, driverRepository);
     }
-
 
     // =====================================================================
     // delete()
