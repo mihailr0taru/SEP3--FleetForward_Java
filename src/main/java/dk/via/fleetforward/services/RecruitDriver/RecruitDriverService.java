@@ -8,4 +8,5 @@ public interface RecruitDriverService {
     DriverProto recruitDriver(RecruitDriverProto proto);
     void fireDriver(RecruitDriverProto proto);
     DriverListProto getDispatcherDriversList(int id);
+    DriverListProto getDriverListWoDispatcher();
 }

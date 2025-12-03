@@ -52,10 +52,15 @@ public class RecruitHandler implements FleetNetworkHandler{
                 recruitService.fireDriver(request);
                 log.info("Fired driver {}", request.getDriver());
             }
-            case ACTION_GET, ACTION_LIST ->
+            case ACTION_GET ->
             {
                 proto = recruitService.getDispatcherDriversList(request.getDispatcher().getUser().getId());
                 log.info("Fetched dispatcher list of drivers {}", proto);
+            }
+            case ACTION_LIST ->
+            {
+                proto = recruitService.getDriverListWoDispatcher();
+                log.info("Fetched list of drivers without dispatcher {}", proto);
             }
             default ->
             {

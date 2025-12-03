@@ -8,6 +8,7 @@ import dk.via.fleetforward.model.Driver;
 import dk.via.fleetforward.model.DriversManagedByDispatcher;
 import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DispatcherRepository;
+import dk.via.fleetforward.repositories.database.DriverRepository;
 import dk.via.fleetforward.repositories.database.DriversManagedByDispatcherRepository;
 import dk.via.fleetforward.repositories.database.UserRepository;
 import dk.via.fleetforward.utility.ProtoUtils;
@@ -25,11 +26,14 @@ import java.util.stream.Collectors;
 public class RecruitDriverDatabase implements RecruitDriverService {
     private static final Logger log = LoggerFactory.getLogger(RecruitDriverDatabase.class);
     private final DriversManagedByDispatcherRepository recruitRepository;
+    private final DriverRepository driverRepository;
     private final UserRepository userRepository;
     private final DispatcherRepository dispatcherRepository;
     public RecruitDriverDatabase(DriversManagedByDispatcherRepository recruitRepository
             ,UserRepository userRepository
-            ,DispatcherRepository dispatcherRepository) {
+            ,DispatcherRepository dispatcherRepository
+            ,DriverRepository driverRepository) {
+        this.driverRepository = driverRepository;
         this.dispatcherRepository = dispatcherRepository;
         this.recruitRepository = recruitRepository;
         this.userRepository = userRepository;
@@ -85,6 +89,33 @@ public class RecruitDriverDatabase implements RecruitDriverService {
             }
         }
         log.info("Found {} drivers for dispatcher {}", recruits.size(), dispatcher);
+        return builder.build();
+    }
+    @Override
+    public DriverListProto getDriverListWoDispatcher() {
+        List<Driver> allDrivers = driverRepository.findAll();//getting all drivers
+        List<Driver> assignedDrivers = recruitRepository.findAll() //getting all drivers then streaming them with just drivers from there
+                .stream()
+                .map(DriversManagedByDispatcher::getDriver)
+                .toList();
+        List<Driver> unassignedDrivers = allDrivers.stream()
+                .filter(driver -> !assignedDrivers.contains(driver)) // filter the drivers
+                .toList();
+
+        List<Integer> userIds = unassignedDrivers.stream() //Map it with user ids so we get the correct ids
+                .map(Driver::getDriverId)
+                .toList();
+        List<User> users = userRepository.findAllById(userIds);
+        Map<Integer, Driver> driverMap = unassignedDrivers.stream()
+                .collect(Collectors.toMap(Driver::getDriverId, Function.identity())); // build the map
+        DriverListProto.Builder builder = DriverListProto.newBuilder();
+        for (User user : users) {
+            Driver driver = driverMap.get(user.getId());
+            if (driver != null) {
+                builder.addDrivers(ProtoUtils.parseDriverProto(driver, user)); //make it proto with null check
+            }
+        }
+        log.info("Found {} unassigned drivers", unassignedDrivers.size());
         return builder.build();
     }
 }
