@@ -30,6 +30,7 @@ public class DispatcherServiceDatabase implements DispatcherService{
     public DispatcherProto create(DispatcherProto payload)
     {
         User user = new User(payload.getUser());
+        user.setPassword(payload.getUser().getPassword());
         user.setId(null); //create not update,
         // if id is not null and an entry with the same id exist JPA will update instead of create
         user.setRole(UserRole.dispatcher);
@@ -46,13 +47,14 @@ public class DispatcherServiceDatabase implements DispatcherService{
     @Transactional
     public void update(DispatcherProto payload)
     {
-        userRepository.findById(payload.getUser().getId())
+        User fetched =userRepository.findById(payload.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
         dispatcherRepository.findById(payload.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("Dispatcher not found, dispatcher must be created first"));
 
         User user = new User(payload.getUser());
         user.setRole(UserRole.dispatcher);
+        user.setPassword(fetched.getPassword());
         userRepository.save(user);
         log.info("Updated user {}", user);
 

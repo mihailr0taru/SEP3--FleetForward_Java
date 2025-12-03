@@ -32,6 +32,7 @@ public class DriverServiceDatabase implements DriverService{
     @Transactional
     public DriverProto create(DriverProto payload) {
         User user = new User(payload.getUser());
+        user.setPassword(payload.getUser().getPassword());
         user.setId(null);//create not update
         // if id is not null and an entry with the same id exist JPA will update instead of create
         user.setRole(UserRole.driver);
@@ -47,13 +48,14 @@ public class DriverServiceDatabase implements DriverService{
     @Override
     @Transactional
     public void update(DriverProto payload) {
-        userRepository.findById(payload.getUser().getId())
+        User fetched=userRepository.findById(payload.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("User not found, user must be created first"));
         driverRepository.findById(payload.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("Driver not found, driver must be created first"));
 
         User user = new User(payload.getUser());
         user.setRole(UserRole.driver);
+        user.setPassword(fetched.getPassword());
         userRepository.save(user);
         log.info("Updated user {}", user);
 

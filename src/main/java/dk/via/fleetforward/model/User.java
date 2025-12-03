@@ -43,7 +43,6 @@ public class User {
         setLastName(tempUser.getLastName());
         setEmail(tempUser.getEmail());
         setPhoneNumber(tempUser.getPhoneNumber());
-        setPassword(tempUser.getPassword());
     }
 
     public User() {};
