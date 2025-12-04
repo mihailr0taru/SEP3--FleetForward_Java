@@ -73,19 +73,14 @@ import java.util.stream.Collectors;
             .orElseThrow(() -> new RuntimeException("Job not found"));
 
     Dispatcher eDispatcher = existing.getDispatcher();
-
     Driver eDriver = existing.getDriver();
-
-    TrailerType trailerType = TrailerType.valueOf(payload.getJobTrailerType().name());
     Instant pickupTime = toInstant(payload.getPickUpTime());
     Instant deliveryTime = toInstant(payload.getDeliveryTime());
-    JobStatus currentJobStatus = JobStatus.valueOf(payload.getCurrentJobStatus().name());
-
     existing.setDispatcher(eDispatcher);
     existing.setDriver(eDriver);
     existing.setTitle(payload.getTitle());
     existing.setDescription(payload.getDescription());
-    existing.setTrailerTypeNeeded(trailerType);
+    existing.setTrailerTypeNeeded(ProtoUtils.parseTrailerType(payload.getJobTrailerType()));
     existing.setLoadedMiles(payload.getLoadedMiles());
     existing.setWeightOfCargo(payload.getWeightOfCargo());
     existing.setTotalPrice(payload.getTotalPrice());
@@ -96,7 +91,7 @@ import java.util.stream.Collectors;
     existing.setPickupLocationZipCode(payload.getPickUpLocationZipCode());
     existing.setDropLocationState(payload.getDropLocationState());
     existing.setDropLocationZipCode(payload.getDropLocationZipCode());
-    existing.setCurrentJobStatus(currentJobStatus);
+    existing.setCurrentJobStatus(ProtoUtils.parseJobStatusFromProto(payload.getCurrentJobStatus()));
 
     Job updated = jobRepository.save(existing);
     log.info("Updated job {}", updated);
