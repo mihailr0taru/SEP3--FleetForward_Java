@@ -92,6 +92,7 @@ public class RecruitDriverDatabase implements RecruitDriverService {
         return builder.build();
     }
     @Override
+    @Transactional
     public DriverListProto getDriverListWoDispatcher() {
         List<Driver> allDrivers = driverRepository.findAll();//getting all drivers
         List<Driver> assignedDrivers = recruitRepository.findAll() //getting all drivers then streaming them with just drivers from there
