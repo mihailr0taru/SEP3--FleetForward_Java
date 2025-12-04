@@ -74,6 +74,9 @@ import java.util.stream.Collectors;
 
     Dispatcher eDispatcher = existing.getDispatcher();
     Driver eDriver = existing.getDriver();
+    if(eDriver == null) {
+        eDriver = driverRepository.findById(payload.getJobDriverId()).orElse(null);
+    }
     Instant pickupTime = toInstant(payload.getPickUpTime());
     Instant deliveryTime = toInstant(payload.getDeliveryTime());
     existing.setDispatcher(eDispatcher);
