@@ -74,13 +74,13 @@ import java.util.stream.Collectors;
 
     Dispatcher eDispatcher = existing.getDispatcher();
     Driver eDriver = existing.getDriver();
-    if(eDriver == null) {
+    if(eDriver == null && payload.getJobDriverId() != 0) {
         eDriver = driverRepository.findById(payload.getJobDriverId()).orElse(null);
     }
     Instant pickupTime = toInstant(payload.getPickUpTime());
     Instant deliveryTime = toInstant(payload.getDeliveryTime());
     existing.setDispatcher(eDispatcher);
-    existing.setDriver(eDriver);
+    existing.setDriver(payload.getJobDriverId() == 0 ? null : eDriver);
     existing.setTitle(payload.getTitle());
     existing.setDescription(payload.getDescription());
     existing.setTrailerTypeNeeded(ProtoUtils.parseTrailerType(payload.getJobTrailerType()));
