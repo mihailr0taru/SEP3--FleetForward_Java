@@ -252,6 +252,9 @@ public class ProtoUtils {
             case expired ->   JobStatusProto.JOB_EXPIRED;
             case ongoing ->   JobStatusProto.JOB_ONGOING;
             case available ->   JobStatusProto.JOB_AVAILABLE;
+            case accepted ->    JobStatusProto.JOB_ACCEPTED;
+            case loading ->    JobStatusProto.JOB_LOADING;
+            case unloading ->    JobStatusProto.JOB_UNLOADING;
             case null, default ->
                 throw new RuntimeException("Unknown job status");
         };
@@ -269,6 +272,9 @@ public class ProtoUtils {
             case JOB_COMPLETED ->   JobStatus.completed;
             case JOB_EXPIRED ->   JobStatus.expired;
             case JOB_ONGOING ->   JobStatus.ongoing;
+            case JOB_LOADING ->   JobStatus.loading;
+            case JOB_UNLOADING ->   JobStatus.unloading;
+            case JOB_ACCEPTED ->    JobStatus.accepted;
             case null, default ->
                 throw new RuntimeException("Unknown job status");
         };

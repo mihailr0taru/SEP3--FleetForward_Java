@@ -4,7 +4,7 @@ create type user_role as enum('admin', 'dispatcher', 'driver');
 create type driver_status as enum('available', 'busy', 'off_duty');
 create type trailer_type as enum('dry_van', 'flatbed', 'reefer');
 create type driver_company_role as enum('driver', 'owner_operator');
-create type job_status as enum ('completed','available','expired','assigned','ongoing');
+create type job_status as enum ('completed','available','expired','assigned','ongoing','accepted','loading','unloading');
 
 create table if not exists app_user
 (

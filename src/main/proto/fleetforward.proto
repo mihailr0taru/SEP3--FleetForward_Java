@@ -90,6 +90,9 @@ enum JobStatusProto{
   JOB_ASSIGNED = 3;
   JOB_COMPLETED = 4;
   JOB_EXPIRED = 5;
+  JOB_LOADING = 6;
+  JOB_UNLOADING = 7;
+  JOB_ACCEPTED = 8;
 }
 message DriverProto{
   string companyMcNumber = 1;
