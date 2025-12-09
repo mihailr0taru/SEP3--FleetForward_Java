@@ -128,6 +128,7 @@ public class ProtoUtils {
                 .setPassword(user.getPassword()
                         == null ? "" : user.getPassword())
                 .setRole(parseFromUserRoleToProto(user.getRole()))
+                .setPhotoUrl(user.getPhotoUrl() == null ? "" : user.getPhotoUrl())
                 .build();
     }
     public static DispatcherProto parseDispatcherProto(Dispatcher dispatcher, User user)

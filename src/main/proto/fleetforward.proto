@@ -60,6 +60,7 @@ message UserProto{
   string phoneNumber = 5;
   string password = 6;
   UserRoleProto role = 7;
+  string photoUrl = 8;
 }
 enum UserRoleProto{
   UNKNOWN_ROLE = 0;
