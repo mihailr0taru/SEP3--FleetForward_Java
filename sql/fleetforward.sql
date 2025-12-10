@@ -14,7 +14,7 @@ create table if not exists app_user
     hashed_password varchar(255) not null,
     first_name varchar(20) not null,
     last_name varchar(20) not null,
-    photo_base64 text,
+    photo_url text,
     role user_role not null
 );
 

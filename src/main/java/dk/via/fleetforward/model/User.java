@@ -36,6 +36,8 @@ public class User {
     @Column(name = "role", nullable = false)
     private UserRole role;
 
+    @Column(name = "photo_url", nullable = true)
+    private String photoUrl;
 
     public User(UserProto tempUser) {
         setId(tempUser.getId());
@@ -43,6 +45,7 @@ public class User {
         setLastName(tempUser.getLastName());
         setEmail(tempUser.getEmail());
         setPhoneNumber(tempUser.getPhoneNumber());
+        setPhotoUrl(tempUser.getPhotoUrl() == null ? "" : tempUser.getPhotoUrl());
     }
 
     public User() {};
@@ -101,5 +104,15 @@ public class User {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public String getPhotoUrl()
+    {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl)
+    {
+        this.photoUrl = photoUrl;
     }
 }
