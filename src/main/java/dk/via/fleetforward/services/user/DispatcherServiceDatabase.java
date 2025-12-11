@@ -2,15 +2,19 @@ package dk.via.fleetforward.services.user;
 
 import dk.via.fleetforward.gRPC.Fleetforward.*;
 import dk.via.fleetforward.model.Dispatcher;
+import dk.via.fleetforward.model.Driver;
 import dk.via.fleetforward.model.Enums.UserRole;
 import dk.via.fleetforward.model.User;
 import dk.via.fleetforward.repositories.database.DispatcherRepository;
 import dk.via.fleetforward.repositories.database.UserRepository;
+import dk.via.fleetforward.services.RecruitDriver.RecruitDriverService;
 import dk.via.fleetforward.utility.ProtoUtils;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -21,9 +25,11 @@ public class DispatcherServiceDatabase implements DispatcherService{
     private static final Logger log = LoggerFactory.getLogger(DispatcherServiceDatabase.class);
     private final UserRepository userRepository;
     private final DispatcherRepository dispatcherRepository;
-    public DispatcherServiceDatabase(UserRepository userRepository, DispatcherRepository dispatcherRepository) {
+    private final RecruitDriverService recruitService;
+    public DispatcherServiceDatabase(UserRepository userRepository, DispatcherRepository dispatcherRepository, RecruitDriverService recruitService) {
         this.userRepository = userRepository;
         this.dispatcherRepository = dispatcherRepository;
+        this.recruitService = recruitService;
     }
     @Override
     @Transactional
@@ -55,10 +61,17 @@ public class DispatcherServiceDatabase implements DispatcherService{
         User user = new User(payload.getUser());
         user.setRole(UserRole.dispatcher);
         user.setPassword(fetched.getPassword());
+        user.setId(fetched.getId());
         userRepository.save(user);
         log.info("Updated user {}", user);
 
         Dispatcher dispatcher = new Dispatcher(payload, user.getId());
+        DriverListProto driversList = recruitService.getDispatcherDriversList(fetched.getId());
+        ArrayList<Integer> drivers = new ArrayList<Integer>();
+        for (DriverProto proto : driversList.getDriversList()) {
+            drivers.add(proto.getUser().getId());
+        }
+        dispatcher.setAssignedDrivers(drivers);
         dispatcherRepository.save(dispatcher);
         log.info("Updated dispatcher {}", dispatcher);
 
