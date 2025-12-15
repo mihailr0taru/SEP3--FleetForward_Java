@@ -18,10 +18,6 @@ create table if not exists app_user
     role user_role not null
 );
 
-insert into app_user(id, email, phone_number, hashed_password, first_name, last_name, role)
-values (0, 'defaultdriver@default.default', 'default_number','no_password_here', 'Default', 'Default', 'driver'),
-       (1,'defaultdispatcher@default.default', 'default_number', 'no_password_here', 'Default', 'Default', 'dispatcher');
-
 create table if not exists dispatcher
 (
     dispatcher_id int not null references app_user(id) on delete cascade primary key,
@@ -37,9 +33,6 @@ create table if not exists company
     company_name varchar(50) not null
 );
 
-insert into company(mc_number, company_name)
-values ('mcnumbrdef', 'Default Company LLC');
-
 create table if not exists driver
 (
     driver_id int not null references app_user(id) on delete cascade primary key,
@@ -51,9 +44,6 @@ create table if not exists driver
     role_in_company driver_company_role not null,
     foreign key (current_location_state, current_location_zip_code) references addresses(state_abbr,zip_code)
 );
-
-insert into driver(driver_id, company_mc_number, status, current_trailer_type, current_location_state,current_location_zip_code, role_in_company)
-values (0, 'mcnumbrdef', 'available', 'dry_van' , 'AL',35010, 'owner_operator');
 
 create table if not exists job
 (
