@@ -24,8 +24,6 @@ create table if not exists dispatcher
     commission_rate decimal(5,2) default 0.00
 );
 
-insert into dispatcher(dispatcher_id)
-values (1);
 
 create table if not exists company
 (
