@@ -1,182 +1,256 @@
-# SEP3 - Java
+# FleetForward – Java Server
 
-- [SEP3 - Java](#sep3---java)
-  - [Infrastructure of FleetForward](#infrastructure-of-fleetforward)
-  - [Documentation parts links](#documentation-parts-links)
-    - [Business Server](#business-server)
-    - [Entities and Repositories](#entities-and-repositories)
-    - [Handlers and Services](#handlers-and-services)
-    - [Server, Main Handler, SpringBean config](#server-main-handler-springbean-config)
-  - [File System Overview](#file-system-overview)
-  - [Pom and dependencies](#pom-and-dependencies)
+This repository contains the **Java backend server** for the FleetForward system.  
+It handles **data management, business logic, and communication with the .NET/Blazor client through gRPC**.
 
-## Infrastructure of FleetForward
+The server is responsible for:
 
-<img width="1706" height="303" alt="image" src="https://github.com/user-attachments/assets/e13e2e68-490d-426b-a78c-cff4fe8d230c" />
+- Managing fleet-related data
+- Handling driver, dispatcher, and company operations
+- Processing job assignments
+- Communicating with the client application
+- Interacting with the PostgreSQL database
 
-## Documentation parts links
+---
 
-### [Business Server](https://github.com/MarioIliescu/SEP3-CSharp)
+# Architecture Overview
 
-### [Entities and Repositories](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/EntitiesRepoDocs.md)
+The project follows a **layered architecture** to separate responsibilities and keep the system maintainable.
 
-### [Handlers and Services](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/HandlerServiceDocs.md)
-
-### [Server, Main Handler, SpringBean config](https://github.com/MarioIliescu/Sep3-Java/blob/main/docs/ServerDocs.md)
-
-## File System Overview
-
-<img width="299" height="398" alt="image" src="https://github.com/user-attachments/assets/daafd8d4-aaa1-40a7-8fb4-e72d585b387d" />
-
-## Pom and dependencies
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version>
-        <relativePath/>
-    </parent>
-
-    <groupId>via.sdj3</groupId>
-    <artifactId>grpc-springboot-x</artifactId>
-    <version>1.0</version>
-    <packaging>jar</packaging>
-
-    <name>grpc-springboot-x</name>
-    <description>SEP3-Java</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>21</java.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-
-        <!-- PostGreSQL -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.6.0</version>
-        </dependency>
-        <!-- gRPC Spring Boot Starter -->
-        <dependency>
-            <groupId>io.github.lognet</groupId>
-            <artifactId>grpc-spring-boot-starter</artifactId>
-            <version>4.8.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-
-        <!-- Protobuf runtime -->
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.21.6</version>
-        </dependency>
-
-        <!-- Spring Boot test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-
-        <!-- Mockito and JUnit test -->
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-
-
-
-    <build>
-        <plugins>
-
-            <!-- Spring Boot -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <!--Protobuf Compiler Plugin -->
-            <plugin>
-                <groupId>com.github.os72</groupId>
-                <artifactId>protoc-jar-maven-plugin</artifactId>
-                <version>3.11.4</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <!--FIX: Include built-in google protos -->
-                            <includeStdTypes>true</includeStdTypes>
-
-                            <!-- Your protobuf compiler version -->
-                            <protocVersion>3.21.6</protocVersion>
-
-                            <!-- Where your .proto files are -->
-                            <inputDirectories>
-                                <include>src/main/proto</include>
-                            </inputDirectories>
-
-                            <!-- Keep your existing output structure -->
-                            <outputTargets>
-                                <outputTarget>
-                                    <type>java</type>
-                                    <outputDirectory>src/main/java</outputDirectory>
-                                </outputTarget>
-                                <outputTarget>
-                                    <type>grpc-java</type>
-                                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.66.0</pluginArtifact>
-                                    <outputDirectory>src/main/java</outputDirectory>
-                                </outputTarget>
-                            </outputTargets>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</project>
 ```
+Client (Blazor / .NET)
+        │
+        │ gRPC
+        ▼
+Networking Layer
+Handlers
+        │
+        ▼
+Service Layer (Business Logic)
+        │
+        ▼
+Repository Layer (Database Access)
+        │
+        ▼
+PostgreSQL Database
+```
+
+## Layers
+
+### Networking Layer
+
+Handles incoming **gRPC requests** and routes them to the correct handlers.
+
+Key classes:
+
+- `FleetServer`
+- `FleetMainHandler`
+
+---
+
+### Handlers
+
+Handlers receive network requests and call the appropriate services.
+
+Examples:
+
+- `AuthentificationHandler`
+- `CompanyHandler`
+- `DispatcherHandler`
+- `DriverHandler`
+- `JobHandler`
+- `RecruitHandler`
+
+---
+
+### Service Layer
+
+Contains the **business logic** of the application.
+
+Examples:
+
+- `CompanyService`
+- `JobService`
+- `DriverService`
+- `DispatcherService`
+- `RecruitDriverService`
+- `AuthentificationService`
+
+Each service may have a **database implementation**, such as:
+
+```
+CompanyServiceDatabase
+JobServiceDatabase
+DriverServiceDatabase
+```
+
+---
+
+### Repository Layer
+
+Responsible for **direct database communication**.
+
+Examples:
+
+- `CompanyRepository`
+- `DriverRepository`
+- `DispatcherRepository`
+- `JobRepository`
+- `UserRepository`
+
+These repositories interact with **PostgreSQL**.
+
+---
+
+# Technologies Used
+
+- Java
+- gRPC
+- Protocol Buffers
+- PostgreSQL
+- Maven
+
+---
+
+# Project Structure
+
+```
+src
+ ├── main
+ │   ├── java/dk/via/fleetforward
+ │   │   ├── config
+ │   │   ├── model
+ │   │   ├── networking
+ │   │   ├── repositories
+ │   │   ├── services
+ │   │   └── utility
+ │   │
+ │   ├── proto
+ │   │   └── fleetforward.proto
+ │   │
+ │   └── resources
+ │       └── application.properties
+ │
+ └── test
+```
+
+---
+
+# Database Setup
+
+SQL scripts are located in:
+
+```
+sql/
+```
+
+Important files:
+
+```
+fleetforward.sql
+setup.sql
+addresses_insert.sql
+```
+
+## Setup Steps
+
+1. Create a PostgreSQL database
+2. Run the SQL setup scripts
+3. Configure the database connection in:
+
+```
+src/main/resources/application.properties
+```
+
+---
+
+# Running the Server
+
+## 1. Clone the repository
+
+```
+git clone <repository-url>
+```
+
+## 2. Build the project
+
+Using Maven:
+
+```
+mvn clean install
+```
+
+or using the Maven wrapper:
+
+```
+./mvnw clean install
+```
+
+---
+
+## 3. Start the server
+
+Run:
+
+```
+StartServer.java
+```
+
+The server will start and begin listening for **gRPC client connections**.
+
+---
+
+# gRPC Communication
+
+The communication contract between the **Java server and the .NET client** is defined in:
+
+```
+src/main/proto/fleetforward.proto
+```
+
+Protocol Buffers are used to:
+
+- define request/response models
+- generate gRPC client and server code
+- ensure type-safe communication
+
+---
+
+# Documentation
+
+Additional documentation can be found in the `docs` folder:
+
+```
+docs/
+ ├── EntitiesRepoDocs.md
+ ├── HandlerServiceDocs.md
+ └── ServerDocs.md
+```
+
+These documents explain:
+
+- entity and repository relationships
+- handler-service communication
+- server responsibilities
+
+---
+
+# Role in the FleetForward System
+
+FleetForward consists of multiple components:
+
+| Component | Technology |
+|----------|------------|
+| Client Application | Blazor (.NET) |
+| Business Layer | .NET |
+| Data Server | Java |
+| Communication | gRPC |
+| Database | PostgreSQL |
+
+This repository represents the **Java data server** responsible for managing persistent data and handling fleet-related operations.
+
+---
+
+# Authors
+
+FleetForward was developed as part of a **Software Engineering project at VIA University College**.
